@@ -4,6 +4,7 @@ import MicroscopeSvg from "../resources/svg-s/MicroscopeSvg"
 import GallerySvg from "../resources/svg-s/GallerySvg";
 import DiseaseSvg from "../resources/svg-s/DiseaseSvg";
 import { useNavigation } from '@react-navigation/native';
+import KvizSvg from "../resources/svg-s/KvizSvg";
 
 function renderSwitch(param) {
     switch(param) {
@@ -15,10 +16,12 @@ function renderSwitch(param) {
             return (<GallerySvg style={[styles.svg]}/>);
         case "3":
             return (<DiseaseSvg style={[styles.svg]}/>);
+        case "4":
+            return (<KvizSvg style={[styles.svg]}/>);
     }
   }
 
-const BigButton = (props) => {
+const VeryBigButton = (props) => {
     const navigation = useNavigation();
     
     return (
@@ -37,7 +40,7 @@ const styles = StyleSheet.create({
         borderRadius: 60,
         padding: 10,
         backgroundColor: "#9c53d4",
-        width: "45%",
+        width: "90%",
         height: "95%",
         shadowColor: '#000000',
         elevation: 10,
@@ -49,7 +52,7 @@ const styles = StyleSheet.create({
         color: '#FFFFFF'
     },
     svg: {
-        marginTop: "20%",
+        marginTop: "10%",
         flex: 3,
     },
     container: {
@@ -61,4 +64,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default BigButton;
+export default VeryBigButton;

@@ -17,3 +17,4 @@ const DiseaseSvg = (props) => (
 )
 
 export default DiseaseSvg
+
