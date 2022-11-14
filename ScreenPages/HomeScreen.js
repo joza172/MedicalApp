@@ -13,7 +13,7 @@ export default function HomeScreen({ navigation }) {
   const [rectangleTextInput, setRectangleTextInput] = useState();
   return (
     <View style={[styles.container, {flexDirection: "column"}]}>
-      <View style={{ flex: 2}} >
+      <View style={{ flex: 2, backgroundColor: 'white'}} >
           <View style={{ flex: 3}}>
             <View style={[styles.circle, {right: '75%', opacity: 0.2}]}/>
             <View style={[styles.circle, {bottom: '50%', opacity: 0.2}]}/>

@@ -10,14 +10,24 @@ import VeryBigButton from '../components/VeryBigButton';
 import PlaySvg from '../resources/svg-s/PlaySvg';
 import SettingsSvg from '../resources/svg-s/SettingsSvg';
 import OptionButton from '../components/OptionButton';
+import BigRadioButton from '../components/BigRadioButton';
 
 
 export default function ParamScreen({ navigation }) {
   const [rectangleTextInput, setRectangleTextInput] = useState();
-
+  const stValues = [
+    { value: '0' },
+    { value: '50' },
+    { value: '100' },
+  ];
+  const razValues = [
+    { value: 'Fizio' },
+    { value: 'Patio' },
+    { value: 'Iznenadi me' },
+  ];
   return (
     <View style={[styles.container, {flexDirection: "column"}]}>
-      <View style={{ flex: 2}} >
+      <View style={{ flex: 2, backgroundColor: 'white'}} >
           <View style={{ flex: 3}}>
             <View style={[styles.circle, {bottom: "5%", left: "55%" , opacity: 0.2}]}/>
             <SettingsSvg style={{left: '68%', top: '18%'}}/>
@@ -29,19 +39,11 @@ export default function ParamScreen({ navigation }) {
           <View style={{flexDirection: "row", flex: 1, justifyContent: "center", alignItems: "center"}}>
             <Text style={styles.title}>Izaberi broj stanica</Text>
           </View>
-          <View style={{flexDirection: "row", flex: 1, justifyContent: "center", alignItems: "center"}}>
-            <OptionButton name="stanice_0" value = "0" style={{ flex: 1}}></OptionButton>
-            <OptionButton name="stanice_50" value = "50" style={{ flex: 1}}></OptionButton>
-            <OptionButton name="stanice_100" value = "100" style={{ flex: 1}}></OptionButton>
-          </View>
+          <BigRadioButton style={{flex: 1}} data={stValues}/>
           <View style={{flexDirection: "row", flex: 1, justifyContent: "center", alignItems: "center"}}>
             <Text style={styles.title}>Izaberi vrstu razmaza</Text>
           </View>
-          <View style={{flexDirection: "row", flex: 1, justifyContent: "center", alignItems: "center"}}>
-            <OptionButton  value = "Fizio" style={{ flex: 1}}></OptionButton>
-            <OptionButton  value = "Pato" style={{ flex: 1}}></OptionButton>
-            <OptionButton  value = "Iznenadi me" style={{ flex: 1}}></OptionButton>
-          </View>
+          <BigRadioButton style={{flex: 1}} data={razValues}/>
           <View style={{flexDirection: "row", flex: 1}}>
           
           </View>

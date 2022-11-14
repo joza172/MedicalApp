@@ -15,13 +15,13 @@ export default function ChooseScreen({ navigation }) {
 
   return (
     <View style={[styles.container, {flexDirection: "column"}]}>
-      <View style={{ flex: 2}} >
+      <View style={{ flex: 2, backgroundColor: 'white'}} >
           <View style={{ flex: 3}}>
             <View style={[styles.circle, {bottom: "5%", left: "55%" , opacity: 0.2}]}/>
-            <PlaySvg style={{left: '72%', top: '18%'}}/>
+            <PlaySvg color= '#9C53D4' style={{left: '72%', top: '18%'}}/>
           </View>
           <View style={{ flex: 1, justifyContent: 'flex-end'}}>  
-            <Text style={styles.title}>Izaberi Vjezbu</Text>
+            <Text style={styles.title}>Izaberi vježbu</Text>
           </View>
 
       </View>
@@ -54,9 +54,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 40,
     fontWeight: "bold",
-    marginLeft: '15%',
-    marginRight:"10%",
-    bottom: "10%"
+    marginLeft: '10%',
   },
   searchBar: {
     backgroundColor: '#EBDDF6',
@@ -71,7 +69,7 @@ const styles = StyleSheet.create({
   circle: {
     position: 'absolute',
     backgroundColor: '#9C53D4',
-    borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) / 2,
+    borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) * 0.5,
     width: Dimensions.get('window').width * 0.5,
     height: Dimensions.get('window').width * 0.5,
   }

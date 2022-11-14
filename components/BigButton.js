@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 function renderSwitch(param) {
     switch(param) {
         case "0":
-            return (<PlaySvg style={[styles.svg]}/>);
+            return (<PlaySvg color='#FFF' style={[styles.svg]}/>);
         case "1":
             return (<MicroscopeSvg style={[styles.svg]}/>);
         case "2":
