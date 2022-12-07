@@ -34,12 +34,12 @@ export default function HomeScreen({ navigation }) {
         </View>
         <View style={{flexDirection: "column",flex: 6}}>
           <View style={{flexDirection: "row", flex: 1, justifyContent: "space-around", alignItems: "center"}}>
-            <BigButton name="Vježbe" num="0" screenName = "Second" style={{ flex: 1}}></BigButton>
-            <BigButton name="Razmazi" num="1" screenName = "Second" style={{ flex: 1}}></BigButton>
+            <BigButton type="1" name="Vježbe" num="0" screenName = "Second" style={{ flex: 1}}></BigButton>
+            <BigButton type="1" name="Razmazi" num="1" screenName = "Second" style={{ flex: 1}}></BigButton>
           </View>
           <View style={{flexDirection: "row", flex: 1, justifyContent: "space-around", alignItems: "center"}}>
-            <BigButton name="Galerija" num="2" screenName = "Second" style={{ flex: 1}}></BigButton>
-            <BigButton name="Bolesti" num="3" screenName = "Second" style={{ flex: 1}}></BigButton>
+            <BigButton type="1" name="Galerija" num="2" screenName = "Second" style={{ flex: 1}}></BigButton>
+            <BigButton type="1" name="Bolesti" num="3" screenName = "Second" style={{ flex: 1}}></BigButton>
           </View>
         </View>
         <View style={{ flex: 1 }} >

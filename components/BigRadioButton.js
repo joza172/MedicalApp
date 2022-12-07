@@ -7,6 +7,11 @@ import DiseaseSvg from "../resources/svg-s/DiseaseSvg";
 import { useNavigation } from '@react-navigation/native';
 
 const BigRadioButton = (props) => {
+    const handleClick = name => {
+        props.handleClick(name);
+        setUserOption(name)
+    };
+
     const [userOption, setUserOption] = useState(null);
 
     return (
@@ -17,7 +22,7 @@ const BigRadioButton = (props) => {
                     style={
                         [item.value === userOption ? styles.selected : styles.unselected, styles.rectanglePressable, {flex: 1}]
                     }
-                    onPress={() => setUserOption(item.value)}>
+                    onPress={() => handleClick(item.value)}>
                         <Text style={item.value === userOption ? styles.optionSelected : styles.optionUnselected}> {item.value}</Text>
                     </Pressable>
                 );

@@ -14,17 +14,28 @@ import BigRadioButton from '../components/BigRadioButton';
 
 
 export default function ParamScreen({ navigation }) {
-  const [rectangleTextInput, setRectangleTextInput] = useState();
+  const [num, setNum] = useState(null);
+  const [type, setType] = useState(null);
   const stValues = [
     { value: '0' },
     { value: '50' },
     { value: '100' },
   ];
+  
   const razValues = [
     { value: 'Fizio' },
     { value: 'Patio' },
     { value: 'Iznenadi me' },
   ];
+
+  const handleClickNum = obj => {
+    setNum(obj)
+  };
+
+  const handleClickType = obj => {
+    setType(obj)
+  };
+
   return (
     <View style={[styles.container, {flexDirection: "column"}]}>
       <View style={{ flex: 2, backgroundColor: 'white'}} >
@@ -39,24 +50,22 @@ export default function ParamScreen({ navigation }) {
           <View style={{flexDirection: "row", flex: 1, justifyContent: "center", alignItems: "center"}}>
             <Text style={styles.title}>Izaberi broj stanica</Text>
           </View>
-          <BigRadioButton style={{flex: 1}} data={stValues}/>
+          <BigRadioButton style={{flex: 1}} data={stValues} handleClick={handleClickNum}/>
+
           <View style={{flexDirection: "row", flex: 1, justifyContent: "center", alignItems: "center"}}>
             <Text style={styles.title}>Izaberi vrstu razmaza</Text>
           </View>
-          <BigRadioButton style={{flex: 1}} data={razValues}/>
-          <View style={{flexDirection: "row", flex: 1}}>
+          <BigRadioButton style={{flex: 1}} data={razValues} handleClick={handleClickType}/>
           
-          </View>
+          <View style={{flexDirection: "row", flex: 1}}/>
+          
           <View style={{flexDirection: "row", flex: 1, justifyContent: "center", alignItems: "center"}}>
-            <BigButton name="Pokreni Vjezbu" screenName = "Question" style={{ flex: 1}}></BigButton>
+            <BigButton type={(num == null || type == null) ? "0":"1"} name="Pokreni Vjezbu" screenName="Question" 
+              num={num} qType={type} style={{ flex: 1}}></BigButton>
           </View>
         </View>
        
-
-        <View style={{ flex: 2 }} >
-
-        </View>
-
+        <View style={{ flex: 2 }} />
       </LinearGradient>
 
     </View>

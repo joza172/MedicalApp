@@ -22,8 +22,15 @@ const BigButton = (props) => {
     const navigation = useNavigation();
     
     return (
-        <Pressable style={styles.rectanglePressable} 
-        onPress={() => navigation.navigate(props.screenName)}>
+        <Pressable style={[styles.rectanglePressable, props.small ? {width: '90%'} : {}]} 
+            onPress={() => {
+                if(props.type == '1'){
+                    navigation.navigate(props.screenName, {num:props.num, type:props.qType})
+                } else if (props.type == '2'){
+                    props.handleClick(props.name)
+                }
+                }
+            }>
             <View style={styles.container}>
                 {renderSwitch(props.num)}
                 <Text style={[styles.text]}>{props.name}</Text>
@@ -46,7 +53,7 @@ const styles = StyleSheet.create({
         marginTop: "5%",
         flex: 1,
         fontWeight: "bold",
-        color: '#FFFFFF'
+        color: '#FFFFFF',
     },
     svg: {
         marginTop: "20%",

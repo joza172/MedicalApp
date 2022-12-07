@@ -1,22 +1,85 @@
-import { StatusBar } from 'expo-status-bar';
-import SearchSvg from '../resources/svg-s/SearchSvg';
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect  } from "react";
 import { Dimensions, StyleSheet, View, Text, Image, Pressable, TextInput } from "react-native";
 import BigButton from '../components/BigButton';
 import {LinearGradient} from 'expo-linear-gradient'
-import FakeMenuSvg from '../resources/svg-s/FakeMenuSvg';
-import VeryBigButton from '../components/VeryBigButton';
-import PlaySvg from '../resources/svg-s/PlaySvg';
+import questions from "../resources/data/questions";
 
 
 export default function QuestionScreen({ navigation }) {
   const [rectangleTextInput, setRectangleTextInput] = useState();
+  const options = ['Ap', 'Ba', 'Bl', 'Eo', 'Er', 'Lim', 'Mak', 'Meta']
+  const realValues = ['Atipicni_promijelociti', 'Bazofil', 'Blast', 'Eozinofil',
+  'Eritroblasti', 'Limfocit', 'Makrotrombociti', 'Metamijelocit']
+  
+  const ques = questions
+  const data = ques
 
+  const totalQuestions = data.length;
+  // points
+  const [points, setPoints] = useState({
+    'Ap': 0, 'Ba': 0, 'Bl': 0, 'Eo': 0, 'Er': 0, 'Lim': 0, 'Mak': 0, 'Meta': 0
+  });
+
+  // index of the question
+  const [index, setIndex] = useState(0);
+
+  // selected answer
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+
+  useEffect(() => {
+    if (selectedAnswer !== null) {
+      if (options.indexOf(selectedAnswer) == realValues.indexOf(currentQuestion?.class)) {
+        points[selectedAnswer] = points[selectedAnswer] + 1
+        console.log(points)
+      }
+    }
+  }, [selectedAnswer]);
+
+  useEffect(() => {
+    setSelectedAnswer(null);
+  }, [index]);
+
+
+  const handleClick = name => {
+    setSelectedAnswer(name);
+    setIndex(index + 1)
+  };
+  const currentQuestion = data[index];
   return (
-    <View>
+    <View style={[styles.container, {flexDirection: "column"}]}>
+      <View style={{ flex: 1, backgroundColor: 'white'}} >
+        <Text style={styles.title}>{index}/{totalQuestions}</Text>
+      </View>
 
-        <Text style={styles.title}>Pitanja</Text>
+      <View style={{ flex: 4, backgroundColor: 'white', alignItems:'center'}} >
+        <Image style={styles.image} source={currentQuestion.uri}/>
+      </View>
+
+      <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background, {flex:4}]}>
+        <View style={styles.table}>
+          <View style={styles.column}>
+            {options.map(function(object, i){
+                if(i < 4){
+                  return (
+                    <View style={styles.cell}>
+                      <BigButton type='2' key={i} name={object} small={true} handleClick={handleClick}/>
+                    </View>);
+                }
+              })}
+          </View>
+          <View style={styles.column}>
+            {options.map(function(object, i){
+                if(i >= 4){
+                  return (
+                    <View style={styles.cell}>
+                      <BigButton type='2' key={i} name={object} small={true} handleClick={handleClick}/>
+                    </View>);  
+                }
+              })}
+          </View>
+        </View>
+      </LinearGradient>
 
     </View>
   );
@@ -33,26 +96,25 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   title: {
-    fontSize: 40,
-    fontWeight: "bold",
-    marginLeft: '15%',
-    marginRight:"10%"
+    fontSize: 20,
+    alignSelf: 'center'
   },
-  searchBar: {
-    backgroundColor: '#EBDDF6',
-    borderRadius: 60,
-    height: "70%",
-    flexDirection: "row"
+  table: {
+    padding: '10%',
+    flex: 1,
+    flexDirection:'row',
   },
-  inputText: {
-    color: '#9c53d4',
-    fontWeight: "bold",
+  column: {
+    flex: 1,
+    flexDirection:'column', 
   },
-  circle: {
-    position: 'absolute',
-    backgroundColor: '#9C53D4',
-    borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) / 2,
-    width: Dimensions.get('window').width * 0.5,
-    height: Dimensions.get('window').width * 0.5,
+  cell: {
+    flex: 1,
+    alignSelf:'stretch'
+  },
+  image: {
+    resizeMode: 'contain',
+    width: '100%',
+    height: '100%'
   }
 });
