@@ -4,6 +4,8 @@ import { StyleSheet, View, Text, Image } from 'react-native';
 import BigButton from '../components/BigButton';
 import { LinearGradient } from 'expo-linear-gradient'
 import questions from '../resources/data/questions';
+import BackButton from '../components/BackButton'
+import CloseButton from '../components/CloseButton'
 
 
 export default function QuestionScreen({ navigation, route }) {
@@ -130,11 +132,16 @@ export default function QuestionScreen({ navigation, route }) {
     setIndex(index + 1)
   };
 
+  const onPress = value => {
+    navigation.navigate("Param")
+  }
+
+
   const currentQuestion = dataForUse.length > 0 ? dataForUse[index] : data[0]
 
   return (
-    <View style={[styles.container, { flexDirection: 'column' }]}>
-      <View style={{ flex: 1, backgroundColor: 'white' }} >
+    <View style={[styles.container, {flexDirection: 'column'}]}>
+      <View style={{ flex: 1, backgroundColor: 'white'}} >
         <Text style={styles.title}>{index}/{totalQuestions}</Text>
       </View>
 
@@ -202,5 +209,10 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     width: '100%',
     height: '100%'
-  }
+  },
+  header: {
+    flex: 1,
+    backgroundColor: 'white',
+    flexDirection: 'row',
+    justifyContent: 'space-between'}
 });

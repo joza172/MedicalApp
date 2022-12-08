@@ -19,17 +19,17 @@ export default function App() {
         <Stack.Screen 
           name="Second"
           component={ChooseScreen}
-          //options={{headerShown: false}}
+          options={{headerShown: false}}
         />
          <Stack.Screen 
           name="Param"
           component={ParamScreen}
-          //options={{headerShown: false}}
+          options={{headerShown: false}}
         />
         <Stack.Screen 
           name="Question"
           component={QuestionScreen}
-          //options={{headerShown: false}}
+          options={{headerShown: false}}
         />
 
 

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Dimensions, StyleSheet, View, Text, Image, Pressable, TextInput } from 'react-native';
 import BigButton from '../components/BigButton';
+import BackButton from '../components/BackButton'
 import {LinearGradient} from 'expo-linear-gradient'
 import SettingsSvg from '../resources/svg-s/SettingsSvg';
 import BigRadioButton from '../components/BigRadioButton';
@@ -35,35 +36,39 @@ export default function ParamScreen({ navigation }) {
       }
   }
 
+  const onPress = value => {
+    navigation.navigate('Second', {num:num, type:type})  
+  }
+
+
   return (
-    <View style={[styles.container, {flexDirection: 'column'}]}>
-      <View style={{ flex: 2, backgroundColor: 'white'}} >
-          <View style={{ flex: 3}}>
-            <View style={[styles.circle, {bottom: '5%', left: '55%' , opacity: 0.2}]}/>
-            <SettingsSvg style={{left: '68%', top: '18%'}}/>
-          </View>
+    <View style={{flexDirection: 'column', flex: 1}}>
+      <View style={{ flex: 7, backgroundColor: 'white'}} >
+          <View style={styles.circle}/>
+          <BackButton onPress={onPress} style={{left: '3%', top: '10%'}}/>
+          <SettingsSvg size={Dimensions.get('window').width * 0.25} style={styles.svg}/>
       </View>
 
-      <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background, {flex:6}]}>
+      <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background, {flex:13}]}>
         <View style={{flexDirection: 'column',flex: 6}}>
-          <View style={{flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <View style={styles.box}>
             <Text style={styles.title}>Izaberi broj stanica</Text>
           </View>
           <BigRadioButton style={{flex: 1}} data={stValues} handleClick={handleClickNum}/>
 
-          <View style={{flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <View style={styles.box}>
             <Text style={styles.title}>Izaberi vrstu razmaza</Text>
           </View>
           <BigRadioButton style={{flex: 1}} data={razValues} handleClick={handleClickType}/>
           
-          <View style={{flexDirection: 'row', flex: 1}}/>
+          <View style={styles.box}/>
           
-          <View style={{flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <View style={styles.box}>
             <BigButton value='Pokreni Vjezbu' style={{ flex: 1}} handleClick={handleClickStart}></BigButton>
           </View>
         </View>
        
-        <View style={{ flex: 2 }} />
+        <View style={{ flex: 1.5 }} />
       </LinearGradient>
 
     </View>
@@ -71,6 +76,12 @@ export default function ParamScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  box: {
+    flexDirection: 'row',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   container: {
     flex: 1
   },
@@ -97,8 +108,16 @@ const styles = StyleSheet.create({
   circle: {
     position: 'absolute',
     backgroundColor: '#9C53D4',
-    borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) / 2,
-    width: Dimensions.get('window').width * 0.5,
-    height: Dimensions.get('window').width * 0.5,
+    borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) * 0.75,
+    width: Dimensions.get('window').width * 0.75,
+    height: Dimensions.get('window').width * 0.75,
+    left: '40%',
+    bottom: '15%',
+    opacity: 0.2
+  },
+  svg: {
+    position: 'absolute',
+    left: '68%',
+    top: '18%'
   }
 });

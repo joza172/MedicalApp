@@ -1,4 +1,4 @@
-import { StyleSheet, Pressable, View, Text } from 'react-native';
+import { StyleSheet, Pressable, View, Text, Dimensions } from 'react-native';
 import PlaySvg from '../resources/svg-s/PlaySvg';
 import MicroscopeSvg from '../resources/svg-s/MicroscopeSvg'
 import GallerySvg from '../resources/svg-s/GallerySvg';
@@ -8,7 +8,7 @@ import KvizSvg from '../resources/svg-s/KvizSvg';
 function renderSwitch(param) {
     switch(param) {
         case '0':
-            return (<PlaySvg color='#FFF'/>);
+            return (<PlaySvg color='#FFF' size={Dimensions.get('window').width * 0.18}/>);
         case '1':
             return (<MicroscopeSvg />);
         case '2':
