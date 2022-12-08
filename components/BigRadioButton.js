@@ -14,6 +14,7 @@ const BigRadioButton = (props) => {
             {props.data.map((item) => {     
                 return (
                     <Pressable
+                    key={item.value}
                     style={
                         [item.value === userOption ? styles.selected : styles.unselected, styles.rectanglePressable, {flex: 1}]
                     }

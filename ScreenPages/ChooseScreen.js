@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Dimensions, StyleSheet, View, Text } from 'react-native';
-import BigButton from '../components/BigButton';
+import BigButton from '../components/BigButton'
+import BackButton from '../components/BackButton'
+import { Dimensions, StyleSheet, View, Text } from 'react-native'
 import {LinearGradient} from 'expo-linear-gradient'
-import PlaySvg from '../resources/svg-s/PlaySvg';
+import PlaySvg from '../resources/svg-s/PlaySvg'
 
 
 export default function ChooseScreen({ navigation }) {
@@ -10,28 +11,28 @@ export default function ChooseScreen({ navigation }) {
     navigation.navigate('Param')
   }
 
+  const onPress = () => {
+    navigation.navigate('Home')
+  }
+
   return (
     <View style={[styles.container, {flexDirection: 'column'}]}>
-      <View style={{ flex: 2, backgroundColor: 'white'}} >
-          <View style={{ flex: 3}}>
-            <View style={[styles.circle, {bottom: '5%', left: '55%' , opacity: 0.2}]}/>
-            <PlaySvg color= '#9C53D4' style={{left: '72%', top: '18%'}}/>
-          </View>
-          <View style={{ flex: 1, justifyContent: 'flex-end'}}>  
-            <Text style={styles.title}>Izaberi vježbu</Text>
-          </View>
-
+      <View style={{ flex: 7, backgroundColor: 'white'}} >
+          <View style={styles.circle}/>
+          <BackButton onPress={onPress} style={{left: '3%', top: '10%'}}/>
+          <PlaySvg color= '#9C53D4' size={Dimensions.get('window').width * 0.25} style={styles.svg}/>
       </View>
 
-      <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background, {flex:4}]}>
-        <View style={{flexDirection: 'column',flex: 6}}>
-          <View style={{flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background, {flex:13}]}>
+          <View style={{ flex: 1}}>  
+            <Text style={styles.title}>Izaberi vježbu</Text>
+          </View>
+          <View style={{flexDirection: 'row', flex: 3, justifyContent: 'center', alignItems: 'flex-start'}}>
             <BigButton value='Klasicno diferenciranje' num='1' small={true} handleClick={handleClick}/>
           </View>
-          <View style={{flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <View style={{flexDirection: 'row', flex: 3, justifyContent: 'center', alignItems: 'flex-start'}}>
             <BigButton value='Kviz' num='4' small={true} handleClick={handleClick}/>
           </View>
-        </View>
       </LinearGradient>
 
     </View>
@@ -66,8 +67,16 @@ const styles = StyleSheet.create({
   circle: {
     position: 'absolute',
     backgroundColor: '#9C53D4',
-    borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) * 0.5,
-    width: Dimensions.get('window').width * 0.5,
-    height: Dimensions.get('window').width * 0.5,
+    borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) * 0.75,
+    width: Dimensions.get('window').width * 0.75,
+    height: Dimensions.get('window').width * 0.75,
+    left: '40%',
+    bottom: '15%',
+    opacity: 0.2
+  },
+  svg: {
+    position: 'absolute',
+    left: '65%',
+    top: '18%'
   }
 });
