@@ -8,19 +8,106 @@ import questions from '../resources/data/questions';
 
 export default function QuestionScreen({ navigation , route}) {
   const [rectangleTextInput, setRectangleTextInput] = useState();
-  const options = ['Ap', 'Ba', 'Bl', 'Eo', 'Er', 'Lim', 'Mak', 'Meta']
-  const realValues = ['Atipicni_promijelociti', 'Bazofil', 'Blast', 'Eozinofil',
-  'Eritroblasti', 'Limfocit', 'Makrotrombociti', 'Metamijelocit']
+
   
+
+  numOfStanice = route.params.num
+  vrsta = route.params.type
+
+  
+  //Patološke: Promijelociti, Blasti, Metamijelociti, Mijelociti, Nesegmentirani granulociti, Plazma stanice, Reaktivni limfocit, Stanice Pelgera
+
+  //omjer max 30% segmentirani neutrofili 
+  //max 25% limfociti
+  //max 25% monociti 
+  //max 10% bazofili
+  //max 10% eozinofili
+
+  const optionsPato = ['Pr', 'Bl', 'Meta', 'Mi', 'N.seg', 'Ps', 'R.ly','Sp']
+  const realValuespPato = ['Promijelociti', 'Blast','Metamijelocit',
+  'Mijelocit', 'Nesegmentirani_granulocit', 'Plazma_stanice', 'Reaktivni_limfocit','Stanice_Pelgera']
+  const omjerPato = [0.3 , 0.25 , 0.25 , 0.1 , 0.1 , 0.1 , 0.1 , 0.1]
+  const pointsPato = {'Pr': 0, 'Bl': 0, 'Meta' : 0, 'Mi' : 0, 'N.seg' : 0, 'Ps' : 0, 'R.ly' : 0,'Sp' : 0}
+
+  //fizioloske: Segmentirani neutrofili, limfociti, monociti, bazofili, eozinofili
+  const optionsFizio = ['Seg', 'Ly', 'Mono', 'Eo', 'Ba']
+  const realValuesFizio = ['Segmentirani_granulocit', 'Limfocit', 'Monocit','Eozinofil','Bazofil']
+  const omjerFizio = [0.3 , 0.25 , 0.25 , 0.1 , 0.1]
+  const pointsFzio = {'Seg': 0, 'Ly': 0, 'Mono' : 0, 'Eo' : 0, 'Ba' : 0}
+
   const ques = questions
   const data = ques
 
-  const totalQuestions = data.length;
 
-  // points
-  const [points, setPoints] = useState({
-    'Ap': 0, 'Ba': 0, 'Bl': 0, 'Eo': 0, 'Er': 0, 'Lim': 0, 'Mak': 0, 'Meta': 0
-  });
+  const [options, setOptions] = useState([])
+  const [realValues, setRealValues] = useState([])
+  const [stanice, setStanice] = useState([])
+  const [dataForUse, setDataForUse] = useState([])
+  const [omjer, setOmjer] = useState([])
+  const [points, setPoints] = useState([]);
+
+  
+  //get Random pictures for quiz
+  useEffect(() => {
+
+    var tempOptions = []
+    var tempRV = []
+    var tempOmjer = []
+
+    if(vrsta==='Patio') {
+      tempOptions=optionsPato
+      tempOmjer = omjerPato
+      tempRV = realValuespPato
+      setOptions(optionsPato)
+      setRealValues(realValuespPato)
+      setOmjer(omjerPato)
+      setPoints(pointsPato)
+    } else {
+
+      tempOptions = optionsFizio
+      tempOmjer = omjerFizio
+      tempRV = realValuesFizio
+      setOptions(optionsFizio)
+      setRealValues(realValuesFizio)
+      setOmjer(omjerFizio)
+      setPoints(pointsFzio)
+    }
+
+  
+    var omjerNum = []
+    for( i = 0;i<tempOptions.length;i++) {
+      omjerNum.push(Math.ceil(tempOmjer[i]*numOfStanice))
+    }
+
+
+    var temp=[]
+    for(i =0;i<data.length;i++) {
+      if(tempRV.indexOf(data[i].class) > -1) {
+        temp.push(data[i])
+      }
+      
+    }setStanice(temp)
+
+    var tempStanice = temp
+    temp=[]
+    
+    
+    while(temp.length<numOfStanice) {
+
+      var RandomNumber = Math.floor(Math.random() * tempStanice.length)
+      var trenutniBrojTeStanice = omjerNum[tempRV.indexOf(tempStanice[RandomNumber].class)]
+
+      if(temp.indexOf(tempStanice[RandomNumber]) == -1 && trenutniBrojTeStanice > 0 ) {
+          temp.push(tempStanice[RandomNumber])
+          omjerNum[tempRV.indexOf(tempStanice[RandomNumber].class)] = trenutniBrojTeStanice - 1
+      }
+    }
+    
+    setDataForUse(temp)
+    
+  },[])
+  
+  const totalQuestions = dataForUse.length;
 
   // index of the question
   const [index, setIndex] = useState(0);
@@ -41,12 +128,13 @@ export default function QuestionScreen({ navigation , route}) {
     setSelectedAnswer(null);
   }, [index]);
 
-
   const handleClick = value => {
     setSelectedAnswer(value);
     setIndex(index + 1)
   };
-  const currentQuestion = data[index];
+
+  const currentQuestion = dataForUse.length > 0 ? dataForUse[index] : data[0]
+
   return (
     <View style={[styles.container, {flexDirection: 'column'}]}>
       <View style={{ flex: 1, backgroundColor: 'white'}} >
@@ -61,7 +149,7 @@ export default function QuestionScreen({ navigation , route}) {
         <View style={styles.table}>
           <View style={styles.column}>
             {options.map(function(object, i){
-                if(i < 4){
+                if(i < (Math.floor(options.length/2))){
                   return (
                     <View style={styles.cell}>
                       <BigButton key={i} value={object} small={true} handleClick={handleClick}/>
@@ -71,7 +159,7 @@ export default function QuestionScreen({ navigation , route}) {
           </View>
           <View style={styles.column}>
             {options.map(function(object, i){
-                if(i >= 4){
+                if(i >= (Math.floor(options.length/2))){
                   return (
                     <View style={styles.cell}>
                       <BigButton key={i} value={object} small={true} handleClick={handleClick}/>
