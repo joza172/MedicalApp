@@ -11,8 +11,6 @@ import CloseButton from '../components/CloseButton'
 export default function QuestionScreen({ navigation, route }) {
   const [rectangleTextInput, setRectangleTextInput] = useState();
 
-
-
   numOfStanice = route.params.num
   vrsta = route.params.type
 
@@ -118,7 +116,6 @@ export default function QuestionScreen({ navigation, route }) {
     if (selectedAnswer !== null) {
       if (options.indexOf(selectedAnswer) == realValues.indexOf(currentQuestion?.class)) {
         points[selectedAnswer] = points[selectedAnswer] + 1
-        console.log(points)
       }
     }
   }, [selectedAnswer]);
@@ -129,7 +126,12 @@ export default function QuestionScreen({ navigation, route }) {
 
   const handleClick = value => {
     setSelectedAnswer(value);
-    setIndex(index + 1)
+
+    if(index == dataForUse.length - 1){
+      navigation.navigate('Result', {options:options, points:points})
+    } else {
+      setIndex(index + 1)
+    }
   };
 
   const onPress = value => {
@@ -141,8 +143,13 @@ export default function QuestionScreen({ navigation, route }) {
 
   return (
     <View style={[styles.container, {flexDirection: 'column'}]}>
-      <View style={{ flex: 1, backgroundColor: 'white'}} >
-        <Text style={styles.title}>{index}/{totalQuestions}</Text>
+      <View style={styles.header} >
+        <BackButton onPress={onPress} style={{left: '12%', top: '7%'}}/>
+        <CloseButton onPress={onPress} style={{right: '12%', top: '7%'}}/>
+      </View>
+
+      <View style={{ flex: 0.5, backgroundColor: 'white'}} >
+        <Text style={styles.title}>{index + 1}/{totalQuestions}</Text>
       </View>
 
       <View style={{ flex: 4, backgroundColor: 'white', alignItems: 'center' }} >
@@ -155,8 +162,8 @@ export default function QuestionScreen({ navigation, route }) {
             {options.map(function (object, i) {
               if (i < (Math.floor(options.length / 2))) {
                 return (
-                  <View style={styles.cell}>
-                    <BigButton key={i} value={object} small={true} handleClick={handleClick} />
+                  <View key={i} style={styles.cell}>
+                    <BigButton value={object} small={true} handleClick={handleClick} />
                   </View>);
               }
             })}
@@ -165,8 +172,8 @@ export default function QuestionScreen({ navigation, route }) {
             {options.map(function (object, i) {
               if (i >= (Math.floor(options.length / 2))) {
                 return (
-                  <View style={styles.cell}>
-                    <BigButton key={i} value={object} small={true} handleClick={handleClick} />
+                  <View key={i} style={styles.cell}>
+                    <BigButton value={object} small={true} handleClick={handleClick} />
                   </View>);
               }
             })}

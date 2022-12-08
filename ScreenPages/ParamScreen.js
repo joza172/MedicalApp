@@ -11,7 +11,7 @@ export default function ParamScreen({ navigation }) {
   const [num, setNum] = useState(null);
   const [type, setType] = useState(null);
   const stValues = [
-    { value: '20' },
+    { value: '1' },
     { value: '50' },
     { value: '100' },
   ];

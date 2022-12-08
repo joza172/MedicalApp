@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ParamScreen from "./ScreenPages/ParamScreen.js";
 import QuestionScreen from "./ScreenPages/QuestionScreen.js";
+import ResultScreen from "./ScreenPages/ResultScreen.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +32,11 @@ export default function App() {
           component={QuestionScreen}
           options={{headerShown: false}}
         />
-
+        <Stack.Screen 
+          name="Result"
+          component={ResultScreen}
+          options={{headerShown: false}}
+        />
 
       </Stack.Navigator>
     </NavigationContainer>
