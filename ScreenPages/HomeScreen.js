@@ -1,18 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
 import SearchSvg from '../resources/svg-s/SearchSvg';
-import * as React from "react";
-import { useState } from "react";
-import { Dimensions, StyleSheet, View, Text, Image, Pressable, TextInput } from "react-native";
+import * as React from 'react';
+import { useState } from 'react';
+import { Dimensions, StyleSheet, View, Text, Image, Pressable, TextInput } from 'react-native';
 import BigButton from '../components/BigButton';
 import {LinearGradient} from 'expo-linear-gradient'
 import FakeMenuSvg from '../resources/svg-s/FakeMenuSvg';
 
-
-
 export default function HomeScreen({ navigation }) {
-  const [rectangleTextInput, setRectangleTextInput] = useState();
+  const handleClick = value => {
+    navigation.navigate('Second')
+  };
+
   return (
-    <View style={[styles.container, {flexDirection: "column"}]}>
+    <View style={[styles.container, {flexDirection: 'column'}]}>
       <View style={{ flex: 2, backgroundColor: 'white'}} >
           <View style={{ flex: 3}}>
             <View style={[styles.circle, {right: '75%', opacity: 0.2}]}/>
@@ -32,14 +32,14 @@ export default function HomeScreen({ navigation }) {
                 <Text style={[styles.inputText ,{ flex: 9, marginLeft: '3%'}]}>josip</Text>
             </View>
         </View>
-        <View style={{flexDirection: "column",flex: 6}}>
-          <View style={{flexDirection: "row", flex: 1, justifyContent: "space-around", alignItems: "center"}}>
-            <BigButton type="1" name="Vježbe" num="0" screenName = "Second" style={{ flex: 1}}></BigButton>
-            <BigButton type="1" name="Razmazi" num="1" screenName = "Second" style={{ flex: 1}}></BigButton>
+        <View style={{flexDirection: 'column',flex: 6}}>
+          <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-around', alignItems: 'center'}}>
+            <BigButton value='Vježbe' num='0'  handleClick={handleClick} style={{ flex: 1}}></BigButton>
+            <BigButton value='Razmazi' num='1' handleClick={handleClick} style={{ flex: 1}}></BigButton>
           </View>
-          <View style={{flexDirection: "row", flex: 1, justifyContent: "space-around", alignItems: "center"}}>
-            <BigButton type="1" name="Galerija" num="2" screenName = "Second" style={{ flex: 1}}></BigButton>
-            <BigButton type="1" name="Bolesti" num="3" screenName = "Second" style={{ flex: 1}}></BigButton>
+          <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-around', alignItems: 'center'}}>
+            <BigButton value='Galerija' num='2' handleClick={handleClick} style={{ flex: 1}}></BigButton>
+            <BigButton value='Bolesti' num='3' handleClick={handleClick} style={{ flex: 1}}></BigButton>
           </View>
         </View>
         <View style={{ flex: 1 }} >
@@ -63,18 +63,18 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 40,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginLeft: '5%'
   },
   searchBar: {
     backgroundColor: '#EBDDF6',
     borderRadius: 60,
-    height: "70%",
-    flexDirection: "row"
+    height: '70%',
+    flexDirection: 'row'
   },
   inputText: {
     color: '#9c53d4',
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   circle: {
     position: 'absolute',

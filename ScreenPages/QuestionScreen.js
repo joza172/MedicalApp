@@ -1,12 +1,12 @@
-import * as React from "react";
-import { useState, useEffect  } from "react";
-import { Dimensions, StyleSheet, View, Text, Image, Pressable, TextInput } from "react-native";
+import * as React from 'react';
+import { useState, useEffect  } from 'react';
+import { StyleSheet, View, Text, Image} from 'react-native';
 import BigButton from '../components/BigButton';
 import {LinearGradient} from 'expo-linear-gradient'
-import questions from "../resources/data/questions";
+import questions from '../resources/data/questions';
 
 
-export default function QuestionScreen({ navigation }) {
+export default function QuestionScreen({ navigation , route}) {
   const [rectangleTextInput, setRectangleTextInput] = useState();
   const options = ['Ap', 'Ba', 'Bl', 'Eo', 'Er', 'Lim', 'Mak', 'Meta']
   const realValues = ['Atipicni_promijelociti', 'Bazofil', 'Blast', 'Eozinofil',
@@ -16,6 +16,7 @@ export default function QuestionScreen({ navigation }) {
   const data = ques
 
   const totalQuestions = data.length;
+
   // points
   const [points, setPoints] = useState({
     'Ap': 0, 'Ba': 0, 'Bl': 0, 'Eo': 0, 'Er': 0, 'Lim': 0, 'Mak': 0, 'Meta': 0
@@ -41,13 +42,13 @@ export default function QuestionScreen({ navigation }) {
   }, [index]);
 
 
-  const handleClick = name => {
-    setSelectedAnswer(name);
+  const handleClick = value => {
+    setSelectedAnswer(value);
     setIndex(index + 1)
   };
   const currentQuestion = data[index];
   return (
-    <View style={[styles.container, {flexDirection: "column"}]}>
+    <View style={[styles.container, {flexDirection: 'column'}]}>
       <View style={{ flex: 1, backgroundColor: 'white'}} >
         <Text style={styles.title}>{index}/{totalQuestions}</Text>
       </View>
@@ -63,7 +64,7 @@ export default function QuestionScreen({ navigation }) {
                 if(i < 4){
                   return (
                     <View style={styles.cell}>
-                      <BigButton type='2' key={i} name={object} small={true} handleClick={handleClick}/>
+                      <BigButton key={i} value={object} small={true} handleClick={handleClick}/>
                     </View>);
                 }
               })}
@@ -73,7 +74,7 @@ export default function QuestionScreen({ navigation }) {
                 if(i >= 4){
                   return (
                     <View style={styles.cell}>
-                      <BigButton type='2' key={i} name={object} small={true} handleClick={handleClick}/>
+                      <BigButton key={i} value={object} small={true} handleClick={handleClick}/>
                     </View>);  
                 }
               })}

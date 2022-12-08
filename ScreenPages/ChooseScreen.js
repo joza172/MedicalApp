@@ -1,23 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import SearchSvg from '../resources/svg-s/SearchSvg';
-import * as React from "react";
-import { useState } from "react";
-import { Dimensions, StyleSheet, View, Text, Image, Pressable, TextInput } from "react-native";
+import * as React from 'react';
+import { Dimensions, StyleSheet, View, Text } from 'react-native';
 import BigButton from '../components/BigButton';
 import {LinearGradient} from 'expo-linear-gradient'
-import FakeMenuSvg from '../resources/svg-s/FakeMenuSvg';
-import VeryBigButton from '../components/VeryBigButton';
 import PlaySvg from '../resources/svg-s/PlaySvg';
 
 
 export default function ChooseScreen({ navigation }) {
-  const [rectangleTextInput, setRectangleTextInput] = useState();
+  const handleClick = value => {
+    navigation.navigate('Param')
+  }
 
   return (
-    <View style={[styles.container, {flexDirection: "column"}]}>
+    <View style={[styles.container, {flexDirection: 'column'}]}>
       <View style={{ flex: 2, backgroundColor: 'white'}} >
           <View style={{ flex: 3}}>
-            <View style={[styles.circle, {bottom: "5%", left: "55%" , opacity: 0.2}]}/>
+            <View style={[styles.circle, {bottom: '5%', left: '55%' , opacity: 0.2}]}/>
             <PlaySvg color= '#9C53D4' style={{left: '72%', top: '18%'}}/>
           </View>
           <View style={{ flex: 1, justifyContent: 'flex-end'}}>  
@@ -27,12 +24,12 @@ export default function ChooseScreen({ navigation }) {
       </View>
 
       <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background, {flex:4}]}>
-        <View style={{flexDirection: "column",flex: 6}}>
-          <View style={{flexDirection: "row", flex: 1, justifyContent: "center", alignItems: "center"}}>
-            <VeryBigButton name="Klasicno diferenciranje" num="1" screenName = "Param" style={{ flex: 1}}></VeryBigButton>
+        <View style={{flexDirection: 'column',flex: 6}}>
+          <View style={{flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <BigButton value='Klasicno diferenciranje' num='1' small={true} handleClick={handleClick}/>
           </View>
-          <View style={{flexDirection: "row", flex: 1, justifyContent: "center", alignItems: "center"}}>
-            <VeryBigButton name="Kviz" num="4" screenName = "Param" style={{ flex: 1}}></VeryBigButton>
+          <View style={{flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <BigButton value='Kviz' num='4' small={true} handleClick={handleClick}/>
           </View>
         </View>
       </LinearGradient>
@@ -53,18 +50,18 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 40,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginLeft: '10%',
   },
   searchBar: {
     backgroundColor: '#EBDDF6',
     borderRadius: 60,
-    height: "70%",
-    flexDirection: "row"
+    height: '70%',
+    flexDirection: 'row'
   },
   inputText: {
     color: '#9c53d4',
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   circle: {
     position: 'absolute',
