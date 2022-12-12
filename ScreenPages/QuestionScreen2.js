@@ -7,38 +7,59 @@ import BackButton from '../components/BackButton'
 import ResultSvg from '../resources/svg-s/ResultSvg'
 import ImageRadioButton from '../components/ImageRadioButton'
 import BigButton from '../components/BigButton'
+import fizio from '../resources/data/fizio';
 
 
 export default function QuestionScreen2({ navigation, route }) {
-  const realValues = ['Segmentirani_granulocit', 'Limfocit', 'Monocit', 'Eozinofil', 'Bazofil']
+
+  const data = questions
+  const vrsta = fizio
+
+
+  const realValues = fizio.realValues
   const [time, setTime] = useState(route.params.num)
   const [timeStr, setTimeStr] = useState('0' + Math.floor(time / 60) + ':' + time % 60)
   const [rotation, setRotation] = useState((-36.6 + 163.2) + 'deg')
   const [real, setReal] = useState('...')
   const [uris, setUris] = useState([])
   const [selected, setSelected] = useState(null)
+  const [answers, setAnswers] = useState([])
+  const [questionNum, setQuestionNum] = useState(0)
+  const [correctAnswer, setCorrectAnswer] = useState(0)
 
-  const data = questions
+  
 
   //get random pictures for quiz
   useEffect(() => {
     var r = realValues[Math.floor(Math.random() * realValues.length)]
     var rUri = null
     var tempUris = []
-
+    var rD = vrsta.questions
+    
     while (tempUris.length < 3 || rUri == null) {
-      var rand = data[Math.floor(Math.random() * data.length)]
 
-      if (rand.class != r && tempUris.length < 3) {
-        tempUris.push(rand.uri)
+      var randomClass = Math.floor(Math.random() * rD.length)
+      var randomUriNumber = Math.floor(Math.random() * rD[randomClass].uris.length)
+      var rand = rD[randomClass].uris[randomUriNumber]
+      
+      if (rD[randomClass].class != r && tempUris.length < 3) {
+        tempUris.push(rand)
       } else if(rUri == null) {
-        rUri = rand.uri
+        rUri = rand
       }
     }
     tempUris.push(rUri)
+
+    //shuffle tempUris
+    var randomIndex = Math.floor(Math.random() * 4) 
+    tempUris[3] = tempUris[randomIndex]
+    tempUris[randomIndex] = rUri
+    console.log(randomIndex)
+    setCorrectAnswer(randomIndex)
+
     setReal(r)
     setUris(tempUris)
-  }, [real])
+  }, [questionNum])
 
 
   let interval = null;
@@ -72,6 +93,16 @@ export default function QuestionScreen2({ navigation, route }) {
   //handle potvrda
   const handleClickGuess = value => {
     setReal('...')
+    var temp = answers
+    temp[questionNum] = {
+      myChoice : selected,
+      correctChoice : correctAnswer,
+      allUris : uris
+    }
+    setQuestionNum(questionNum+1)
+    setAnswers(temp)
+    console.log(answers)
+    
   };
 
   //handle click on back button
