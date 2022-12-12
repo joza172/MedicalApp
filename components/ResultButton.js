@@ -3,9 +3,9 @@ import InfoSvg from '../resources/svg-s/InfoSvg';
 
 const ResultButton = (props) => {
     return (
-        <View style={[styles.rectangle]}>
-            <Text style={styles.text}>Nseg</Text>
-            <Text style={styles.text}>2/50</Text>
+        <View style={[styles.rectangle, eval(props.value) < 0.5 ? {borderColor: '#E24646'}:{borderColor: '#36D69C'}]}>
+            <Text style={styles.text}>{props.name}</Text>
+            <Text style={styles.text}>{props.value}</Text>
             <InfoSvg style={styles.svg}/>
         </View>
     );
@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
         padding: 10,
         borderWidth: 2,
         backgroundColor: '#FFFFFF',
-        borderColor: '#E24646',
         shadowColor: '#000000',
         shadowOffset: {width: -2, height: 4},
         shadowOpacity: 0.25,

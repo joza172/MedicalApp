@@ -1,12 +1,14 @@
 import * as React from 'react';
 import BackButton from '../components/BackButton'
 import { Dimensions, StyleSheet, View, Text } from 'react-native'
+import { useState, useEffect} from 'react';
 import {LinearGradient} from 'expo-linear-gradient'
 import ResultSvg from '../resources/svg-s/ResultSvg'
 import ResultButton from '../components/ResultButton';
 
-
 export default function ResultScreen({ navigation , route }) {
+  const rotation = (-36.6 + 163.2 * route.params.result / 100) + 'deg'
+
   const handleClick = value => {
     navigation.navigate('Param')
   }
@@ -15,17 +17,23 @@ export default function ResultScreen({ navigation , route }) {
     navigation.navigate('Second')
   }
 
+
   return (
     <View style={[styles.container, {flexDirection: 'column'}]}>
       <View style={{ flex: 7, backgroundColor: 'white'}} >
+          <View style={styles.circleOut}/>
+          <View style={[styles.circlePer, {transform: [
+            {translateX: Dimensions.get('window').width * 0.205},
+            {rotate: rotation},
+            {translateX: -Dimensions.get('window').width * 0.205}],}]}/>
           <View style={styles.circle}/>
           <BackButton onPress={onPress} style={{left: '3%', top: '10%'}}/>
           <ResultSvg style={styles.svg}/>
       </View>
 
       <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background, {flex:13}]}>
-          <View style={{ flex: 1}}>  
-            <Text style={styles.title}>Tvoj rezultat je: 88%</Text>
+          <View>  
+            <Text style={styles.title}>Tvoj rezultat je: {route.params.result}%</Text>
           </View>
           <View style={styles.table}>
             <View style={styles.column}>
@@ -33,7 +41,7 @@ export default function ResultScreen({ navigation , route }) {
                 if (i < (Math.floor(route.params.options.length / 2))) {
                     return (
                     <View key={i} style={styles.cell}>
-                        <ResultButton value={object} small={true} handleClick={handleClick} />
+                        <ResultButton name={object} value={route.params.results[i]} small={true} handleClick={handleClick} />
                     </View>);
                 }
                 })}
@@ -43,7 +51,7 @@ export default function ResultScreen({ navigation , route }) {
                 if (i >= (Math.floor(route.params.options.length / 2))) {
                     return (
                     <View key={i} style={styles.cell}>
-                        <ResultButton value={object} small={true} handleClick={handleClick} />
+                        <ResultButton name={object} value={route.params.results[i]} small={true} handleClick={handleClick} />
                     </View>);
                 }
                 })}
@@ -80,23 +88,14 @@ const styles = StyleSheet.create({
     color: '#9c53d4',
     fontWeight: 'bold',
   },
-  circle: {
-    position: 'absolute',
-    backgroundColor: '#9C53D4',
-    borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) * 0.75,
-    width: Dimensions.get('window').width * 0.75,
-    height: Dimensions.get('window').width * 0.75,
-    left: '40%',
-    bottom: '15%',
-    opacity: 0.2
-  },
   svg: {
     position: 'absolute',
     left: '65%',
     top: '18%'
   },
   table: {
-    padding: '10%',
+    paddingBottom: '10%',
+    paddingHorizontal: '10%',
     flex: 10,
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -105,5 +104,34 @@ const styles = StyleSheet.create({
     width: '45%',
     flexDirection: 'column',
     justifyContent: 'space-evenly'
-  }
+  },
+  circle: {
+    position: 'absolute',
+    backgroundColor: '#EBDDF6',
+    borderRadius: Dimensions.get('window').width * 1.5,
+    width: Dimensions.get('window').width * 0.75,
+    height: Dimensions.get('window').width * 0.75,
+    left: '40%',
+    bottom: '14%'
+  },
+  circleOut: {
+    position: 'absolute',
+    backgroundColor: '#9C53D4',
+    borderRadius: Dimensions.get('window').width * 0.4,
+    width: Dimensions.get('window').width * 0.8,
+    height: Dimensions.get('window').width * 0.8,
+    left: '37.5%',
+    bottom: '11%',
+  },
+  circlePer: {
+    position: 'absolute',
+    backgroundColor: 'white',
+    borderRadius: Dimensions.get('window').width * 0.41,
+    width: Dimensions.get('window').width * 0.41,
+    height: Dimensions.get('window').width * 0.82,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
+    left: '36%',
+    bottom: '10%',
+  },
 });

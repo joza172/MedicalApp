@@ -6,22 +6,12 @@ import { LinearGradient } from 'expo-linear-gradient'
 import questions from '../resources/data/questions';
 import BackButton from '../components/BackButton'
 import CloseButton from '../components/CloseButton'
+import { isSearchBarAvailableForCurrentPlatform } from 'react-native-screens';
 
 
 export default function QuestionScreen({ navigation, route }) {
-  const [rectangleTextInput, setRectangleTextInput] = useState();
-
-  numOfStanice = route.params.num
-  vrsta = route.params.type
-
-
-  //Patološke: Promijelociti, Blasti, Metamijelociti, Mijelociti, Nesegmentirani granulociti, Plazma stanice, Reaktivni limfocit, Stanice Pelgera
-
-  //omjer max 30% segmentirani neutrofili 
-  //max 25% limfociti
-  //max 25% monociti 
-  //max 10% bazofili
-  //max 10% eozinofili
+  var numOfStanice = route.params.num
+  var vrsta = route.params.type
 
   const optionsPato = ['Pr', 'Bl', 'Meta', 'Mi', 'N.seg', 'Ps', 'R.ly', 'Sp']
   const realValuespPato = ['Promijelocit', 'Blast', 'Metamijelocit',
@@ -29,14 +19,13 @@ export default function QuestionScreen({ navigation, route }) {
   const omjerPato = [0.3, 0.25, 0.25, 0.1, 0.1, 0.1, 0.1, 0.1]
   const pointsPato = { 'Pr': 0, 'Bl': 0, 'Meta': 0, 'Mi': 0, 'N.seg': 0, 'Ps': 0, 'R.ly': 0, 'Sp': 0 }
 
-  //fizioloske: Segmentirani neutrofili, limfociti, monociti, bazofili, eozinofili
+
   const optionsFizio = ['Seg', 'Ly', 'Mono', 'Eo', 'Ba']
   const realValuesFizio = ['Segmentirani_granulocit', 'Limfocit', 'Monocit', 'Eozinofil', 'Bazofil']
   const omjerFizio = [0.3, 0.25, 0.25, 0.1, 0.1]
   const pointsFzio = { 'Seg': 0, 'Ly': 0, 'Mono': 0, 'Eo': 0, 'Ba': 0 }
 
-  const ques = questions
-  const data = ques
+  const data = questions
 
 
   const [options, setOptions] = useState([])
@@ -44,10 +33,11 @@ export default function QuestionScreen({ navigation, route }) {
   const [stanice, setStanice] = useState([])
   const [dataForUse, setDataForUse] = useState([])
   const [omjer, setOmjer] = useState([])
-  const [points, setPoints] = useState([]);
+  const [points, setPoints] = useState([])
+  const [numClass, setNumClass] = useState([])
 
 
-  //get Random pictures for quiz
+  //get random pictures for quiz
   useEffect(() => {
 
     var tempOptions = []
@@ -82,6 +72,7 @@ export default function QuestionScreen({ navigation, route }) {
     }
     setStanice(temp)
 
+    var numSt = new Array(tempRV.length).fill(0);
     var tempStanice = temp
     temp = []
 
@@ -92,8 +83,10 @@ export default function QuestionScreen({ navigation, route }) {
       var trenutniBrojTeStanice = omjerNum[tempRV.indexOf(tempStanice[RandomNumber].class)]
 
       if (temp.indexOf(tempStanice[RandomNumber]) == -1 && trenutniBrojTeStanice > 0) {
+        let index = tempRV.indexOf(tempStanice[RandomNumber].class) 
+        numSt[index] = numSt[index] + 1
         temp.push(tempStanice[RandomNumber])
-        omjerNum[tempRV.indexOf(tempStanice[RandomNumber].class)] = trenutniBrojTeStanice - 1
+        omjerNum[index] = trenutniBrojTeStanice - 1
       }
     }
 
@@ -101,6 +94,7 @@ export default function QuestionScreen({ navigation, route }) {
     setOptions(tempOptions)
     setRealValues(tempRV)
     setOmjer(tempOmjer)
+    setNumClass(numSt)
 
   }, [])
 
@@ -112,6 +106,7 @@ export default function QuestionScreen({ navigation, route }) {
   // selected answer
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
+  //check if answer is correct
   useEffect(() => {
     if (selectedAnswer !== null) {
       if (options.indexOf(selectedAnswer) == realValues.indexOf(currentQuestion?.class)) {
@@ -120,27 +115,35 @@ export default function QuestionScreen({ navigation, route }) {
     }
   }, [selectedAnswer]);
 
+  //reset selected value
   useEffect(() => {
     setSelectedAnswer(null);
   }, [index]);
 
+  //handle click on option
   const handleClick = value => {
     setSelectedAnswer(value);
 
     if(index == dataForUse.length - 1){
-      navigation.navigate('Result', {options:options, points:points})
+      let results = []
+      let sum = 0
+      for(let i = 0; i < options.length; i++){
+        results.push(points[options[i]] + '/' + numClass[i])
+        sum += points[options[i]]
+      }
+      
+      navigation.navigate('Result', {options:options, result:Math.floor(sum/totalQuestions*100), results:results})
     } else {
       setIndex(index + 1)
     }
   };
 
+  //handle click on back button
   const onPress = value => {
     navigation.navigate("Param")
   }
 
-
   const currentQuestion = dataForUse.length > 0 ? dataForUse[index] : data[0]
-
   return (
     <View style={[styles.container, {flexDirection: 'column'}]}>
       <View style={styles.header} >

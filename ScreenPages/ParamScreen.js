@@ -11,7 +11,7 @@ export default function ParamScreen({ navigation }) {
   const [num, setNum] = useState(null);
   const [type, setType] = useState(null);
   const stValues = [
-    { value: '1' },
+    { value: '10' },
     { value: '50' },
     { value: '100' },
   ];
@@ -108,11 +108,11 @@ const styles = StyleSheet.create({
   circle: {
     position: 'absolute',
     backgroundColor: '#9C53D4',
-    borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) * 0.75,
-    width: Dimensions.get('window').width * 0.75,
-    height: Dimensions.get('window').width * 0.75,
-    left: '40%',
-    bottom: '15%',
+    borderRadius: Dimensions.get('window').width * 0.4,
+    width: Dimensions.get('window').width * 0.8,
+    height: Dimensions.get('window').width * 0.8,
+    left: '37.5%',
+    bottom: '11%',
     opacity: 0.2
   },
   svg: {
