@@ -8,7 +8,11 @@ import PlaySvg from '../resources/svg-s/PlaySvg'
 
 export default function ChooseScreen({ navigation }) {
   const handleClick = value => {
-    navigation.navigate('Param')
+    if(value === 'Kviz'){
+      navigation.navigate('Param2')  
+    } else {
+      navigation.navigate('Param')
+    }
   }
 
   const onPress = () => {
