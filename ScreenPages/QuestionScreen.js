@@ -7,26 +7,14 @@ import questions from '../resources/data/questions';
 import BackButton from '../components/BackButton'
 import CloseButton from '../components/CloseButton'
 import { isSearchBarAvailableForCurrentPlatform } from 'react-native-screens';
-
+import fizio from '../resources/data/fizio';
+import patio from '../resources/data/patio';
 
 export default function QuestionScreen({ navigation, route }) {
   var numOfStanice = route.params.num
   var vrsta = route.params.type
 
-  const optionsPato = ['Pr', 'Bl', 'Meta', 'Mi', 'N.seg', 'Ps', 'R.ly', 'Sp']
-  const realValuespPato = ['Promijelocit', 'Blast', 'Metamijelocit',
-    'Mijelocit', 'Nesegmentirani_granulocit', 'Plazma_stanice', 'Reaktivni_limfocit', 'Stanice_Pelgera']
-  const omjerPato = [0.3, 0.25, 0.25, 0.1, 0.1, 0.1, 0.1, 0.1]
-  const pointsPato = { 'Pr': 0, 'Bl': 0, 'Meta': 0, 'Mi': 0, 'N.seg': 0, 'Ps': 0, 'R.ly': 0, 'Sp': 0 }
-
-
-  const optionsFizio = ['Seg', 'Ly', 'Mono', 'Eo', 'Ba']
-  const realValuesFizio = ['Segmentirani_granulocit', 'Limfocit', 'Monocit', 'Eozinofil', 'Bazofil']
-  const omjerFizio = [0.3, 0.25, 0.25, 0.1, 0.1]
-  const pointsFzio = { 'Seg': 0, 'Ly': 0, 'Mono': 0, 'Eo': 0, 'Ba': 0 }
-
-  const data = questions
-
+  const rD = vrsta === 'Patio' ? patio : fizio
 
   const [options, setOptions] = useState([])
   const [realValues, setRealValues] = useState([])
@@ -35,27 +23,27 @@ export default function QuestionScreen({ navigation, route }) {
   const [omjer, setOmjer] = useState([])
   const [points, setPoints] = useState([])
   const [numClass, setNumClass] = useState([])
+  const[questionClass, setQuestionClass] = useState([])
 
 
   //get random pictures for quiz
   useEffect(() => {
-
+    
     var tempOptions = []
     var tempRV = []
     var tempOmjer = []
 
-    if (vrsta === 'Patio') {
-      tempOptions = optionsPato
-      tempOmjer = omjerPato
-      tempRV = realValuespPato
-      setPoints(pointsPato)
-    } else {
-      tempOptions = optionsFizio
-      tempOmjer = omjerFizio
-      tempRV = realValuesFizio
-      setPoints(pointsFzio)
-    }
+      tempOptions = rD.options
+      tempOmjer = rD.omjer
+      tempRV = rD.realValues
+      
+      var createPoints = {}
 
+      for (j = 0; j < tempOptions.length;j++) {
+          createPoints[tempOptions[j]] = 0
+      }
+
+      setPoints(createPoints)
 
     var omjerNum = []
     for (i = 0; i < tempOptions.length; i++) {
@@ -63,38 +51,37 @@ export default function QuestionScreen({ navigation, route }) {
     }
 
 
-    var temp = []
-    for (i = 0; i < data.length; i++) {
-      if (tempRV.indexOf(data[i].class) > -1) {
-        temp.push(data[i])
-      }
-
-    }
-    setStanice(temp)
-
     var numSt = new Array(tempRV.length).fill(0);
-    var tempStanice = temp
+    var tempStanice = rD.questions
     temp = []
-
-
+    var tempQuestionClass = []
+    
     while (temp.length < numOfStanice) {
+        
+      //Random klasa stanice
+      var RandomNumberClass = Math.floor(Math.random() * tempStanice.length)
 
-      var RandomNumber = Math.floor(Math.random() * tempStanice.length)
-      var trenutniBrojTeStanice = omjerNum[tempRV.indexOf(tempStanice[RandomNumber].class)]
+      //broj slika za tu klasu
+      var trenutniBrojTeStanice = omjerNum[tempRV.indexOf(tempStanice[RandomNumberClass].class)]
 
-      if (temp.indexOf(tempStanice[RandomNumber]) == -1 && trenutniBrojTeStanice > 0) {
-        let index = tempRV.indexOf(tempStanice[RandomNumber].class) 
+      //Random uri za tu klasu stanice
+      var RandomNumberUri = Math.floor(Math.random() * tempStanice[RandomNumberClass].uris.length)
+
+      if (temp.indexOf(tempStanice[RandomNumberClass].uris[RandomNumberUri]) == -1 && trenutniBrojTeStanice > 0) {
+        let index = tempRV.indexOf(tempStanice[RandomNumberClass].class) 
         numSt[index] = numSt[index] + 1
-        temp.push(tempStanice[RandomNumber])
+        temp.push(tempStanice[RandomNumberClass].uris[RandomNumberUri])
+        tempQuestionClass.push(tempStanice[RandomNumberClass].class)
         omjerNum[index] = trenutniBrojTeStanice - 1
       }
-    }
+    } 
 
     setDataForUse(temp)
     setOptions(tempOptions)
     setRealValues(tempRV)
     setOmjer(tempOmjer)
     setNumClass(numSt)
+    setQuestionClass(tempQuestionClass)
 
   }, [])
 
@@ -109,7 +96,7 @@ export default function QuestionScreen({ navigation, route }) {
   //check if answer is correct
   useEffect(() => {
     if (selectedAnswer !== null) {
-      if (options.indexOf(selectedAnswer) == realValues.indexOf(currentQuestion?.class)) {
+      if (options.indexOf(selectedAnswer) == realValues.indexOf(currentClass)) {
         points[selectedAnswer] = points[selectedAnswer] + 1
       }
     }
@@ -143,7 +130,9 @@ export default function QuestionScreen({ navigation, route }) {
     navigation.navigate("Param")
   }
 
-  const currentQuestion = dataForUse.length > 0 ? dataForUse[index] : data[0]
+  const currentQuestion = dataForUse.length > 0 ? dataForUse[index] : rD.questions[0].uris[0]
+  const currentClass = dataForUse.length > 0 ? questionClass[index] : rD.questions[0].class
+
   return (
     <View style={[styles.container, {flexDirection: 'column'}]}>
       <View style={styles.header} >
@@ -156,7 +145,7 @@ export default function QuestionScreen({ navigation, route }) {
       </View>
 
       <View style={{ flex: 4, backgroundColor: 'white', alignItems: 'center' }} >
-        <Image style={styles.image} source={currentQuestion.uri} />
+        <Image style={styles.image} source={currentQuestion} />
       </View>
 
       <LinearGradient colors={['white', '#EBDDF6']} style={[styles.background, { flex: 4 }]}>
