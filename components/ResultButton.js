@@ -3,11 +3,12 @@ import InfoSvg from '../resources/svg-s/InfoSvg';
 
 const ResultButton = (props) => {
     return (
-        <View style={[styles.rectangle, eval(props.value) < 0.5 ? {borderColor: '#E24646'}:{borderColor: '#36D69C'}]}>
+        <Pressable onPress={() => {props.handleClick(props.name)}} 
+        style={[styles.rectangle, eval(props.value) < 0.5 ? {borderColor: '#E24646'}:{borderColor: '#36D69C'}]}>
             <Text style={styles.text}>{props.name}</Text>
             <Text style={styles.text}>{props.value}</Text>
             <InfoSvg style={styles.svg}/>
-        </View>
+        </Pressable>
     );
 };
 

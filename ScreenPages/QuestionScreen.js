@@ -119,7 +119,12 @@ export default function QuestionScreen({ navigation, route }) {
         sum += points[options[i]]
       }
       
-      navigation.navigate('Result', {options:options, result:Math.floor(sum/totalQuestions*100), results:results})
+      navigation.navigate('Result', {
+        options:options,
+        result:Math.floor(sum/totalQuestions*100),
+        results:results,
+        realValues: realValues
+      })
     } else {
       setIndex(index + 1)
     }

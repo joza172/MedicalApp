@@ -7,6 +7,7 @@ import ParamScreen2 from "./ScreenPages/ParamScreen2.js";
 import QuestionScreen from "./ScreenPages/QuestionScreen.js";
 import QuestionScreen2 from "./ScreenPages/QuestionScreen2.js";
 import ResultScreen from "./ScreenPages/ResultScreen.js";
+import ResultInfoScreen from "./ScreenPages/ResultInfoScreen.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -47,6 +48,11 @@ export default function App() {
         <Stack.Screen 
           name="Result"
           component={ResultScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name="ResultInfo"
+          component={ResultInfoScreen}
           options={{headerShown: false}}
         />
 

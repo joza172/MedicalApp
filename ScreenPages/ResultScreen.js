@@ -9,8 +9,18 @@ import ResultButton from '../components/ResultButton';
 export default function ResultScreen({ navigation , route }) {
   const rotation = (-36.6 + 163.2 * route.params.result / 100) + 'deg'
 
-  const handleClick = value => {
-    navigation.navigate('Param')
+  const handleClick = name => {
+    var index = route.params.options.indexOf(name)
+    var list = route.params.results[index].split('/')
+    navigation.navigate('ResultInfo', {
+      name: route.params.realValues[index],
+      num: list[1],
+      correct: list[0],
+      options: route.params.options,
+      result: route.params.result,
+      results: route.params.results,
+      realValues: route.params.realValues
+    })
   }
 
   const onPress = () => {
