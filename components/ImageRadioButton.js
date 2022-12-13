@@ -23,7 +23,7 @@ const ImageRadioButton = (props) => {
                     style={styles.press}
                     key={i}
                     onPress={() => handleClick(i)}>
-                        <Image style={styles.image} source={object} />
+                        <Image style={styles.image} source={object}/>
                         <View style={userOption == i ? styles.circleSelected : styles.circleUnselected}/>
                     </Pressable>
                   )
