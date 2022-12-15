@@ -10,7 +10,7 @@ import BigRadioButton from '../components/BigRadioButton';
 export default function ParamScreen2({ navigation }) {
   const [num, setNum] = useState(null);
   const stValues = [
-    { value: '60' },
+    { value: '10' },
     { value: '90' },
     { value: '120' },
   ];

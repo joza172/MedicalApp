@@ -8,6 +8,8 @@ import QuestionScreen from "./ScreenPages/QuestionScreen.js";
 import QuestionScreen2 from "./ScreenPages/QuestionScreen2.js";
 import ResultScreen from "./ScreenPages/ResultScreen.js";
 import ResultInfoScreen from "./ScreenPages/ResultInfoScreen.js";
+import ResultScreen2 from "./ScreenPages/ResultScreen2.js";
+import ResultInfoScreen2 from "./ScreenPages/ResultInfoScreen2.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -51,11 +53,20 @@ export default function App() {
           options={{headerShown: false}}
         />
         <Stack.Screen 
+          name="Result2"
+          component={ResultScreen2}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
           name="ResultInfo"
           component={ResultInfoScreen}
           options={{headerShown: false}}
         />
-
+        <Stack.Screen 
+          name="ResultInfo2"
+          component={ResultInfoScreen2}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

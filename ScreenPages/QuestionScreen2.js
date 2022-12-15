@@ -54,7 +54,6 @@ export default function QuestionScreen2({ navigation, route }) {
     var randomIndex = Math.floor(Math.random() * 4) 
     tempUris[3] = tempUris[randomIndex]
     tempUris[randomIndex] = rUri
-    console.log(randomIndex)
     setCorrectAnswer(randomIndex)
 
     setReal(r)
@@ -72,7 +71,7 @@ export default function QuestionScreen2({ navigation, route }) {
         setRotation((-36.6 + 163.2 * time/route.params.num) + 'deg')
       }
       if (time === 0) {
-        onPress('')
+        navigation.navigate("Result2", {result:10, answers:answers})
       }
     };
 
@@ -101,7 +100,6 @@ export default function QuestionScreen2({ navigation, route }) {
     }
     setQuestionNum(questionNum+1)
     setAnswers(temp)
-    console.log(answers)
     
   };
 
