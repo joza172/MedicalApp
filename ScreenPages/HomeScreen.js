@@ -8,7 +8,12 @@ import FakeMenuSvg from '../resources/svg-s/FakeMenuSvg';
 
 export default function HomeScreen({ navigation }) {
   const handleClick = value => {
-    navigation.navigate('Second')
+    if(value === 'Galerija'){
+      navigation.navigate('Gallery')
+    }
+    if(value === 'Vjezbe'){
+      navigation.navigate('Second')
+    }
   };
 
   return (

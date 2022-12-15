@@ -1,0 +1,186 @@
+import * as React from "react"
+import Svg, { Circle, Path } from "react-native-svg"
+
+function MetaSvg(props) {
+  return (
+    <Svg
+      width={props.size != null ? props.size : 81}
+      height={props.size != null ? props.size : 81}
+      viewBox="0 0 81 81"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <Circle cx={40.5} cy={40.8179} r={40.5} fill="#E0C7F9" />
+      <Path
+        d="M37.625 36.497c.042 5.745-2.476 9.553-7.361 9.589-4.885.035-13.857-8.026-13.898-13.771-.041-5.745 5.307-9.574 10.192-9.61 4.884-.034 11.026 8.047 11.067 13.792z"
+        fill="#9C53D4"
+      />
+      <Path
+        d="M43.834 13.505c2.564 3.917-7.52 7.083-9.181 15.443-4.348 17.606-14.927 9.316-17.491 5.399-2.564-3.917.07-12.113 5.884-18.307 5.814-6.193 18.224-6.452 20.788-2.535z"
+        fill="#9C53D4"
+      />
+      <Path
+        d="M59.9 45.903c-1.242 4.09-11.222-17.648-18.74-21.395-12.049-.352-7.765-7.027-6.523-11.118-5.292-4.614 14.773-1.529 22.291 2.217 7.518 3.746 4.213 26.205 2.972 30.296z"
+        fill="#9C53D4"
+      />
+      <Path
+        d="M66.753 47.432C63.306 57.11 54.324 69.017 50.202 66.61c-4.123-2.408-4.672-12.205-1.225-21.883 4.49-13.59 6.344-29.092 10.467-26.684 4.122 2.408 10.755 19.711 7.309 29.39z"
+        fill="#9C53D4"
+      />
+      <Circle
+        cx={61.4127}
+        cy={55.2507}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={57.2892}
+        cy={63.498}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={25.1837}
+        cy={63.498}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={12.8126}
+        cy={53.4834}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={30.7799}
+        cy={68.7997}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={47.569}
+        cy={59.0798}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={45.5074}
+        cy={68.7997}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={56.4054}
+        cy={44.647}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={63.4747}
+        cy={21.3779}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={53.1656}
+        cy={14.8979}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={36.9654}
+        cy={12.247}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Path
+        d="M63.52 39.47c-8.164-6.765.5-10.46-10.993-17.305-11.493-6.845-27.76-1.98-23.95-4.7-4.083-3.811 15.285-5.525 26.779 1.32 11.493 6.845 11.596 23.174 8.165 20.684z"
+        fill="#7F40B0"
+      />
+      <Circle
+        cx={23.1217}
+        cy={19.3161}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={14.8746}
+        cy={33.7489}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={41.3834}
+        cy={41.9961}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={40.5001}
+        cy={25.7961}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={67.5983}
+        cy={45.5307}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={24.8893}
+        cy={38.167}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={31.9581}
+        cy={40.2289}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={22.8273}
+        cy={51.4216}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={30.7799}
+        cy={53.4834}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+      <Circle
+        cx={57.7301}
+        cy={29.1988}
+        r={2.20909}
+        fill="#C29DE7"
+        fillOpacity={0.5}
+      />
+    </Svg>
+  )
+}
+
+export default MetaSvg
