@@ -5,37 +5,45 @@ import GallerySvg from '../resources/svg-s/GallerySvg';
 import DiseaseSvg from '../resources/svg-s/DiseaseSvg';
 import KvizSvg from '../resources/svg-s/KvizSvg';
 
-function renderSwitch(param) {
-    switch(param) {
-        case '0':
-            return (<PlaySvg color='#FFF' size={Dimensions.get('window').width * 0.18}/>);
-        case '1':
-            return (<MicroscopeSvg />);
-        case '2':
-            return (<GallerySvg />);
-        case '3':
-            return (<DiseaseSvg />);
-        case '4':
-            return (<KvizSvg />);
-    }
-  }
-
 const BigButton = (props) => {
-    
+    const {style, ...rest} = props;
+
+    function renderSwitch(param) {
+        switch(param) {
+            case '0':
+                return (<PlaySvg color='#FFF' size={Dimensions.get('window').height * props.size}/>);
+            case '1':
+                return (<MicroscopeSvg size={Dimensions.get('window').height * props.size}/>);
+            case '2':
+                return (<GallerySvg size={Dimensions.get('window').height * props.size}/>);
+            case '3':
+                return (<DiseaseSvg size={Dimensions.get('window').height * props.size}/>);
+            case '4':
+                return (<KvizSvg size={Dimensions.get('window').height * props.size}/>);
+        }
+      }
+
     return (
-        <Pressable style={[styles.rectanglePressable, props.small ? {width: '90%'} : {}]} 
+        <Pressable style={[styles.rectanglePressable, style]} 
             onPress={() => {
                     props.handleClick(props.value)
                 }
             }>
-            {renderSwitch(props.num)}
-            <Text style={[styles.text]}>{props.value}</Text>
+            <View style={styles.picText}>
+                {renderSwitch(props.num)}
+                <Text style={[styles.text]}>{props.value}</Text>
+            </View>
             
         </Pressable>
     );
 };
 
 const styles = StyleSheet.create({
+    picText: {
+        height: '80%',
+        justifyContent: 'space-evenly',
+        alignItems: 'center'
+    },
     rectanglePressable: {
         flexDirection: 'column',
         justifyContent: 'center',
@@ -44,14 +52,13 @@ const styles = StyleSheet.create({
         borderRadius: 60,
         padding: 10,
         backgroundColor: '#9c53d4',
-        width: '45%',
-        height: '95%',
         shadowColor: '#000000',
         elevation: 10,
     },
     text: {
         fontWeight: 'bold',
         color: '#FFFFFF',
+        fontSize: 19
     }
 })
 
