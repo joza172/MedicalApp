@@ -3,6 +3,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Dimensions, StyleSheet, View, Text, Image, Pressable, TextInput } from 'react-native';
 import BigButton from '../components/BigButton';
+import Circle from '../components/Circle';
 import {LinearGradient} from 'expo-linear-gradient'
 import FakeMenuSvg from '../resources/svg-s/FakeMenuSvg';
 
@@ -11,17 +12,17 @@ export default function HomeScreen({ navigation }) {
     if(value === 'Galerija'){
       navigation.navigate('Gallery')
     }
-    if(value === 'Vjezbe'){
+    if(value === 'Vježbe'){
       navigation.navigate('Second')
     }
   };
 
   return (
-    <View style={[styles.container, {flexDirection: 'column'}]}>
+    <View style={styles.mainContainer}>
       <View style={{ flex: 2, backgroundColor: 'white'}} >
           <View style={{ flex: 3}}>
-            <View style={[styles.circle, {right: '75%', opacity: 0.2}]}/>
-            <View style={[styles.circle, {bottom: '50%', opacity: 0.2}]}/>
+            <Circle size={0.25} style={{right: '75%', opacity: 0.2}}/>
+            <Circle size={0.25} style={{bottom: '50%', opacity: 0.2}}/>
             <FakeMenuSvg style={{left: '85%', top: '20%'}}/>
           </View>
           <View style={{ flex: 1, justifyContent: 'flex-end'}}>  
@@ -30,21 +31,21 @@ export default function HomeScreen({ navigation }) {
 
       </View>
 
-      <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background, {flex:4}]}>
+      <LinearGradient colors={['white', '#EBDDF6' ]} style={styles.background}>
         <View style={{flex: 1, alignItems: 'center', padding: '5%'}} >
             <View style={[styles.searchBar, {alignItems: 'center'}]}>
                 <SearchSvg style={{ flex: 1, marginLeft: '3%'}}/>
-                <Text style={[styles.inputText ,{ flex: 9, marginLeft: '3%'}]}>josip</Text>
+                <Text style={[styles.inputText]}></Text>
             </View>
         </View>
         <View style={{flexDirection: 'column',flex: 6}}>
           <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-around', alignItems: 'center'}}>
-            <BigButton value='Vježbe' num='0'  handleClick={handleClick} style={{ flex: 1}}></BigButton>
-            <BigButton value='Razmazi' num='1' handleClick={handleClick} style={{ flex: 1}}></BigButton>
+            <BigButton value='Vježbe' num='0'  handleClick={handleClick} style={styles.bigButton} size={0.08}/>
+            <BigButton value='Razmazi' num='1' handleClick={handleClick} style={styles.bigButton} size={0.08}/>
           </View>
           <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-around', alignItems: 'center'}}>
-            <BigButton value='Galerija' num='2' handleClick={handleClick} style={{ flex: 1}}></BigButton>
-            <BigButton value='Bolesti' num='3' handleClick={handleClick} style={{ flex: 1}}></BigButton>
+            <BigButton value='Galerija' num='2' handleClick={handleClick} style={styles.bigButton} size={0.08}/>
+            <BigButton value='Bolesti' num='3' handleClick={handleClick} style={styles.bigButton} size={0.09}/>
           </View>
         </View>
         <View style={{ flex: 1 }} >
@@ -57,14 +58,12 @@ export default function HomeScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
+  mainContainer: {
+    flex: 1,
+    flexDirection: 'column'
   },
   background: {
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
+    flex: 4
   },
   title: {
     fontSize: 40,
@@ -80,12 +79,19 @@ const styles = StyleSheet.create({
   inputText: {
     color: '#9c53d4',
     fontWeight: 'bold',
+    flex: 9,
+    marginLeft: '3%'
   },
   circle: {
     position: 'absolute',
     backgroundColor: '#9C53D4',
-    borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) / 2,
-    width: Dimensions.get('window').width * 0.5,
-    height: Dimensions.get('window').width * 0.5,
+    borderRadius: Dimensions.get('window').height * 0.125,
+    width: Dimensions.get('window').height * 0.25,
+    height: Dimensions.get('window').height * 0.25,
+    opacity: 0.2
+  },
+  bigButton: {
+    width: '45%',
+    height: '95%',
   }
 });
