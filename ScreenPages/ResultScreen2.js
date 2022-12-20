@@ -6,11 +6,13 @@ import {LinearGradient} from 'expo-linear-gradient'
 import ResultSvg from '../resources/svg-s/ResultSvg'
 import ResultImageButton from '../components/ResultImageButton';
 
+const height = Dimensions.get('window').height
 export default function ResultScreen2({ navigation , route }) {
   const rotation = (-36.6 + 163.2 * route.params.result / 100) + 'deg'
 
   const handleClick = name => {
-    navigation.navigate('ResultInfo2', {index:name, answers:route.params.answers})
+    navigation.navigate('ResultInfo2', {index:name, 
+      answers:route.params.answers, result:route.params.result})
   }
 
   const onPress = () => {
@@ -28,13 +30,13 @@ export default function ResultScreen2({ navigation , route }) {
               {rotate: rotation},
               {translateX: -Dimensions.get('window').width * 0.205}],}]}/>
             <View style={styles.circle}/>
-            <BackButton onPress={onPress} style={{left: '3%', top: '10%'}}/>
-            <ResultSvg style={styles.svg}/>
+            <BackButton size={height * 0.055} onPress={onPress} style={{left: '3%', top: '10%'}}/>
+            <ResultSvg size={height * 111 / 844} style={styles.svg}/>
         </View>
 
         <View style={{marginHorizontal: '5%'}}>
             <View>  
-              <Text style={styles.title}>Tvoj rezultat je: {route.params.result}%</Text>
+              <Text style={styles.title}>Tvoj rezultat je: {Math.round(route.params.result)}%</Text>
             </View>
             {route.params.answers.map(function (object, i) {
                 return (
@@ -59,9 +61,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   title: {
-    fontSize: 25,
+    fontSize: 25 / 844 * height,
     fontWeight: 'bold',
-    marginLeft: '10%',
+    marginLeft: '5%',
   },
   svg: {
     position: 'absolute',

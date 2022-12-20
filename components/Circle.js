@@ -7,6 +7,7 @@ const Circle = (props) => {
         circle: {
             position: 'absolute',
             backgroundColor: '#9C53D4',
+            opacity: 0.2,
             borderRadius: Dimensions.get('window').height * props.size / 2,
             width: Dimensions.get('window').height * props.size,
             height: Dimensions.get('window').height * props.size

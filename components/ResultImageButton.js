@@ -1,6 +1,7 @@
-import { StyleSheet, Pressable, View, Text , Image} from 'react-native';
+import { Dimensions, StyleSheet, Pressable, View, Text , Image} from 'react-native';
 import InfoSvg from '../resources/svg-s/InfoSvg';
 
+const height = Dimensions.get('window').height
 const ResultImageButton = (props) => {
     return (
         <Pressable onPress={() => {props.handleClick(props.index)}} 
@@ -15,7 +16,7 @@ const ResultImageButton = (props) => {
                     );
                 })}
             </View>
-            <InfoSvg color='white' size={35} style={styles.svg}/>
+            <InfoSvg color='white' size={35 / 844 * height} style={styles.svg}/>
         </Pressable>
     );
 };

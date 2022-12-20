@@ -1,17 +1,20 @@
-import { StyleSheet, Pressable, View, Text } from 'react-native';
+import { Dimensions, StyleSheet, Pressable, View, Text } from 'react-native';
 import { useState } from 'react';
 
+
+const height = Dimensions.get('window').height
 const BigRadioButton = (props) => {
+    const {style, ...rest} = props;
     const handleClick = name => {
         props.handleClick(name);
         setUserOption(name)
     };
 
-    const [userOption, setUserOption] = useState(null);
+    const [userOption, setUserOption] = useState(props.data[1].value);
 
     return (
-        <View style={{flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            {props.data.map((item) => {     
+        <View style={[styles.container, style]}>
+            {props.data.map((item, i) => {     
                 return (
                     <Pressable
                     key={item.value}
@@ -19,7 +22,7 @@ const BigRadioButton = (props) => {
                         [item.value === userOption ? styles.selected : styles.unselected, styles.rectanglePressable, {flex: 1}]
                     }
                     onPress={() => handleClick(item.value)}>
-                        <Text style={item.value === userOption ? styles.optionSelected : styles.optionUnselected}> {item.value}</Text>
+                        <Text style={[styles.text, item.value === userOption ? styles.optionSelected : styles.optionUnselected]}> {item.value}</Text>
                     </Pressable>
                 );
                 })
@@ -30,32 +33,41 @@ const BigRadioButton = (props) => {
 };
 
 const styles = StyleSheet.create({
+    container: {
+        backgroundColor: 'white',
+        borderRadius: 30,
+        flexDirection: 'row',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        shadowColor: '#000000',
+        elevation: 30,
+    },
     rectanglePressable: {
-        borderRadius: 50,
+        borderRadius: 30,
         padding: 10,
         width: '30%',
-        height: '95%',
-        shadowColor: '#000000',
-        elevation: 10,
+        height: '100%',
+    },
+    text: {
+        fontSize: height * 19 / 844,
+        textAlign: 'center',
+        fontWeight: '700',
+        marginTop: '10%',
     },
     optionUnselected: {
-        marginTop: '10%',
-        fontWeight: 'bold',
         color: 'black',
-        textAlign: 'center',
     },
     optionSelected: {
-        marginTop: '10%',
-        fontWeight: 'bold',
         color: 'white',
-        textAlign: 'center',
     },
     unselected: {
         backgroundColor: 'white',
     },
     selected: {
         backgroundColor: '#9C53D4',
-        borderRadius: 10,
+        shadowColor: '#000000',
+        elevation: 10,
     },
 })
 

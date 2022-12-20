@@ -3,8 +3,8 @@ import Svg, { Path } from 'react-native-svg'
 
 const GallerySvg = (props) => (
     <Svg
-      width={props.size != null ? props.size:62}
-      height={props.size != null ? props.size:62}
+      width={props.size}
+      height={props.size}
       viewBox="0 0 62 62"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

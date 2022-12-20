@@ -7,6 +7,7 @@ import Circle from '../components/Circle';
 import {LinearGradient} from 'expo-linear-gradient'
 import FakeMenuSvg from '../resources/svg-s/FakeMenuSvg';
 
+const height = Dimensions.get('window').height
 export default function HomeScreen({ navigation }) {
   const handleClick = value => {
     if(value === 'Galerija'){
@@ -21,9 +22,9 @@ export default function HomeScreen({ navigation }) {
     <View style={styles.mainContainer}>
       <View style={{ flex: 2, backgroundColor: 'white'}} >
           <View style={{ flex: 3}}>
-            <Circle size={0.25} style={{right: '75%', opacity: 0.2}}/>
-            <Circle size={0.25} style={{bottom: '50%', opacity: 0.2}}/>
-            <FakeMenuSvg style={{left: '85%', top: '20%'}}/>
+            <Circle size={0.25} style={{right: '75%'}}/>
+            <Circle size={0.25} style={{bottom: '50%'}}/>
+            <FakeMenuSvg size={height * 0.055} style={{left: '85%', top: '15%'}}/>
           </View>
           <View style={{ flex: 1, justifyContent: 'flex-end'}}>  
             <Text style={styles.title}>Dobrodošli</Text>
@@ -34,7 +35,7 @@ export default function HomeScreen({ navigation }) {
       <LinearGradient colors={['white', '#EBDDF6' ]} style={styles.background}>
         <View style={{flex: 1, alignItems: 'center', padding: '5%'}} >
             <View style={[styles.searchBar, {alignItems: 'center'}]}>
-                <SearchSvg style={{ flex: 1, marginLeft: '3%'}}/>
+                <SearchSvg size={height * 0.025} style={{marginLeft: '3%'}}/>
                 <Text style={[styles.inputText]}></Text>
             </View>
         </View>
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
     flex: 4
   },
   title: {
-    fontSize: 40,
+    fontSize: height * 40 / 844,
     fontWeight: 'bold',
     marginLeft: '5%'
   },
@@ -82,16 +83,9 @@ const styles = StyleSheet.create({
     flex: 9,
     marginLeft: '3%'
   },
-  circle: {
-    position: 'absolute',
-    backgroundColor: '#9C53D4',
-    borderRadius: Dimensions.get('window').height * 0.125,
-    width: Dimensions.get('window').height * 0.25,
-    height: Dimensions.get('window').height * 0.25,
-    opacity: 0.2
-  },
   bigButton: {
     width: '45%',
     height: '95%',
   }
 });
+

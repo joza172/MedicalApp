@@ -6,10 +6,12 @@ import BackButton from '../components/BackButton'
 import {LinearGradient} from 'expo-linear-gradient'
 import SettingsSvg from '../resources/svg-s/SettingsSvg';
 import BigRadioButton from '../components/BigRadioButton';
+import Circle from '../components/Circle';
 
+const height = Dimensions.get('window').height
 export default function ParamScreen({ navigation }) {
-  const [num, setNum] = useState(null);
-  const [type, setType] = useState(null);
+  const [num, setNum] = useState('50');
+  const [type, setType] = useState('Patio');
   const stValues = [
     { value: '10' },
     { value: '50' },
@@ -19,7 +21,7 @@ export default function ParamScreen({ navigation }) {
   const razValues = [
     { value: 'Fizio' },
     { value: 'Patio' },
-    { value: 'Iznenadi me' },
+    { value: 'Obično' },
   ];
 
   const handleClickNum = value => {
@@ -42,29 +44,29 @@ export default function ParamScreen({ navigation }) {
 
 
   return (
-    <View style={{flexDirection: 'column', flex: 1}}>
+    <View style={styles.container}>
       <View style={{ flex: 7, backgroundColor: 'white'}} >
-          <View style={styles.circle}/>
-          <BackButton onPress={onPress} style={{left: '3%', top: '10%'}}/>
-          <SettingsSvg size={Dimensions.get('window').width * 0.25} style={styles.svg}/>
+          <Circle size={0.35} style={{left: '43%', top: '-10%'}}/>
+          <BackButton size={height * 0.055} onPress={onPress} style={{left: '3%', top: '10%'}}/>
+          <SettingsSvg size={height * 0.12} style={styles.svg}/>
       </View>
 
-      <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background, {flex:13}]}>
+      <LinearGradient colors={['white', '#EBDDF6' ]} style={styles.background}>
         <View style={{flexDirection: 'column',flex: 6}}>
           <View style={styles.box}>
             <Text style={styles.title}>Izaberi broj stanica</Text>
           </View>
-          <BigRadioButton style={{flex: 1}} data={stValues} handleClick={handleClickNum}/>
+          <BigRadioButton style={{marginHorizontal: '3%'}} data={stValues} handleClick={handleClickNum}/>
 
           <View style={styles.box}>
             <Text style={styles.title}>Izaberi vrstu razmaza</Text>
           </View>
-          <BigRadioButton style={{flex: 1}} data={razValues} handleClick={handleClickType}/>
+          <BigRadioButton style={{marginHorizontal: '3%'}} data={razValues} handleClick={handleClickType}/>
           
           <View style={styles.box}/>
           
           <View style={styles.box}>
-            <BigButton value='Pokreni Vjezbu' style={{ flex: 1}} handleClick={handleClickStart}></BigButton>
+            <BigButton value='Pokreni Vjezbu' style={styles.bigButton} handleClick={handleClickStart} size={0.08}></BigButton>
           </View>
         </View>
        
@@ -76,6 +78,11 @@ export default function ParamScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  bigButton: {
+    width: '54%',
+    height: '90%',
+    borderRadius: 25,
+  },
   box: {
     flexDirection: 'row',
     flex: 1,
@@ -86,13 +93,10 @@ const styles = StyleSheet.create({
     flex: 1
   },
   background: {
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
+    flex:13
   },
   title: {
-    fontSize: 20,
+    fontSize: height * 25 / 844,
     fontWeight: 'bold',
   },
   searchBar: {
@@ -105,19 +109,9 @@ const styles = StyleSheet.create({
     color: '#9c53d4',
     fontWeight: 'bold',
   },
-  circle: {
-    position: 'absolute',
-    backgroundColor: '#9C53D4',
-    borderRadius: Dimensions.get('window').width * 0.4,
-    width: Dimensions.get('window').width * 0.8,
-    height: Dimensions.get('window').width * 0.8,
-    left: '37.5%',
-    bottom: '11%',
-    opacity: 0.2
-  },
   svg: {
     position: 'absolute',
     left: '68%',
-    top: '18%'
+    top: '25%'
   }
 });

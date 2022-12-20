@@ -3,8 +3,8 @@ import Svg, { Path } from 'react-native-svg'
 
 const DiseaseSvg = (props) => (
   <Svg
-      width={props.size != null ? props.size:70}
-      height={props.size != null ? props.size:70}
+      width={props.size}
+      height={props.size}
       viewBox="0 0 70 70"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

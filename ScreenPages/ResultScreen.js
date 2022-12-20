@@ -1,11 +1,12 @@
 import * as React from 'react';
 import BackButton from '../components/BackButton'
-import { Dimensions, StyleSheet, View, Text } from 'react-native'
+import { ScrollView, Dimensions, StyleSheet, View, Text } from 'react-native'
 import { useState, useEffect} from 'react';
 import {LinearGradient} from 'expo-linear-gradient'
 import ResultSvg from '../resources/svg-s/ResultSvg'
 import ResultButton from '../components/ResultButton';
 
+const height = Dimensions.get('window').height
 export default function ResultScreen({ navigation , route }) {
   const rotation = (-36.6 + 163.2 * route.params.result / 100) + 'deg'
 
@@ -30,63 +31,55 @@ export default function ResultScreen({ navigation , route }) {
 
   return (
     <View style={[styles.container, {flexDirection: 'column'}]}>
-      <View style={{ flex: 7, backgroundColor: 'white'}} >
-          <View style={styles.circleOut}/>
-          <View style={[styles.circlePer, {transform: [
-            {translateX: Dimensions.get('window').width * 0.205},
-            {rotate: rotation},
-            {translateX: -Dimensions.get('window').width * 0.205}],}]}/>
-          <View style={styles.circle}/>
-          <BackButton onPress={onPress} style={{left: '3%', top: '10%'}}/>
-          <ResultSvg style={styles.svg}/>
-      </View>
-
-      <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background, {flex:13}]}>
-          <View>  
-            <Text style={styles.title}>Tvoj rezultat je: {route.params.result}%</Text>
-          </View>
-          <View style={styles.table}>
-            <View style={styles.column}>
-                {route.params.options.map(function (object, i) {
-                if (i < (Math.floor(route.params.options.length / 2))) {
-                    return (
-                    <View key={i} style={styles.cell}>
-                        <ResultButton name={object} value={route.params.results[i]} small={true} handleClick={handleClick} />
-                    </View>);
-                }
-                })}
-            </View>
-            <View style={styles.column}>
-                {route.params.options.map(function (object, i) {
-                if (i >= (Math.floor(route.params.options.length / 2))) {
-                    return (
-                    <View key={i} style={styles.cell}>
-                        <ResultButton name={object} value={route.params.results[i]} small={true} handleClick={handleClick} />
-                    </View>);
-                }
-                })}
-            </View>
+        <ScrollView>
+          <View style={{ height: 0.35 * height, backgroundColor: 'white'}} >
+            <View style={styles.circleOut}/>
+            <View style={[styles.circlePer, {transform: [
+              {translateX: Dimensions.get('window').width * 0.205},
+              {rotate: rotation},
+              {translateX: -Dimensions.get('window').width * 0.205}],}]}/>
+            <View style={styles.circle}/>
+            <BackButton size={height * 0.055} onPress={onPress} style={{left: '3%', top: '10%'}}/>
+            <ResultSvg size={height * 111 / 844} style={styles.svg}/>
         </View>
-      </LinearGradient>
 
+        <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background]}>
+            <View>  
+              <Text style={styles.title}>Tvoj rezultat je: {route.params.result}%</Text>
+            </View>
+            <View style={styles.table}>
+                  {route.params.options.map(function (object, i) {
+                      return (
+                          <ResultButton name={object} key={i} 
+                          style={styles.button}
+                          value={route.params.results[i]} 
+                          handleClick={handleClick} />
+                      )
+                  })}
+            </View>
+        </LinearGradient>
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  button: {
+      width: '45%',
+      height: height * 0.1,
+      marginVertical: '2%',
+  },
   container: {
     flex: 1
   },
   background: {
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
+    minHeight: 0.65 * height
   },
   title: {
-    fontSize: 25,
+    fontSize: 25 / 844 * height,
     fontWeight: 'bold',
     marginLeft: '10%',
+    marginBottom: '3%'
   },
   searchBar: {
     backgroundColor: '#EBDDF6',
@@ -108,12 +101,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: '10%',
     flex: 10,
     flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-around',
-  },
-  column: {
-    width: '45%',
-    flexDirection: 'column',
-    justifyContent: 'space-evenly'
+    alignContent: 'space-around' 
   },
   circle: {
     position: 'absolute',

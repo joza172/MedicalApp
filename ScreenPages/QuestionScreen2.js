@@ -9,7 +9,7 @@ import ImageRadioButton from '../components/ImageRadioButton'
 import BigButton from '../components/BigButton'
 import fizio from '../resources/data/fizio';
 
-
+const height = Dimensions.get('window').height
 export default function QuestionScreen2({ navigation, route }) {
 
   const data = questions
@@ -127,7 +127,7 @@ export default function QuestionScreen2({ navigation, route }) {
             {rotate: rotation},
             {translateX: -Dimensions.get('window').width * 0.205}],}]}/>
           <View style={styles.circle}/>
-          <BackButton onPress={onPress} style={{left: '3%', top: '10%'}}/>
+          <BackButton size={height * 0.055} onPress={onPress} style={{left: '3%', top: '10%'}}/>
           <Text style={styles.inputText}>
             {timeStr}
           </Text>
@@ -140,9 +140,8 @@ export default function QuestionScreen2({ navigation, route }) {
           </View>
           <ImageRadioButton uris={uris} handleClick={handleClick}/>
           <View style={styles.box}>
-            <BigButton value='Potvrdi odabir' handleClick={handleClickGuess}/>
+            <BigButton style={styles.bigButton} value='Potvrdi odabir' handleClick={handleClickGuess}/>
           </View>
-          <View style={styles.box}/>
       </LinearGradient>
 
     </View>
@@ -150,36 +149,32 @@ export default function QuestionScreen2({ navigation, route }) {
 }
 
 const styles = StyleSheet.create({
+  bigButton: {
+    width: '54%',
+    height: '80%',
+    borderRadius: 15,
+  },
   box: {
     flexDirection: 'row',
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: '5%'
   },
   container: {
     flex: 1
   },
   background: {
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
     flex:13
   },
   title: {
-    fontSize: 25,
-    fontWeight: 'bold',
+    fontSize: 25 / 844 * height,
+    fontWeight: '600',
     marginLeft: '2%',
   },
-  searchBar: {
-    backgroundColor: '#EBDDF6',
-    borderRadius: 60,
-    height: '70%',
-    flexDirection: 'row'
-  },
   inputText: {
-    fontSize: 30,
-    fontWeight: 'bold',
+    fontSize: 30 / 844 * height,
+    fontWeight: '600',
     color: '#9c53d4',
     position: 'absolute',
     left: '70%',

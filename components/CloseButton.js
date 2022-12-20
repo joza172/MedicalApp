@@ -5,7 +5,7 @@ const BigButton = (props) => {
     return (
         <TouchableOpacity onPress={() => props.onPress()} style={props.style}>
             <View>
-                <CloseSvg/>
+                <CloseSvg size={props.size}/>
             </View>
         </TouchableOpacity>
     );

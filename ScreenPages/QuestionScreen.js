@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { Dimensions, StyleSheet, View, Text, Image, ScrollView } from 'react-native';
 import BigButton from '../components/BigButton';
 import { LinearGradient } from 'expo-linear-gradient'
 import questions from '../resources/data/questions';
@@ -9,12 +9,16 @@ import CloseButton from '../components/CloseButton'
 import { isSearchBarAvailableForCurrentPlatform } from 'react-native-screens';
 import fizio from '../resources/data/fizio';
 import patio from '../resources/data/patio';
+import svaPitanja from '../resources/data/svaPitanja'
 
+
+const height = Dimensions.get('window').height
+const width = Dimensions.get('window').width
 export default function QuestionScreen({ navigation, route }) {
   var numOfStanice = route.params.num
   var vrsta = route.params.type
 
-  const rD = vrsta === 'Patio' ? patio : fizio
+  const rD = vrsta === 'Patio' ? patio : vrsta === 'Fizio' ? fizio : svaPitanja
 
   const [options, setOptions] = useState([])
   const [realValues, setRealValues] = useState([])
@@ -39,14 +43,14 @@ export default function QuestionScreen({ navigation, route }) {
       
       var createPoints = {}
 
-      for (j = 0; j < tempOptions.length;j++) {
+      for (var j = 0; j < tempOptions.length;j++) {
           createPoints[tempOptions[j]] = 0
       }
 
       setPoints(createPoints)
 
     var omjerNum = []
-    for (i = 0; i < tempOptions.length; i++) {
+    for (var i = 0; i < tempOptions.length; i++) {
       if(vrsta=='Fizio') {
         omjerNum.push(Math.ceil(tempOmjer[i] * numOfStanice)) }
       else {
@@ -57,7 +61,7 @@ export default function QuestionScreen({ navigation, route }) {
 
     var numSt = new Array(tempRV.length).fill(0);
     var tempStanice = rD.questions
-    temp = []
+    var temp = []
     var tempQuestionClass = []
     
     while (temp.length < numOfStanice) {
@@ -125,7 +129,7 @@ export default function QuestionScreen({ navigation, route }) {
       
       navigation.navigate('Result', {
         options:options,
-        result:Math.floor(sum/totalQuestions*100),
+        result:Math.round(sum/totalQuestions*100),
         results:results,
         realValues: realValues
       })
@@ -145,8 +149,8 @@ export default function QuestionScreen({ navigation, route }) {
   return (
     <View style={[styles.container, {flexDirection: 'column'}]}>
       <View style={styles.header} >
-        <BackButton onPress={onPress} style={{left: '12%', top: '7%'}}/>
-        <CloseButton onPress={onPress} style={{right: '12%', top: '7%'}}/>
+        <BackButton size={height * 0.055} onPress={onPress} style={{left: '12%', top: '7%'}}/>
+        <CloseButton size={height * 0.055} onPress={onPress} style={{right: '12%', top: '7%'}}/>
       </View>
 
       <View style={{ flex: 0.5, backgroundColor: 'white'}} >
@@ -158,28 +162,19 @@ export default function QuestionScreen({ navigation, route }) {
       </View>
 
       <LinearGradient colors={['white', '#EBDDF6']} style={[styles.background, { flex: 4 }]}>
-        <View style={styles.table}>
-          <View style={styles.column}>
-            {options.map(function (object, i) {
-              if (i < (Math.floor(options.length / 2))) {
+        <ScrollView style={{marginHorizontal: '10%', marginVertical: '5%'}}>
+            <View style={styles.table}>
+              {options.map(function (object, i) {
                 return (
-                  <View key={i} style={styles.cell}>
-                    <BigButton value={object} small={true} handleClick={handleClick} />
-                  </View>);
-              }
-            })}
-          </View>
-          <View style={styles.column}>
-            {options.map(function (object, i) {
-              if (i >= (Math.floor(options.length / 2))) {
-                return (
-                  <View key={i} style={styles.cell}>
-                    <BigButton value={object} small={true} handleClick={handleClick} />
-                  </View>);
-              }
-            })}
-          </View>
-        </View>
+                <BigButton key={i} value={object} handleClick={handleClick} style={{
+                  height: 4 / 9.5 * 0.2 * height,
+                  width: width * 0.37,
+                  marginVertical: '2%'
+                  } }/>  
+                )
+              })}
+            </View>
+        </ScrollView>
       </LinearGradient>
 
     </View>
@@ -201,17 +196,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   table: {
-    padding: '10%',
-    flex: 1,
     flexDirection: 'row',
-  },
-  column: {
-    flex: 1,
-    flexDirection: 'column',
-  },
-  cell: {
-    flex: 1,
-    alignSelf: 'stretch'
+    flexWrap: "wrap",
+    justifyContent: 'space-around',
+    borderWidth: 1,
+    borderRadius: 25,
+    borderColor: '#9C53D4'
+    
   },
   image: {
     resizeMode: 'contain',
@@ -222,5 +213,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     flexDirection: 'row',
-    justifyContent: 'space-between'}
+    justifyContent: 'space-between'},
 });

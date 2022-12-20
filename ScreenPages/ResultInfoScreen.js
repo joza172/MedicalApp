@@ -6,6 +6,7 @@ import {LinearGradient} from 'expo-linear-gradient'
 import QuestionSvg from '../resources/svg-s/QuestionSvg'
 import ResultButton from '../components/ResultButton'
 
+const height = Dimensions.get('window').height
 export default function ResultInfoScreen({ navigation , route }) {
   const onPress = () => {
     navigation.navigate('Result', {
@@ -21,8 +22,8 @@ export default function ResultInfoScreen({ navigation , route }) {
     <View style={{flex: 2, backgroundColor: 'white'}}>
       <View style={{ flex: 7}} >
           <View style={styles.circle}/>
-          <BackButton onPress={onPress} style={{left: '3%', top: '10%'}}/>
-          <QuestionSvg style={styles.svg}/>
+          <BackButton  size={height * 0.055} onPress={onPress} style={{left: '3%', top: '10%'}}/>
+          <QuestionSvg size={height * 108 / 844} style={styles.svg}/>
       </View>
 
       <LinearGradient colors={['white', '#EBDDF6' ]} style={{flex:13}}>
@@ -40,7 +41,7 @@ export default function ResultInfoScreen({ navigation , route }) {
                     </View>
                 </View>
                 <View style={styles.box}>
-                    <Text style={styles.text}>Točno odgovoreni</Text>
+                    <Text style={styles.text}>Točni</Text>
                     <View style={styles.smallRedCircle}>
                         <Text style={styles.text}>{route.params.correct}</Text>
                     </View>
@@ -50,7 +51,7 @@ export default function ResultInfoScreen({ navigation , route }) {
           
           <View style={styles.container}>  
             <Text style={styles.title}>Uoči razlike!</Text>
-            <Text style={[styles.subTitle, {color: 'black'}]}>
+            <Text style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}>
               Često dolazi do zamjene neseg i meta ili neutrofila. 
               Ono na što treba pripaziti je:........
             </Text>
@@ -64,7 +65,8 @@ export default function ResultInfoScreen({ navigation , route }) {
 const styles = StyleSheet.create({
   text: {
     padding: '5%',
-    fontSize: 20
+    fontSize: 20 / 844 * height,
+    fontWeight: '400'
   },
   box: {
     justifyContent: 'center',
@@ -87,12 +89,13 @@ const styles = StyleSheet.create({
     shadowRadius: 5
   },
   title: {
-    fontSize: 25,
-    fontWeight: 'bold',
+    fontSize: 25 / 844 * height,
+    fontWeight: '600',
   },
   subTitle: {
     color: '#7F40B0',
-    fontSize: 20,
+    fontSize: 20 / 844 * height,
+    fontWeight: '600'
   },
   svg: {
     position: 'absolute',

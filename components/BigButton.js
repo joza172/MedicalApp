@@ -5,21 +5,22 @@ import GallerySvg from '../resources/svg-s/GallerySvg';
 import DiseaseSvg from '../resources/svg-s/DiseaseSvg';
 import KvizSvg from '../resources/svg-s/KvizSvg';
 
+const height = Dimensions.get('window').height
 const BigButton = (props) => {
     const {style, ...rest} = props;
 
     function renderSwitch(param) {
         switch(param) {
             case '0':
-                return (<PlaySvg color='#FFF' size={Dimensions.get('window').height * props.size}/>);
+                return (<PlaySvg color='#FFF' size={height * props.size}/>);
             case '1':
-                return (<MicroscopeSvg size={Dimensions.get('window').height * props.size}/>);
+                return (<MicroscopeSvg size={height * props.size}/>);
             case '2':
-                return (<GallerySvg size={Dimensions.get('window').height * props.size}/>);
+                return (<GallerySvg size={height * props.size}/>);
             case '3':
-                return (<DiseaseSvg size={Dimensions.get('window').height * props.size}/>);
+                return (<DiseaseSvg size={height * props.size}/>);
             case '4':
-                return (<KvizSvg size={Dimensions.get('window').height * props.size}/>);
+                return (<KvizSvg size={height * props.size}/>);
         }
       }
 
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     text: {
         fontWeight: 'bold',
         color: '#FFFFFF',
-        fontSize: 19
+        fontSize: height * 19 / 844
     }
 })
 

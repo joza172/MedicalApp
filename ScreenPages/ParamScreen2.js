@@ -7,6 +7,7 @@ import {LinearGradient} from 'expo-linear-gradient'
 import SettingsSvg from '../resources/svg-s/SettingsSvg';
 import BigRadioButton from '../components/BigRadioButton';
 
+const height = Dimensions.get('window').height
 export default function ParamScreen2({ navigation }) {
   const [num, setNum] = useState(null);
   const stValues = [
@@ -34,8 +35,8 @@ export default function ParamScreen2({ navigation }) {
     <View style={{flexDirection: 'column', flex: 1}}>
       <View style={{ flex: 7, backgroundColor: 'white'}} >
           <View style={styles.circle}/>
-          <BackButton onPress={onPress} style={{left: '3%', top: '10%'}}/>
-          <SettingsSvg size={Dimensions.get('window').width * 0.25} style={styles.svg}/>
+          <BackButton size={height * 0.055} onPress={onPress} style={{left: '3%', top: '10%'}}/>
+          <SettingsSvg size={100 / 844 * height} style={styles.svg}/>
       </View>
 
       <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background, {flex:13}]}>
@@ -45,13 +46,13 @@ export default function ParamScreen2({ navigation }) {
           </View>
           
           <View style={styles.box}/>
-          <BigRadioButton style={{flex: 1}} data={stValues} handleClick={handleClickNum}/>
+          <BigRadioButton style={{marginHorizontal: '3%'}} data={stValues} handleClick={handleClickNum}/>
           
           <View style={styles.box}/>
           <View style={styles.box}/>
 
           <View style={styles.box}>
-            <BigButton value='Pokreni Vjezbu' style={{ flex: 1}} handleClick={handleClickStart}/>
+            <BigButton value='Pokreni Vjezbu' style={styles.bigButton} handleClick={handleClickStart}/>
           </View>
         </View>
        
@@ -63,6 +64,11 @@ export default function ParamScreen2({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  bigButton: {
+    width: '54%',
+    height: '90%',
+    borderRadius: 25,
+  },
   box: {
     flexDirection: 'row',
     flex: 1,
@@ -73,24 +79,16 @@ const styles = StyleSheet.create({
     flex: 1
   },
   background: {
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
   },
   title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 25 / 844 * height,
+    fontWeight: '600',
   },
   searchBar: {
     backgroundColor: '#EBDDF6',
     borderRadius: 60,
     height: '70%',
     flexDirection: 'row'
-  },
-  inputText: {
-    color: '#9c53d4',
-    fontWeight: 'bold',
   },
   circle: {
     position: 'absolute',

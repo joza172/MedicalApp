@@ -3,8 +3,8 @@ import Svg, { Path } from 'react-native-svg'
 
 const MicroscopeSvg = (props) => (
   <Svg
-    width={props.size != null ? props.size * 49/59:49}
-    height={props.size != null ? props.size:59}
+    width={props.size * 49/59}
+    height={props.size}
     viewBox="0 0 49 59"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
