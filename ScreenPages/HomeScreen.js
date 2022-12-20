@@ -11,7 +11,7 @@ export default function HomeScreen({ navigation }) {
     if(value === 'Galerija'){
       navigation.navigate('Gallery')
     }
-    if(value === 'Vjezbe'){
+    if(value === 'Vježbe'){
       navigation.navigate('Second')
     }
   };

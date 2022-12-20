@@ -12,6 +12,7 @@ import ResultScreen2 from "./ScreenPages/ResultScreen2.js";
 import ResultInfoScreen2 from "./ScreenPages/ResultInfoScreen2.js";
 import GalleryScreen from "./ScreenPages/GalleryScreen.js";
 import CellScreen from "./ScreenPages/CellScreen.js";
+import CellDescription from "./ScreenPages/CellDescription.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -77,6 +78,11 @@ export default function App() {
         <Stack.Screen 
           name="Cell"
           component={CellScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name="Description"
+          component={CellDescription}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

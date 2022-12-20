@@ -11,7 +11,7 @@ import GallerySvg from '../resources/svg-s/GallerySvg';
 export default function GalleryScreen({ navigation }) {
   const groups = ['Eritrocitopoeza', 'Granulocitopoeza', 'Limfocitopoeza', 'Monocitopoeza', 'Megakariocitopoeza' ]
   const handleClick = value => {
-    navigation.navigate('Cell', {name:value})
+    navigation.navigate('Cell', {group:value})
   }
 
   const onPress = () => {

@@ -26,15 +26,18 @@ export default function QuestionScreen2({ navigation, route }) {
   const [answers, setAnswers] = useState([])
   const [questionNum, setQuestionNum] = useState(0)
   const [correctAnswer, setCorrectAnswer] = useState(0)
+  const [numOfCorrectAnswers,setNumOfCorrectAnswers] = useState(0)
+  
 
   
 
   //get random pictures for quiz
   useEffect(() => {
-    var r = realValues[Math.floor(Math.random() * realValues.length)]
+    var rD = vrsta.questions
+    var r = rD[Math.floor(Math.random() * rD.length)].class
     var rUri = null
     var tempUris = []
-    var rD = vrsta.questions
+    
     
     while (tempUris.length < 3 || rUri == null) {
 
@@ -44,7 +47,7 @@ export default function QuestionScreen2({ navigation, route }) {
       
       if (rD[randomClass].class != r && tempUris.length < 3) {
         tempUris.push(rand)
-      } else if(rUri == null) {
+      } else if(rUri == null && rD[randomClass].class == r) {
         rUri = rand
       }
     }
@@ -71,7 +74,7 @@ export default function QuestionScreen2({ navigation, route }) {
         setRotation((-36.6 + 163.2 * time/route.params.num) + 'deg')
       }
       if (time === 0) {
-        navigation.navigate("Result2", {result:10, answers:answers})
+        navigation.navigate("Result2", {result:numOfCorrectAnswers / questionNum * 100, answers:answers})
       }
     };
 
@@ -91,15 +94,21 @@ export default function QuestionScreen2({ navigation, route }) {
 
   //handle potvrda
   const handleClickGuess = value => {
-    setReal('...')
+    
+    if(selected==correctAnswer) {
+      setNumOfCorrectAnswers(numOfCorrectAnswers+1)
+    } 
+
     var temp = answers
     temp[questionNum] = {
       myChoice : selected,
       correctChoice : correctAnswer,
-      allUris : uris
+      allUris : uris,
+      realClass: real
     }
     setQuestionNum(questionNum+1)
     setAnswers(temp)
+    setReal('...')
     
   };
 
@@ -127,7 +136,7 @@ export default function QuestionScreen2({ navigation, route }) {
 
       <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background]}>
           <View>  
-            <Text style={styles.title}>Odredi {real.replace('_', ' ')}: {route.params.result}</Text>
+            <Text style={styles.title}>Odaberi {real.replace('_', ' ')}: {route.params.result}</Text>
           </View>
           <ImageRadioButton uris={uris} handleClick={handleClick}/>
           <View style={styles.box}>

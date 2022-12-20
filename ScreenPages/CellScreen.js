@@ -7,16 +7,23 @@ import PlaySvg from '../resources/svg-s/PlaySvg'
 import SearchSvg from '../resources/svg-s/SearchSvg'
 import GallerySvg from '../resources/svg-s/GallerySvg';
 import MetaSvg from '../resources/svg-s/cells/MetaSvg';
-
+import galerija from '../resources/data/galerija';
+import { G } from 'react-native-svg';
 
 export default function CellScreen({ navigation , route}) {
-  const groups = ['Limfoblast', 'Limfocit', 'Reaktivni limfocit', 'Atipični limfocit', 'Plazma stanica', 'Vlasasti limfocit', 'Promijelocit', 'Mijelocit', 'Nesegmentirani neutrofil', 'Metamijelocit' ]
-  const handleClick = value => {
 
+  var groups = galerija[route.params.group]
+
+  
+  const handleClick = value => {
+    navigation.navigate('Description',{
+      group:route.params.group,
+      name:value
+      })
   }
 
   const onPress = () => {
-    navigation.navigate('Home')
+    navigation.navigate('Gallery')
   }
 
   return (
@@ -28,7 +35,7 @@ export default function CellScreen({ navigation , route}) {
 
             <View style={{marginHorizontal: '5%'}}>
                 <View style={{height: Dimensions.get('window').height * 0.15}}>  
-                    <Text style={styles.title}>{route.params.name}</Text>
+                    <Text style={styles.title}>{route.params.group}</Text>
                     <View style={[styles.searchBar, {alignItems: 'center'}]}>
                         <SearchSvg style={{ flex: 1, marginLeft: '3%'}}/>
                         <Text style={[styles.inputText ,{ flex: 9, marginLeft: '3%'}]}>josip</Text>
@@ -36,7 +43,7 @@ export default function CellScreen({ navigation , route}) {
                 </View>
                 {groups.map(function (object, i) {
                     return (
-                    <Pressable key={i} style={styles.rectanglePressable}>
+                    <Pressable  onPress={() => {handleClick(object)}} key={i} style={styles.rectanglePressable}>
                         <MetaSvg size={Dimensions.get('window').height * 0.1} style={styles.svg}/>
                         <Text style={[styles.text]}>{object}</Text>
                     </Pressable>

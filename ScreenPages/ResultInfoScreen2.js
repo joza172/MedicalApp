@@ -24,7 +24,7 @@ export default function ResultInfoScreen({ navigation , route }) {
 
       <LinearGradient colors={['white', '#EBDDF6' ]} style={{flex:13}}>
           <View style={[styles.container, {flex: 1}]}>  
-            <Text style={styles.title}>Limfocit je na slici broj {answers[index].correctChoice + 1}</Text>
+            <Text style={styles.title}>{answers[index].realClass} je na slici broj {answers[index].correctChoice + 1}</Text>
           </View>
 
           <View style={styles.table}>

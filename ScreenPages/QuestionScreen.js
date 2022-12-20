@@ -47,7 +47,11 @@ export default function QuestionScreen({ navigation, route }) {
 
     var omjerNum = []
     for (i = 0; i < tempOptions.length; i++) {
-      omjerNum.push(Math.ceil(tempOmjer[i] * numOfStanice))
+      if(vrsta=='Fizio') {
+        omjerNum.push(Math.ceil(tempOmjer[i] * numOfStanice)) }
+      else {
+        omjerNum.push(numOfStanice)
+      }
     }
 
 
@@ -57,7 +61,7 @@ export default function QuestionScreen({ navigation, route }) {
     var tempQuestionClass = []
     
     while (temp.length < numOfStanice) {
-        
+
       //Random klasa stanice
       var RandomNumberClass = Math.floor(Math.random() * tempStanice.length)
 

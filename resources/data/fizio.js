@@ -2,20 +2,21 @@ export default {
 
 
     realValues : [
-        'Segmentirani_granulocit', 'Limfocit', 'Monocit', 'Eozinofil', 'Bazofil'
+        'Bazofil' , 'Eozinofil' , 'Limfocit' , 'Monocit' ,'Segmentirani_granulocit'  
     ],
 
 
     options : [ 
-        'Seg', 'Ly', 'Mono', 'Eo', 'Ba'
+        'Ba' , 'Eo' , 'Ly' , 'Mono' , 'Seg'  
     ],
 
     omjer : [
-        0.3, 0.25, 0.25, 0.1, 0.1
+        
+         0.1, 0.1, 0.25, 0.25 , 0.3
     ],
 
     points: {
-         'Seg': 0, 'Ly': 0, 'Mono': 0, 'Eo': 0, 'Ba': 0 
+         'Ba': 0, 'Eo': 0, 'Ly': 0, 'Mono': 0, 'Seg': 0 
         }
     ,
 
@@ -91,6 +92,7 @@ export default {
         },
         {
         class:'Limfocit',
+        descritpion:'hej hej hej',
         uris: [
             require('../images/Pngovi/Limfocit/LY_1231195.png'),
             require('../images/Pngovi/Limfocit/LY_1231199.png'),

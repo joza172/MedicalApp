@@ -1,33 +1,49 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Dimensions, StyleSheet, View, Text, Image, Pressable, TextInput } from 'react-native';
 import BigButton from '../components/BigButton';
 import BackButton from '../components/BackButton'
 import {LinearGradient} from 'expo-linear-gradient'
 import SettingsSvg from '../resources/svg-s/SettingsSvg';
 import BigRadioButton from '../components/BigRadioButton';
+import fizio from '../resources/data/fizio';
+import patio from '../resources/data/patio';
 
-export default function ParamScreen2({ navigation }) {
-  const [num, setNum] = useState(null);
+
+export default function CellDescription({ navigation ,route }) {
+  const [uris, setUris] = useState([])
+  const [description, setDescription] = useState('')
+  const [but, setBut] = useState("Morfologija");
   const stValues = [
-    { value: '10' },
-    { value: '90' },
-    { value: '120' },
+    { value: 'Morfologija' },
+    { value: 'Slike' },
   ];
 
-  const handleClickNum = value => {
-    setNum(value)
+  const handleClickButton = value => {
+    setBut(value)
   };
 
-  const handleClickStart = value => {
-      if(num != null){
-        navigation.navigate('Question2', {num:num})
-      }
+ 
+  const onPress = value => {
+    navigation.navigate('Cell',{group:route.params.group})  
   }
 
-  const onPress = value => {
-    navigation.navigate('Second')  
-  }
+  useEffect(() => {
+    var patioIndex = patio.realValues.indexOf(route.params.name)
+    var fizioIndex = fizio.realValues.indexOf(route.params.name)
+
+    if(patioIndex != -1) {
+      if(patio.questions[patioIndex].description!=undefined)
+        {setDescription(patio.questions[patioIndex].description)}
+        setUris(patio.questions[patioIndex].uris)
+    } else {
+      if(fizio.questions[fizioIndex].description!=undefined) 
+      {setDescription(fizio.questions[fizioIndex].descritpion)}
+      setUris(fizio.questions[fizioIndex].uris)
+    }
+
+
+  }, []);
 
 
   return (
@@ -38,21 +54,28 @@ export default function ParamScreen2({ navigation }) {
           <SettingsSvg size={Dimensions.get('window').width * 0.25} style={styles.svg}/>
       </View>
 
-      <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background, {flex:13}]}>
-        <View style={{flexDirection: 'column',flex: 6}}>
-          <View style={styles.box}>
-            <Text style={styles.title}>Postavi vremenski limit</Text>
-          </View>
-          
-          <View style={styles.box}/>
-          <BigRadioButton style={{flex: 1}} data={stValues} handleClick={handleClickNum}/>
-          
-          <View style={styles.box}/>
-          <View style={styles.box}/>
 
+      <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background, {flex:13}]}>
+        <View style={{flexDirection: 'column',flex: 2}}>
           <View style={styles.box}>
-            <BigButton value='Pokreni Vjezbu' style={{ flex: 1}} handleClick={handleClickStart}/>
+            <Text style={styles.title}>{route.params.name}</Text>
           </View>
+          
+          <BigRadioButton style={{flex: 1}} data={stValues} handleClick={handleClickButton}/>
+
+           {but=='Morfologija' ?
+          <View style={styles.container}>  
+            <Text style={styles.title}>Morfologija</Text>
+            <Text style={[styles.subTitle, {color: 'black'}]}>
+               {description}
+            </Text>
+          </View> : <View style={styles.container}>  
+            <Text style={styles.title}>Slike</Text>
+            <Text style={[styles.subTitle, {color: 'black'}]}>
+              {uris}
+            </Text>
+          </View> }
+          
         </View>
        
         <View style={{ flex: 1.5 }} />
@@ -79,6 +102,7 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   title: {
+    textAlign:'center',
     fontSize: 20,
     fontWeight: 'bold',
   },
@@ -101,6 +125,11 @@ const styles = StyleSheet.create({
     left: '37.5%',
     bottom: '11%',
     opacity: 0.2
+  },
+  subTitle: {
+    textAlign:'center',
+    color: '#7F40B0',
+    fontSize: 20,
   },
   svg: {
     position: 'absolute',
