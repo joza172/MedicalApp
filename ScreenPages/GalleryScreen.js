@@ -7,7 +7,7 @@ import PlaySvg from '../resources/svg-s/PlaySvg'
 import SearchSvg from '../resources/svg-s/SearchSvg'
 import GallerySvg from '../resources/svg-s/GallerySvg';
 
-
+const height = Dimensions.get('window').height
 export default function GalleryScreen({ navigation }) {
   const groups = ['Eritrocitopoeza', 'Granulocitopoeza', 'Limfocitopoeza', 'Monocitopoeza', 'Megakariocitopoeza' ]
   const handleClick = value => {
@@ -15,33 +15,28 @@ export default function GalleryScreen({ navigation }) {
   }
 
   const onPress = () => {
-    navigation.navigate('Home')
+    navigation.goBack()
   }
 
   return (
     <View style={[styles.container, {flexDirection: 'column'}]}>
       <View style={{ flex: 7, backgroundColor: 'white'}} >
           <View style={styles.circle}/>
-          <BackButton onPress={onPress} style={{left: '3%', top: '10%'}}/>
-          <GallerySvg color= '#9C53D4' size={Dimensions.get('window').width * 0.25} style={styles.svg}/>
+          <BackButton size={height * 0.055} onPress={onPress} style={{left: '3%', top: '10%'}}/>
+          <GallerySvg size={height * 115 / 844} color= '#9C53D4' style={styles.svg}/>
       </View>
 
       <LinearGradient colors={['white', '#EBDDF6' ]} style={{flex:13}}>
-          <View style={{ flex: 1.5}}>  
+          <View style={{ flex: 2}}>  
             <Text style={styles.title}>Galerija stanica</Text>
             <View style={[styles.searchBar, {alignItems: 'center'}]}>
-                <SearchSvg style={{ flex: 1, marginLeft: '3%'}}/>
-                <Text style={[styles.inputText ,{ flex: 9, marginLeft: '3%'}]}>josip</Text>
+                <SearchSvg size={height * 0.025} style={{marginLeft: '3%'}}/>
+                <Text style={[styles.inputText]}></Text>
             </View>
           </View>
           {groups.map(function (object, i) {
             return (
-              <Pressable key={i} style={styles.rectanglePressable} onPress={() => {
-                    handleClick(object)
-                }
-              }>
-                <Text style={[styles.text]}>{object}</Text>
-              </Pressable>
+              <BigButton value={object} key={i} handleClick={handleClick} style={styles.bigButton}/>
             )
           })}
 
@@ -52,20 +47,27 @@ export default function GalleryScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  bigButton: {
+    flex: 1,
+    marginVertical: '2%',
+    marginHorizontal: '5%',
+  },
   container: {
     flex: 1
   },
   title: {
-    fontSize: 40,
-    fontWeight: 'bold',
-    marginLeft: '10%',
+    flex: 1,
+    fontSize: 40 / 844 * height,
+    fontWeight: '600',
+    marginHorizontal: '5%',
   },
   searchBar: {
     backgroundColor: '#EBDDF6',
     borderRadius: 60,
-    height: '40%',
+    flex: 0.8,
     flexDirection: 'row',
-    marginHorizontal: '5%'
+    marginHorizontal: '5%',
+    marginVertical: '1%'
   },
   inputText: {
     color: '#9c53d4',
@@ -73,7 +75,6 @@ const styles = StyleSheet.create({
   },
   rectanglePressable: {
     justifyContent: 'center',
-    height: 200,
     flex: 1,
     borderRadius: 60,
     backgroundColor: '#9c53d4',
@@ -82,9 +83,9 @@ const styles = StyleSheet.create({
     marginHorizontal: '5%',
   },
   text: {
-      fontWeight: 'bold',
+      fontWeight: '600',
       color: '#FFFFFF',
-      fontSize: 20,
+      fontSize: 20 /  844 * height,
       marginHorizontal: '10%',
   },
   circle: {
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
   },
   svg: {
     position: 'absolute',
-    left: '65%',
+    left: '62%',
     top: '18%'
   },
 });

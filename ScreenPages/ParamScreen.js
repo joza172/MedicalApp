@@ -38,10 +38,9 @@ export default function ParamScreen({ navigation }) {
       }
   }
 
-  const onPress = value => {
-    navigation.navigate('Second', {num:num, type:type})  
+  const onPress = () => {
+    navigation.goBack()
   }
-
 
   return (
     <View style={styles.container}>
@@ -56,12 +55,12 @@ export default function ParamScreen({ navigation }) {
           <View style={styles.box}>
             <Text style={styles.title}>Izaberi broj stanica</Text>
           </View>
-          <BigRadioButton style={{marginHorizontal: '3%'}} data={stValues} handleClick={handleClickNum}/>
+          <BigRadioButton style={{marginHorizontal: '3%', flex: 1}} data={stValues} handleClick={handleClickNum}/>
 
           <View style={styles.box}>
             <Text style={styles.title}>Izaberi vrstu razmaza</Text>
           </View>
-          <BigRadioButton style={{marginHorizontal: '3%'}} data={razValues} handleClick={handleClickType}/>
+          <BigRadioButton style={{marginHorizontal: '3%', flex: 1}} data={razValues} handleClick={handleClickType}/>
           
           <View style={styles.box}/>
           

@@ -17,7 +17,7 @@ export default function ChooseScreen({ navigation }) {
   }
 
   const onPress = () => {
-    navigation.navigate('Home')
+    navigation.goBack()
   }
 
   return (

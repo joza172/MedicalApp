@@ -1,11 +1,11 @@
 import * as React from "react"
 import Svg, { Circle, Path } from "react-native-svg"
 
-function MetaSvg(props) {
+function NesegNeutroSvg(props) {
   return (
     <Svg
-      width={props.size != null ? props.size : 81}
-      height={props.size != null ? props.size : 81}
+    width={props.size}
+    height={props.size}
       viewBox="0 0 81 81"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -183,4 +183,4 @@ function MetaSvg(props) {
   )
 }
 
-export default MetaSvg
+export default NesegNeutroSvg

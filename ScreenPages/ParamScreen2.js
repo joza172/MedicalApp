@@ -9,7 +9,7 @@ import BigRadioButton from '../components/BigRadioButton';
 
 const height = Dimensions.get('window').height
 export default function ParamScreen2({ navigation }) {
-  const [num, setNum] = useState(null);
+  const [num, setNum] = useState('90');
   const stValues = [
     { value: '10' },
     { value: '90' },
@@ -26,10 +26,9 @@ export default function ParamScreen2({ navigation }) {
       }
   }
 
-  const onPress = value => {
-    navigation.navigate('Second')  
+  const onPress = () => {
+    navigation.goBack()
   }
-
 
   return (
     <View style={{flexDirection: 'column', flex: 1}}>
@@ -46,7 +45,7 @@ export default function ParamScreen2({ navigation }) {
           </View>
           
           <View style={styles.box}/>
-          <BigRadioButton style={{marginHorizontal: '3%'}} data={stValues} handleClick={handleClickNum}/>
+          <BigRadioButton style={{marginHorizontal: '3%', flex: 1}} data={stValues} handleClick={handleClickNum}/>
           
           <View style={styles.box}/>
           <View style={styles.box}/>

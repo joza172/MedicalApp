@@ -28,7 +28,6 @@ export default function ResultScreen({ navigation , route }) {
     navigation.navigate('Second')
   }
 
-
   return (
     <View style={[styles.container, {flexDirection: 'column'}]}>
         <ScrollView>
@@ -49,12 +48,14 @@ export default function ResultScreen({ navigation , route }) {
             </View>
             <View style={styles.table}>
                   {route.params.options.map(function (object, i) {
+                    if(!isNaN(eval(route.params.results[i]))){ 
                       return (
                           <ResultButton name={object} key={i} 
                           style={styles.button}
                           value={route.params.results[i]} 
                           handleClick={handleClick} />
                       )
+                    }
                   })}
             </View>
         </LinearGradient>
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    alignContent: 'space-around' 
+    alignContent: 'flex-start' 
   },
   circle: {
     position: 'absolute',

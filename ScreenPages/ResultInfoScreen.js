@@ -9,12 +9,7 @@ import ResultButton from '../components/ResultButton'
 const height = Dimensions.get('window').height
 export default function ResultInfoScreen({ navigation , route }) {
   const onPress = () => {
-    navigation.navigate('Result', {
-      options: route.params.options,
-      result: route.params.result,
-      results: route.params.results,
-      realValues: route.params.realValues
-    })
+    navigation.goBack()
   }
 
 
@@ -117,7 +112,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width * 105/390,
     height: Dimensions.get('window').width * 105/390,
     borderWidth: 8,
-    borderColor: '#36D69C',
+    borderColor: '#7F40B0',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -127,7 +122,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width * 105/390,
     height: Dimensions.get('window').width * 105/390,
     borderWidth: 8,
-    borderColor: '#FF6C6C',
+    borderColor: '#7F40B0',
     alignItems: 'center',
     justifyContent: 'center',
   },

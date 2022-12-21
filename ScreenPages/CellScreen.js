@@ -1,69 +1,71 @@
 import * as React from 'react';
-import BigButton from '../components/BigButton'
 import BackButton from '../components/BackButton'
-import { Dimensions, StyleSheet, View, Text, Pressable, ScrollView } from 'react-native'
+import { Dimensions, StyleSheet, View, Text, ScrollView } from 'react-native'
 import {LinearGradient} from 'expo-linear-gradient'
-import PlaySvg from '../resources/svg-s/PlaySvg'
 import SearchSvg from '../resources/svg-s/SearchSvg'
-import GallerySvg from '../resources/svg-s/GallerySvg';
-import MetaSvg from '../resources/svg-s/cells/MetaSvg';
-import galerija from '../resources/data/galerija';
-import { G } from 'react-native-svg';
+import galerija from '../resources/data/galerija'
+import GalleryButton from '../components/GalleryButton'
+import data from '../resources/data/svaPitanja'
 
+const height = Dimensions.get('window').height
 export default function CellScreen({ navigation , route}) {
 
   var groups = galerija[route.params.group]
 
-  
   const handleClick = value => {
-    navigation.navigate('Description',{
-      group:route.params.group,
-      name:value
+    if(data.realValues.indexOf(value) != -1){
+      navigation.navigate('Description',{
+        group:route.params.group,
+        name:value
       })
+    } else {
+      navigation.navigate('InProgress')
+    }
   }
 
   const onPress = () => {
-    navigation.navigate('Gallery')
+    navigation.goBack()
   }
 
+
   return (
-    <View style={[styles.container, {flexDirection: 'column'}]}>
+    <View style={styles.container}>
         <ScrollView>
-            <View style={{height: Dimensions.get('window').height * 0.1}} >
-                <BackButton onPress={onPress} style={{left: '3%', top: '40%'}}/>
+            <View style={{height: height * 0.1}} >
+                <BackButton size={height * 0.055} onPress={onPress} style={{left: '3%', top: '40%'}}/>
             </View>
 
-            <View style={{marginHorizontal: '5%'}}>
-                <View style={{height: Dimensions.get('window').height * 0.15}}>  
-                    <Text style={styles.title}>{route.params.group}</Text>
-                    <View style={[styles.searchBar, {alignItems: 'center'}]}>
-                        <SearchSvg style={{ flex: 1, marginLeft: '3%'}}/>
-                        <Text style={[styles.inputText ,{ flex: 9, marginLeft: '3%'}]}>josip</Text>
+            <LinearGradient colors={['white', '#EBDDF6' ]}  style={styles.mainContainer}>
+                <View style={{height: height * 0.15, marginHorizontal: '5%'}}>  
+                        <Text style={styles.title}>{route.params.group}</Text>
+                        <View style={[styles.searchBar, {alignItems: 'center'}]}>
+                          <SearchSvg size={height * 0.025} style={{marginLeft: '3%'}}/>
+                          <Text style={[styles.inputText]}></Text>    
                     </View>
                 </View>
                 {groups.map(function (object, i) {
                     return (
-                    <Pressable  onPress={() => {handleClick(object)}} key={i} style={styles.rectanglePressable}>
-                        <MetaSvg size={Dimensions.get('window').height * 0.1} style={styles.svg}/>
-                        <Text style={[styles.text]}>{object}</Text>
-                    </Pressable>
+                      <GalleryButton key={i} handleClick={handleClick} value={object}/>
                     )
                 })}
 
-            </View>
+            </LinearGradient>
         </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    minHeight: height * 0.9,
+  },
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: 'white'
   },
   title: {
-    fontSize: 40,
+    fontSize: 40 / 844 * height,
     fontWeight: 'bold',
-    marginLeft: '10%',
   },
   searchBar: {
     backgroundColor: '#EBDDF6',

@@ -12,9 +12,10 @@ export default function HomeScreen({ navigation }) {
   const handleClick = value => {
     if(value === 'Galerija'){
       navigation.navigate('Gallery')
-    }
-    if(value === 'Vježbe'){
+    } else if(value === 'Vježbe'){
       navigation.navigate('Second')
+    } else {
+      navigation.navigate('InProgress')
     }
   };
 

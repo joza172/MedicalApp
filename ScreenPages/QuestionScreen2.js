@@ -112,9 +112,8 @@ export default function QuestionScreen2({ navigation, route }) {
     
   };
 
-  //handle click on back button
-  const onPress = value => {
-    navigation.navigate("Param2")
+  const onPress = () => {
+    navigation.goBack()
   }
 
   const currentQuestion = data[0]

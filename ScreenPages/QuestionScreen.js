@@ -138,9 +138,8 @@ export default function QuestionScreen({ navigation, route }) {
     }
   };
 
-  //handle click on back button
-  const onPress = value => {
-    navigation.navigate("Param")
+  const onPress = () => {
+    navigation.goBack()
   }
 
   const currentQuestion = dataForUse.length > 0 ? dataForUse[index] : rD.questions[0].uris[0]
@@ -169,7 +168,8 @@ export default function QuestionScreen({ navigation, route }) {
                 <BigButton key={i} value={object} handleClick={handleClick} style={{
                   height: 4 / 9.5 * 0.2 * height,
                   width: width * 0.37,
-                  marginVertical: '2%'
+                  marginVertical: '2%',
+                  borderRadius: 20
                   } }/>  
                 )
               })}
@@ -186,23 +186,17 @@ const styles = StyleSheet.create({
     flex: 1
   },
   background: {
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
   },
   title: {
-    fontSize: 20,
+    fontSize: 20 / 844 * height,
     alignSelf: 'center'
   },
   table: {
     flexDirection: 'row',
     flexWrap: "wrap",
     justifyContent: 'space-around',
-    borderWidth: 1,
     borderRadius: 25,
-    borderColor: '#9C53D4'
-    
+    backgroundColor: '#C29DE7',
   },
   image: {
     resizeMode: 'contain',

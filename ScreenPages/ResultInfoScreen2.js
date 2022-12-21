@@ -12,9 +12,8 @@ export default function ResultInfoScreen({ navigation , route }) {
   const answers = route.params.answers
   const index = route.params.index
   const onPress = () => {
-    navigation.navigate("Result2", {answers:answers, result:route.params.result})
+    navigation.goBack()
   }
-
 
   return (
     <View style={{flex: 2, backgroundColor: 'white'}}>

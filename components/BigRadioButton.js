@@ -19,7 +19,7 @@ const BigRadioButton = (props) => {
                     <Pressable
                     key={item.value}
                     style={
-                        [item.value === userOption ? styles.selected : styles.unselected, styles.rectanglePressable, {flex: 1}]
+                        [item.value === userOption ? styles.selected : styles.unselected, styles.rectanglePressable]
                     }
                     onPress={() => handleClick(item.value)}>
                         <Text style={[styles.text, item.value === userOption ? styles.optionSelected : styles.optionUnselected]}> {item.value}</Text>
@@ -37,23 +37,20 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 30,
         flexDirection: 'row',
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         shadowColor: '#000000',
         elevation: 30,
     },
     rectanglePressable: {
         borderRadius: 30,
-        padding: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
         width: '30%',
         height: '100%',
+        flex: 1
     },
     text: {
         fontSize: height * 19 / 844,
-        textAlign: 'center',
         fontWeight: '700',
-        marginTop: '10%',
     },
     optionUnselected: {
         color: 'black',

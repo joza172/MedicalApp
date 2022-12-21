@@ -13,6 +13,7 @@ import ResultInfoScreen2 from "./ScreenPages/ResultInfoScreen2.js";
 import GalleryScreen from "./ScreenPages/GalleryScreen.js";
 import CellScreen from "./ScreenPages/CellScreen.js";
 import CellDescription from "./ScreenPages/CellDescription.js";
+import InProgressScreen from "./ScreenPages/InProgressScreen.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -83,6 +84,11 @@ export default function App() {
         <Stack.Screen 
           name="Description"
           component={CellDescription}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="InProgress"
+          component={InProgressScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
