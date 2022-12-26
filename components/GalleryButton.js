@@ -51,13 +51,13 @@ const GalleryButton = (props) => {
                 return (<MijelocitSvg size={height * 0.1} style={styles.svg}/>);
             case 'Metamijelocit':
                 return (<MetamijelocitSvg size={height * 0.1} style={styles.svg}/>);
-            case 'Nesegmentirani_neutrofil':
+            case 'Nesegmentirani_granulocit':
                 return (<NesegNeutroSvg size={height * 0.1} style={styles.svg}/>);
-            case 'Segmentirani_neutrofil':
+            case 'Segmentirani_granulocit':
                 return (<SegNeutroSvg size={height * 0.1} style={styles.svg}/>);
-            case 'Segmentirani_eozinofil':
+            case 'Eozinofil':
                 return (<SegEoziSvg size={height * 0.1} style={styles.svg}/>);
-            case 'Segmentirani_bazofil':
+            case 'Bazofil':
                 return (<SegBazoSvg size={height * 0.1} style={styles.svg}/>);
             case 'Limfoblast':
                 return (<LimfoblastSvg size={height * 0.1} style={styles.svg}/>);
@@ -92,8 +92,8 @@ const GalleryButton = (props) => {
                     props.handleClick(props.value)
                 }
             }>
-            {renderSwitch(props.value)}
-            <Text style={[styles.text]}>{props.value.replace('_', ' ')}</Text>
+            {renderSwitch(props.value.class)}
+            <Text style={[styles.text]}>{props.value.class.replace('_', ' ')}</Text>
             
         </Pressable>
     );

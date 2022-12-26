@@ -13,10 +13,11 @@ export default function CellScreen({ navigation , route}) {
   var groups = galerija[route.params.group]
 
   const handleClick = value => {
-    if(data.realValues.indexOf(value) != -1){
+    var index = data.realValues.indexOf(value.class) 
+    if(index != -1){
       navigation.navigate('Description',{
-        group:route.params.group,
-        name:value
+        data:value,
+        uris:data.questions[index].uris
       })
     } else {
       navigation.navigate('InProgress')
@@ -26,7 +27,6 @@ export default function CellScreen({ navigation , route}) {
   const onPress = () => {
     navigation.goBack()
   }
-
 
   return (
     <View style={styles.container}>

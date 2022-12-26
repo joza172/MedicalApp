@@ -6,15 +6,11 @@ import BackButton from '../components/BackButton'
 import {LinearGradient} from 'expo-linear-gradient'
 import SettingsSvg from '../resources/svg-s/SettingsSvg';
 import BigRadioButton from '../components/BigRadioButton';
-import svaPitanja from '../resources/data/svaPitanja';
+import data from '../resources/data/galerija';
 
 const height = Dimensions.get('window').height
 const width = Dimensions.get('window').width
 export default function CellDescription({ navigation ,route }) {
-  const [uris, setUris] = useState([])
-  const [description, setDescription] = useState('')
-  const [jezgra, setJezgra] = useState('')
-  const [citoplazma, setCitoplazma] = useState('')
   const [but, setBut] = useState("Slike");
   const stValues = [
     { value: 'Morfologija' },
@@ -30,22 +26,6 @@ export default function CellDescription({ navigation ,route }) {
     navigation.goBack()
   }
 
-  useEffect(() => {
-
-    var index = svaPitanja.realValues.indexOf(route.params.name)
-    if(svaPitanja.questions[index].description!=undefined)
-        {setDescription(svaPitanja.questions[index].description)}
-    if(svaPitanja.questions[index].jezgra!=undefined) {
-        setJezgra(svaPitanja.questions[index].jezgra)
-    }
-    if(svaPitanja.questions[index].citoplazma!=undefined) {
-      setCitoplazma(svaPitanja.questions[index].citoplazma)
-  }
-        setUris(svaPitanja.questions[index].uris)
-
-  }, []);
-
-
   return (
     <View style={{flex: 1}}>
       <ScrollView>
@@ -59,7 +39,7 @@ export default function CellDescription({ navigation ,route }) {
           minHeight: 0.65 * height
         }}>
             <View style={{height: 0.05 * height}}>
-              <Text style={styles.title}>{route.params.name}</Text>
+              <Text style={styles.title}>{route.params.data.class.replace('_',' ')}</Text>
             </View>
             
             <BigRadioButton style={styles.radioButton} data={stValues} handleClick={handleClickButton}/>
@@ -68,22 +48,33 @@ export default function CellDescription({ navigation ,route }) {
             <View style={styles.container}>  
               <Text style={styles.subTitle}>Morfologija</Text>
               <Text style={[styles.text, {color: 'black'}]}>
-                {description}
+                {route.params.data.opcenito}
               </Text>
 
               <Text style={styles.subTitle}>Jezgra</Text>
               <Text style={[styles.text, {color: 'black'}]}>
-                {jezgra}
+                {route.params.data.jezgra}
               </Text>
+
+              {
+                route.params.data.slika1 != null ? 
+                  <Image style={styles.imageBig} source={route.params.data.slika1} /> :
+                  <View/>
+              }
 
               <Text style={styles.subTitle}>Citoplazma</Text>
               <Text style={[styles.text, {color: 'black'}]}>
-                {citoplazma}
+                {route.params.data.citoplazma}
               </Text>
+              {
+                route.params.data.slika2 != null ? 
+                  <Image style={styles.imageBig} source={route.params.data.slika2} /> :
+                  <View/>
+              }
 
             </View> :
               <View style={styles.table}>
-                {uris.map(function (object, i) {
+                {route.params.uris.map(function (object, i) {
                    if(i < 15) {
                     return (
                         <Image key={i} style={styles.image} source={object} />
@@ -116,6 +107,13 @@ const styles = StyleSheet.create({
     height: width / 4,
     marginTop: '5%'
   },
+  imageBig : {
+    resizeMode: 'contain',
+    width: width / 2,
+    height: width / 2,
+    marginBottom: '10%',
+    alignSelf: 'center'
+  },
   container:{
     margin: '10%',
   },  
@@ -128,16 +126,6 @@ const styles = StyleSheet.create({
     fontSize: 25 / 844 * height,
     fontWeight: '600',
     color: '#7F40B0',
-  },
-  searchBar: {
-    backgroundColor: '#EBDDF6',
-    borderRadius: 60,
-    height: '70%',
-    flexDirection: 'row'
-  },
-  inputText: {
-    color: '#9c53d4',
-    fontWeight: 'bold',
   },
   circle: {
     position: 'absolute',
@@ -169,7 +157,8 @@ const styles = StyleSheet.create({
       color: '#7F40B0',
       fontSize: 15 * 844 / height,
       fontWeight: '400',
-      lineHeight: 18 * 844 / height
+      lineHeight: 18 * 844 / height,
+      marginBottom: '10%'
   },
   svg: {
     position: 'absolute',

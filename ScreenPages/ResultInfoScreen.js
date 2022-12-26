@@ -1,33 +1,60 @@
 import * as React from 'react';
 import BackButton from '../components/BackButton'
-import { Dimensions, StyleSheet, View, Text } from 'react-native'
+import { Dimensions, StyleSheet, View, Text, ScrollView } from 'react-native'
 import { useState, useEffect} from 'react'
 import {LinearGradient} from 'expo-linear-gradient'
+import GalleryButton from '../components/GalleryButton';
 import QuestionSvg from '../resources/svg-s/QuestionSvg'
 import ResultButton from '../components/ResultButton'
+import galerija from '../resources/data/galerija'
+import data from '../resources/data/svaPitanja'
 
 const height = Dimensions.get('window').height
 export default function ResultInfoScreen({ navigation , route }) {
+  const [object, setObject] = useState(findObject(route.params.name))
   const onPress = () => {
     navigation.goBack()
   }
 
+  const handleClick = value => {
+    var index = data.realValues.indexOf(value.class) 
+    if(index != -1){
+      navigation.navigate('Description',{
+        data:value,
+        uris:data.questions[index].uris
+      })
+    } else {
+      navigation.navigate('InProgress')
+    }
+  }
 
+  function findObject(name){
+    var rotimPeder
+    Object.keys(galerija).forEach(function(key) {
+      for(var i = 0; i < galerija[key].length; i++){
+        if(galerija[key][i].class == name){
+          rotimPeder = galerija[key][i]
+        }
+      }
+    });
+    return rotimPeder
+  }
   return (
-    <View style={{flex: 2, backgroundColor: 'white'}}>
-      <View style={{ flex: 7}} >
+    <View style={{flex: 1, backgroundColor: 'white'}}>
+      <ScrollView>
+      <View style={{ height: 0.35 * height}} >
           <View style={styles.circle}/>
           <BackButton  size={height * 0.055} onPress={onPress} style={{left: '3%', top: '10%'}}/>
           <QuestionSvg size={height * 108 / 844} style={styles.svg}/>
       </View>
 
-      <LinearGradient colors={['white', '#EBDDF6' ]} style={{flex:13}}>
-          <View style={[styles.container, {flex: 1}]}>  
+      <LinearGradient colors={['white', '#EBDDF6' ]} style={{minHeight: 0.65 * height}}>
+          <View style={[styles.container, {height: 0.1 * height}]}>  
             <Text style={styles.title}>Gdje sam pogriješio?</Text>
             <Text style={styles.subTitle}>{route.params.name.replace('_', ' ')}</Text>
           </View>
 
-          <View style={{flex: 3,}}>  
+          <View style={{height: 0.3 * height}}>  
             <LinearGradient start={{ x: 1, y: 0 }} and end={{ x: 0, y: 0 }} colors={['white', '#EBDDF6' ]} style={[styles.background]}>
                 <View style={styles.box}>
                     <Text style={styles.text}>Prikazani</Text>
@@ -43,7 +70,7 @@ export default function ResultInfoScreen({ navigation , route }) {
                 </View>
             </LinearGradient>
           </View>
-          
+
           <View style={styles.container}>  
             <Text style={styles.title}>Uoči razlike!</Text>
             <Text style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}>
@@ -51,13 +78,40 @@ export default function ResultInfoScreen({ navigation , route }) {
               Ono na što treba pripaziti je:........
             </Text>
           </View>
-      </LinearGradient>
+          
+            {
+              object != null && object.linkovi != null?
+                <View style={styles.linksContainer}>
+                  <Text style={styles.titleLinks}>
+                    Pogledaj slike
+                  </Text>
 
+                  {object.linkovi.map(function (object, i) {
+                    return (
+                      <GalleryButton key={i} handleClick={handleClick} value={findObject(object)}/>
+                    )
+                })}
+                </View>  
+                :
+                  <Text style={styles.titleLinks}>
+                    Pusite mi kurac
+                  </Text>
+            }
+      </LinearGradient>
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  linksContainer: {
+    marginVertical: '5%'
+  },
+  titleLinks: {
+    fontSize: 25 / 844 * height,
+    fontWeight: '600',
+    marginLeft: '10%',
+  },
   text: {
     padding: '5%',
     fontSize: 20 / 844 * height,
@@ -70,8 +124,8 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   container: {
-    flex: 2,
-    paddingHorizontal: '10%'
+    height: 0.15 * height,
+    marginHorizontal: '10%',
   },
   background: {
     flexDirection: 'row',
