@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { Dimensions, StyleSheet, View, Text, Image, ScrollView } from 'react-native';
 import BigButton from '../components/BigButton';
 import { LinearGradient } from 'expo-linear-gradient'
-import questions from '../resources/data/questions';
 import BackButton from '../components/BackButton'
 import CloseButton from '../components/CloseButton'
 import { isSearchBarAvailableForCurrentPlatform } from 'react-native-screens';

@@ -6,14 +6,15 @@ import BackButton from '../components/BackButton'
 import {LinearGradient} from 'expo-linear-gradient'
 import SettingsSvg from '../resources/svg-s/SettingsSvg';
 import BigRadioButton from '../components/BigRadioButton';
-import fizio from '../resources/data/fizio';
-import patio from '../resources/data/patio';
+import svaPitanja from '../resources/data/svaPitanja';
 
 const height = Dimensions.get('window').height
 const width = Dimensions.get('window').width
 export default function CellDescription({ navigation ,route }) {
   const [uris, setUris] = useState([])
   const [description, setDescription] = useState('')
+  const [jezgra, setJezgra] = useState('')
+  const [citoplazma, setCitoplazma] = useState('')
   const [but, setBut] = useState("Slike");
   const stValues = [
     { value: 'Morfologija' },
@@ -30,18 +31,18 @@ export default function CellDescription({ navigation ,route }) {
   }
 
   useEffect(() => {
-    var patioIndex = patio.realValues.indexOf(route.params.name)
-    var fizioIndex = fizio.realValues.indexOf(route.params.name)
 
-    if(patioIndex != -1) {
-      if(patio.questions[patioIndex].description!=undefined)
-        {setDescription(patio.questions[patioIndex].description)}
-        setUris(patio.questions[patioIndex].uris)
-    } else if(patioIndex != -1) {
-      if(fizio.questions[fizioIndex].description!=undefined) 
-      {setDescription(fizio.questions[fizioIndex].descritpion)}
-      setUris(fizio.questions[fizioIndex].uris)
+    var index = svaPitanja.realValues.indexOf(route.params.name)
+    if(svaPitanja.questions[index].description!=undefined)
+        {setDescription(svaPitanja.questions[index].description)}
+    if(svaPitanja.questions[index].jezgra!=undefined) {
+        setJezgra(svaPitanja.questions[index].jezgra)
     }
+    if(svaPitanja.questions[index].citoplazma!=undefined) {
+      setCitoplazma(svaPitanja.questions[index].citoplazma)
+  }
+        setUris(svaPitanja.questions[index].uris)
+
   }, []);
 
 
@@ -70,6 +71,17 @@ export default function CellDescription({ navigation ,route }) {
               <Text style={[styles.subTitle, {color: 'black'}]}>
                 {description}
               </Text>
+
+              <Text style={styles.title}>Jezgra</Text>
+              <Text style={[styles.subTitle, {color: 'black'}]}>
+                {jezgra}
+              </Text>
+
+              <Text style={styles.title}>Citoplazma</Text>
+              <Text style={[styles.subTitle, {color: 'black'}]}>
+                {citoplazma}
+              </Text>
+
             </View> :
               <View style={styles.table}>
                 {uris.map(function (object, i) {

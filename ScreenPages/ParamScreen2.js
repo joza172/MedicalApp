@@ -6,23 +6,34 @@ import BackButton from '../components/BackButton'
 import {LinearGradient} from 'expo-linear-gradient'
 import SettingsSvg from '../resources/svg-s/SettingsSvg';
 import BigRadioButton from '../components/BigRadioButton';
+import Circle from '../components/Circle';
 
 const height = Dimensions.get('window').height
 export default function ParamScreen2({ navigation }) {
   const [num, setNum] = useState('90');
+  const [type,setType] = useState('Pro')
   const stValues = [
     { value: '10' },
     { value: '90' },
     { value: '120' },
+  ];
+  const typeValues = [
+    { value: 'Begnner' },
+    { value: 'Pro' },
   ];
 
   const handleClickNum = value => {
     setNum(value)
   };
 
+  const handleClickType = value => {
+    setType(value)
+  }
+
+
   const handleClickStart = value => {
       if(num != null){
-        navigation.navigate('Question2', {num:num})
+        navigation.navigate('Question2', {num:num,type:type})
       }
   }
 
@@ -31,34 +42,36 @@ export default function ParamScreen2({ navigation }) {
   }
 
   return (
-    <View style={{flexDirection: 'column', flex: 1}}>
-      <View style={{ flex: 7, backgroundColor: 'white'}} >
-          <View style={styles.circle}/>
-          <BackButton size={height * 0.055} onPress={onPress} style={{left: '3%', top: '10%'}}/>
-          <SettingsSvg size={100 / 844 * height} style={styles.svg}/>
-      </View>
-
-      <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background, {flex:13}]}>
-        <View style={{flexDirection: 'column',flex: 6}}>
-          <View style={styles.box}>
-            <Text style={styles.title}>Postavi vremenski limit</Text>
-          </View>
-          
-          <View style={styles.box}/>
-          <BigRadioButton style={{marginHorizontal: '3%', flex: 1}} data={stValues} handleClick={handleClickNum}/>
-          
-          <View style={styles.box}/>
-          <View style={styles.box}/>
-
-          <View style={styles.box}>
-            <BigButton value='Pokreni Vjezbu' style={styles.bigButton} handleClick={handleClickStart}/>
-          </View>
-        </View>
-       
-        <View style={{ flex: 1.5 }} />
-      </LinearGradient>
-
+    <View style={styles.container}>
+    <View style={{ flex: 7, backgroundColor: 'white'}} >
+        <Circle size={0.35} style={{left: '43%', top: '-10%'}}/>
+        <BackButton size={height * 0.055} onPress={onPress} style={{left: '3%', top: '10%'}}/>
+        <SettingsSvg size={height * 0.12} style={styles.svg}/>
     </View>
+
+    <LinearGradient colors={['white', '#EBDDF6' ]} style={styles.background}>
+      <View style={{flexDirection: 'column',flex: 6}}>
+        <View style={styles.box}>
+          <Text style={styles.title}>Postavi vremenski limit</Text>
+        </View>
+        <BigRadioButton style={{marginHorizontal: '3%', flex: 1}} data={stValues} handleClick={handleClickNum}/>
+
+        <View style={styles.box}>
+          <Text style={styles.title}>Postavi težinu</Text>
+        </View>
+        <BigRadioButton style={{marginHorizontal: '3%', flex: 1}} data={typeValues} handleClick={handleClickType}/>
+        
+        <View style={styles.box}/>
+        
+        <View style={styles.box}>
+          <BigButton value='Pokreni Vjezbu' style={styles.bigButton} handleClick={handleClickStart} size={0.08}></BigButton>
+        </View>
+      </View>
+     
+      <View style={{ flex: 1.5 }} />
+    </LinearGradient>
+
+  </View>
   );
 }
 
@@ -78,10 +91,11 @@ const styles = StyleSheet.create({
     flex: 1
   },
   background: {
+    flex:13
   },
   title: {
-    fontSize: 25 / 844 * height,
-    fontWeight: '600',
+    fontSize: height * 25 / 844,
+    fontWeight: 'bold',
   },
   searchBar: {
     backgroundColor: '#EBDDF6',
@@ -89,19 +103,13 @@ const styles = StyleSheet.create({
     height: '70%',
     flexDirection: 'row'
   },
-  circle: {
-    position: 'absolute',
-    backgroundColor: '#9C53D4',
-    borderRadius: Dimensions.get('window').width * 0.4,
-    width: Dimensions.get('window').width * 0.8,
-    height: Dimensions.get('window').width * 0.8,
-    left: '37.5%',
-    bottom: '11%',
-    opacity: 0.2
+  inputText: {
+    color: '#9c53d4',
+    fontWeight: 'bold',
   },
   svg: {
     position: 'absolute',
     left: '68%',
-    top: '18%'
+    top: '25%'
   }
 });

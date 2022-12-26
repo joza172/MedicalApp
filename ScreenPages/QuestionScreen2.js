@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, Dimensions, Image} from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
-import questions from '../resources/data/questions'
 import BackButton from '../components/BackButton'
 import ResultSvg from '../resources/svg-s/ResultSvg'
 import ImageRadioButton from '../components/ImageRadioButton'
@@ -12,7 +11,7 @@ import fizio from '../resources/data/fizio';
 const height = Dimensions.get('window').height
 export default function QuestionScreen2({ navigation, route }) {
 
-  const data = questions
+
   const vrsta = fizio
 
 
@@ -116,7 +115,7 @@ export default function QuestionScreen2({ navigation, route }) {
     navigation.goBack()
   }
 
-  const currentQuestion = data[0]
+  
   return (
     <View style={[styles.container, {flexDirection: 'column'}]}>
       <View style={{ flex: 7, backgroundColor: 'white'}} >
