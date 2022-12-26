@@ -293,6 +293,13 @@ export default {
         },
         {
         class:'Metamijelocit',
+
+        description : 'Metamijelociti promjera su između 10 i 16 µm.',
+
+        jezgra : 'Jezgra je postavljena ekscentrično te je bubrežastog oblika s izraženijim udubljenjem. Kromatin je kondenziraniji, a nukleoli nisu vidljivi.',
+
+        citoplazma : 'Obilnu citoplazmu ispunjavaju primarne i sekundarne granule.',
+
         uris: [
             require('../images/Pngovi/Metamijelocit/MMY_1216714.jpg'),
             require('../images/Pngovi/Metamijelocit/MMY_1221224.jpg'),
@@ -326,6 +333,11 @@ export default {
         {
         class:'Mijelocit',
 
+        description:'Mijelociti su zreliji te manji od promijelocita.',
+        
+        jezgra: 'Jezgra je smještena uz rub stanice s malim udubljenjem ili zaravnjanjem s jedne strane. Kromatin je kondenziraniji, a nukleoli nisu vidljivi.',
+
+        citoplazma: 'U citoplazmi su vidljive sekundarne granule na temelju kojih možemo raspoznati eozinofilni, bazofilni te neutrofilni mijelociti.',
 
         linkovi: ['Monocit', 'Limfocit', 'Reaktivni_limfocit', 'Mijelocit', 'Metamijelocit'],
 
@@ -607,6 +619,16 @@ export default {
         },
         {
         class:'Promijelocit',
+        
+        description:'Promijelocit morfološki nalikuje mijeloblastu, ali je ipak nešto veća stanica.',
+        
+        jezgra: 'Jezgra je smještena uz rub stanice. Vidljivi su nukleoli i fino raspršeni kromatin.',
+
+        citoplazma: 'Citoplazma je modra te se mogu uočiti azurofilne granule.',
+
+        linkovi: ['Nesegmentirani_granulocit', 'Segmentirani_granulocit', 'Metamijelocit'],
+
+
         uris: [
             require('../images/Pngovi/Promijelocit/MY_1249637.jpg'),
             require('../images/Pngovi/Promijelocit/PMY_1252320.jpg'),
@@ -618,6 +640,12 @@ export default {
         },
         {
         class:'Reaktivni_limfocit',
+
+        description: 'Reaktivni limfociti pokazuju različite morfološke osobine koje uključuju povećanje veličine i smanjenje omjera jezgre i citoplazme u odnosu na normalni limfocit.',
+
+        jezgra: 'Jezgra može biti okrugla, ali je često izdužena ili rastrgana ili nepravilna. Mogu se vidjeti nukleoli. Kromatin je više raspršen i svjetliji od kromatina kod limfocita u mirovanju.',
+
+        citoplazma: 'Povećana je bazofilija citoplazme uz moguću prisutnost azurofilnih granula i /ili vakuola',
 
 
         linkovi: ['Reaktivni_limfocit', 'Limfocit', 'Monocit'],
