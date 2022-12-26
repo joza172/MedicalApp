@@ -52,9 +52,8 @@ export default function CellDescription({ navigation ,route }) {
         <View style={styles.header} >
             <View style={styles.circle}/>
             <BackButton size={height * 0.055} onPress={onPress} style={{left: '3%', top: '10%'}}/>
-            <SettingsSvg size={100 / 844 * height} style={styles.svg}/>
+            <Image style={styles.imageCircle} source={require('../resources/images/Pngovi/Bazofil/BA_1005528.jpg')}/>
         </View>
-
 
         <LinearGradient colors={['white', '#EBDDF6' ]} style={{
           minHeight: 0.65 * height
@@ -67,18 +66,18 @@ export default function CellDescription({ navigation ,route }) {
 
             {but=='Morfologija' ?
             <View style={styles.container}>  
-              <Text style={styles.title}>Morfologija</Text>
-              <Text style={[styles.subTitle, {color: 'black'}]}>
+              <Text style={styles.subTitle}>Morfologija</Text>
+              <Text style={[styles.text, {color: 'black'}]}>
                 {description}
               </Text>
 
-              <Text style={styles.title}>Jezgra</Text>
-              <Text style={[styles.subTitle, {color: 'black'}]}>
+              <Text style={styles.subTitle}>Jezgra</Text>
+              <Text style={[styles.text, {color: 'black'}]}>
                 {jezgra}
               </Text>
 
-              <Text style={styles.title}>Citoplazma</Text>
-              <Text style={[styles.subTitle, {color: 'black'}]}>
+              <Text style={styles.subTitle}>Citoplazma</Text>
+              <Text style={[styles.text, {color: 'black'}]}>
                 {citoplazma}
               </Text>
 
@@ -118,7 +117,7 @@ const styles = StyleSheet.create({
     marginTop: '5%'
   },
   container:{
-    margin: '5%',
+    margin: '10%',
   },  
   radioButton: {
     height: 0.05 * height,
@@ -150,10 +149,27 @@ const styles = StyleSheet.create({
     bottom: '11%',
     opacity: 0.2
   },
+  imageCircle: {
+    position: 'absolute',
+    resizeMode: 'contain',
+    borderRadius: Dimensions.get('window').width * 0.33,
+    width: Dimensions.get('window').width * 0.66,
+    height: Dimensions.get('window').width * 0.66,
+    left: '44%',
+    bottom: '20%',
+  },
   subTitle: {
-    textAlign:'center',
-    color: '#7F40B0',
-    fontSize: 20,
+      textAlign: 'center',
+      fontSize: 25 / 844 * height,
+      fontWeight: '400',
+      marginBottom: '10%'
+  },
+  text: {
+      textAlign: 'justify',
+      color: '#7F40B0',
+      fontSize: 15 * 844 / height,
+      fontWeight: '400',
+      lineHeight: 18 * 844 / height
   },
   svg: {
     position: 'absolute',
