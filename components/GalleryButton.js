@@ -67,9 +67,9 @@ const GalleryButton = (props) => {
                 return (<ReaktLimfoSvg size={height * 0.1} style={styles.svg}/>);
             case 'Atipični_limfocit':
                 return (<AtipLimfoSvg size={height * 0.1} style={styles.svg}/>);
-            case 'Plazma_stanica':
+            case 'Plazma_stanice':
                 return (<PlazmaSvg size={height * 0.1} style={styles.svg}/>);
-            case 'Vlasasti_limfocit':
+            case 'Vlasasti_limfociti':
                 return (<VlasLimfoSvg size={height * 0.1} style={styles.svg}/>);
             case 'Monoblast':
                 return (<MonoblastSvg size={height * 0.1} style={styles.svg}/>);
