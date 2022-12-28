@@ -1,16 +1,15 @@
 import * as React from 'react';
 import { useState,useEffect } from 'react';
-import { Dimensions, StyleSheet, View, Text, Image, Pressable, TextInput, ScrollView } from 'react-native';
-import BigButton from '../components/BigButton';
+import { Dimensions, StyleSheet, View, Text, Image, Pressable, ScrollView } from 'react-native';
 import BackButton from '../components/BackButton'
 import {LinearGradient} from 'expo-linear-gradient'
-import SettingsSvg from '../resources/svg-s/SettingsSvg';
 import BigRadioButton from '../components/BigRadioButton';
-import data from '../resources/data/galerija';
 
 const height = Dimensions.get('window').height
 const width = Dimensions.get('window').width
 export default function CellDescription({ navigation ,route }) {
+  const [mainSrc, setMainSrc] = useState(null);
+  const [visible, setVisible] = useState(false);
   const [but, setBut] = useState("Slike");
   const stValues = [
     { value: 'Morfologija' },
@@ -28,6 +27,19 @@ export default function CellDescription({ navigation ,route }) {
 
   return (
     <View style={{flex: 1}}>
+      {
+        visible ? 
+        <Pressable style={styles.bigImageContainer} 
+            onPress={() => {
+                  setVisible(false)
+                  setMainSrc(null)
+                }
+            }>
+          <Image style={styles.bigImage} source={mainSrc} />
+        </Pressable>
+        :
+        <View/>
+      }
       <ScrollView>
         <View style={styles.header} >
             <View style={styles.circle}/>
@@ -77,7 +89,13 @@ export default function CellDescription({ navigation ,route }) {
                 {route.params.data.uris.map(function (object, i) {
                    
                     return (
-                        <Image key={i} style={styles.image} source={object} />
+                        <Pressable key={i}
+                          onPress={() => {
+                              setMainSrc(object)
+                              setVisible(true)
+                          }}>
+                          <Image style={styles.image} source={object} />
+                        </Pressable>
                       )
                    
                   })}
@@ -89,6 +107,28 @@ export default function CellDescription({ navigation ,route }) {
 }
 
 const styles = StyleSheet.create({
+  bigImageContainer: {
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+    zIndex: 10,
+    backgroundColor: 'rgba(52, 52, 52, 0.8)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    
+  },
+  bigImage: {
+    resizeMode: 'contain',
+  },
+  image: {
+    resizeMode: 'contain',
+    width: width / 4,
+    height: width / 4,
+    marginTop: '5%'
+  },
+  imageContainer: {
+
+  },
   table: {
     margin: '5%',
     alignSelf: 'center',
@@ -100,12 +140,6 @@ const styles = StyleSheet.create({
   header: { 
     height: 0.35 * height,
     backgroundColor: 'white'
-  },
-  image: {
-    resizeMode: 'contain',
-    width: width / 4,
-    height: width / 4,
-    marginTop: '5%'
   },
   imageBig : {
     resizeMode: 'contain',
