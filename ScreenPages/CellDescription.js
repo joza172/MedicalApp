@@ -32,7 +32,7 @@ export default function CellDescription({ navigation ,route }) {
         <View style={styles.header} >
             <View style={styles.circle}/>
             <BackButton size={height * 0.055} onPress={onPress} style={{left: '3%', top: '10%'}}/>
-            <Image style={styles.imageCircle} source={require('../resources/images/Pngovi/Bazofil/BA_1005528.jpg')}/>
+            <Image style={styles.imageCircle} source={route.params.data.naslovna}/>
         </View>
 
         <LinearGradient colors={['white', '#EBDDF6' ]} style={{
@@ -74,12 +74,12 @@ export default function CellDescription({ navigation ,route }) {
 
             </View> :
               <View style={styles.table}>
-                {route.params.uris.map(function (object, i) {
-                   if(i < 15) {
+                {route.params.data.uris.map(function (object, i) {
+                   
                     return (
                         <Image key={i} style={styles.image} source={object} />
                       )
-                   }
+                   
                   })}
               </View>}
         </LinearGradient>

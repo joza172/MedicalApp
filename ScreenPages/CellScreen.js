@@ -13,11 +13,12 @@ export default function CellScreen({ navigation , route}) {
   var groups = galerija[route.params.group]
 
   const handleClick = value => {
+    var blasti = ['Limfoblast','Monoblast','Mijeloblast']
+    var index2 = blasti.indexOf(value.class)
     var index = data.realValues.indexOf(value.class) 
-    if(index != -1){
+    if(index != -1 || index2 !=1){
       navigation.navigate('Description',{
-        data:value,
-        uris:data.questions[index].uris
+        data:value
       })
     } else {
       navigation.navigate('InProgress')
