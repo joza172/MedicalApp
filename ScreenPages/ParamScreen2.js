@@ -18,7 +18,7 @@ export default function ParamScreen2({ navigation }) {
     { value: '120' },
   ];
   const typeValues = [
-    { value: 'Begnner' },
+    { value: 'Beginner' },
     { value: 'Pro' },
   ];
 

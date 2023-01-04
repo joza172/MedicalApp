@@ -371,7 +371,7 @@ export default {
       citoplazma: 'Citoplazma je ispunjena grubim tamnocrvenim granulama.',
       slika1:require('../images/Jpgovi-opis/Eozinofil/1.jpg'),
       slika2:require('../images/Jpgovi-opis/Eozinofil/2.jpg'),
-      linkovi: ['Segmentirani_granulocit'],
+      linkovi: ['Eozinofil','Segmentirani_granulocit'],
       naslovna:require('../images/Pngovi/Eozinofil/EO_304127.jpg'),
       uris:[
         require('../images/Pngovi/Eozinofil/EO_1005307.jpg'),

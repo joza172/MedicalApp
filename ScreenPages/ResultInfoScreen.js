@@ -9,9 +9,28 @@ import ResultButton from '../components/ResultButton'
 import galerija from '../resources/data/galerija'
 import data from '../resources/data/svaPitanja'
 
+
 const height = Dimensions.get('window').height
 export default function ResultInfoScreen({ navigation , route }) {
   const [object, setObject] = useState(findObject(route.params.name))
+  const [kratice,setKratice] = useState([])
+
+  useEffect(() => {
+    if(object.linkovi!=null) {
+    var temp=[]
+    
+    for(i = 1; i < object.linkovi.length;i++) {
+    
+      var ind = data.realValues.indexOf(object.linkovi[i])
+      
+      temp.push(data.options[ind])
+      
+    }
+    setKratice(temp)
+  }
+  }, []);
+
+
   const onPress = () => {
     navigation.goBack()
   }
@@ -70,14 +89,34 @@ export default function ResultInfoScreen({ navigation , route }) {
                 </View>
             </LinearGradient>
           </View>
-
+          {
+            object != null && object.linkovi != null?
           <View style={styles.container}>  
             <Text style={styles.title}>Uoči razlike!</Text>
             <Text style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}>
-              Često dolazi do zamjene neseg i meta ili neutrofila. 
-              Ono na što treba pripaziti je:........
+              Često dolazi do zamjene {data.options[data.realValues.indexOf(route.params.name)]} i
+               {kratice.map(function(object,i) {
+                
+                if(i==kratice.length - 1) {
+                  return(
+                  <Text style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}> {kratice[i]}. </Text>
+                )
+                }
+                else {
+                return(
+                  <Text style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}> {kratice[i]}, </Text>
+                )
+                }
+               })}
+
+              Kako bi lakše uočio razlike u sitnim detaljima izdvojili smo slike koje preporučamo da pogledaš.
             </Text>
           </View>
+          :
+          <Text style={styles.titleLinks}>
+                    Pusite mi kurac
+          </Text>
+          }
           
             {
               object != null && object.linkovi != null?

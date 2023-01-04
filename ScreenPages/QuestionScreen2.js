@@ -7,15 +7,16 @@ import ResultSvg from '../resources/svg-s/ResultSvg'
 import ImageRadioButton from '../components/ImageRadioButton'
 import BigButton from '../components/BigButton'
 import fizio from '../resources/data/fizio';
+import svaPitanja from '../resources/data/svaPitanja';
 
 const height = Dimensions.get('window').height
 export default function QuestionScreen2({ navigation, route }) {
 
+  var level = route.params.type
+  const vrsta = level === 'Pro' ? svaPitanja : fizio
 
-  const vrsta = fizio
 
-
-  const realValues = fizio.realValues
+  
   const [time, setTime] = useState(route.params.num)
   const [timeStr, setTimeStr] = useState('0' + Math.floor(time / 60) + ':' + time % 60)
   const [rotation, setRotation] = useState((-36.6 + 163.2) + 'deg')
@@ -33,7 +34,21 @@ export default function QuestionScreen2({ navigation, route }) {
   //get random pictures for quiz
   useEffect(() => {
     var rD = vrsta.questions
-    var r = rD[Math.floor(Math.random() * rD.length)].class
+
+    var classIndex = Math.floor(Math.random() * rD.length)
+
+    var r = rD[classIndex].class
+
+    
+
+    if(level==='Pro' && r === 'Stanice_Pelgera') {
+      console.log("Radim")
+      while(r === 'Stanice_Pelgera') {
+        classIndex = Math.floor(Math.random() * rD.length)
+        r = rD[classIndex].class
+      }
+    }
+
     var rUri = null
     var tempUris = []
     
@@ -41,10 +56,19 @@ export default function QuestionScreen2({ navigation, route }) {
     while (tempUris.length < 3 || rUri == null) {
 
       var randomClass = Math.floor(Math.random() * rD.length)
+
+      if(level === 'Pro') {
+
+        if(rD[classIndex].napKviz.indexOf(rD[randomClass].class)==-1 && rD[classIndex].class != rD[randomClass].class) {
+          continue
+        }
+
+      }
+
       var randomUriNumber = Math.floor(Math.random() * rD[randomClass].uris.length)
       var rand = rD[randomClass].uris[randomUriNumber]
       
-      if (rD[randomClass].class != r && tempUris.length < 3) {
+      if (rD[randomClass].class != r && tempUris.length < 3 && tempUris.indexOf(rand)==-1) {
         tempUris.push(rand)
       } else if(rUri == null && rD[randomClass].class == r) {
         rUri = rand

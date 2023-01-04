@@ -32,6 +32,8 @@ export default {
 
         linkovi:['Bazofil'],
 
+        napKviz:['Segmentirani_granulocit','Nesegmentirani_granulocit'],
+
         uris: [
             require('../images/Pngovi/Bazofil/BA_1005528.jpg'),
             require('../images/Pngovi/Bazofil/BA_1005593.jpg'),
@@ -59,6 +61,10 @@ export default {
         },
         {
         class:'Blast',
+
+        napKviz:['Limfocit','Reaktivni_limfocit','Promijelocit','Mijelocit'],
+
+
         uris: [
             require('../images/Pngovi/Blast/BL_1210097.jpg'),
             require('../images/Pngovi/Blast/BL_1210165.jpg'),
@@ -139,6 +145,8 @@ export default {
 
         linkovi: ['Segmentirani_granulocit'],
 
+        napKviz:['Segmentirani_granulocit','Nesegmentirani_granulocit','Bazofil'],
+
 
         uris: [
             require('../images/Pngovi/Eozinofil/EO_1005307.jpg'),
@@ -189,6 +197,9 @@ export default {
         citoplazma: 'Citoplazma je modre boje. Često je oskudna, no ponekad može biti i veći volumen citoplazme popraćen granulama. U tim slučajevima važno je razlikovati limfocit od granulocita ili monocita.',
 
         linkovi: ['Limfocit', 'Reaktivni_limfocit', 'Monocit'],
+
+        napKviz:['Reaktivni_limfocit','Monocit','Blast','Promijelocit','Makrotomocit'],
+
 
         uris: [
             require('../images/Pngovi/Limfocit/LY_1231195.jpg'),
@@ -300,6 +311,9 @@ export default {
 
         citoplazma : 'Obilnu citoplazmu ispunjavaju primarne i sekundarne granule.',
 
+        napKviz:['Mijelocit','Nesegmentirani_granulocit','Promijelocit'],
+
+
         uris: [
             require('../images/Pngovi/Metamijelocit/MMY_1216714.jpg'),
             require('../images/Pngovi/Metamijelocit/MMY_1221224.jpg'),
@@ -340,6 +354,9 @@ export default {
         citoplazma: 'U citoplazmi su vidljive sekundarne granule na temelju kojih možemo raspoznati eozinofilni, bazofilni te neutrofilni mijelociti.',
 
         linkovi: ['Monocit', 'Limfocit', 'Reaktivni_limfocit', 'Mijelocit', 'Metamijelocit'],
+
+        napKviz: ['Promijelocit','Metamijelocit','Monocit','Nesegmentirani_granulocit','Blast','Plazma_stanice'],
+
 
         uris: [
             require('../images/Pngovi/Mijelocit/MY_1215337.jpg'),
@@ -434,6 +451,7 @@ export default {
 
         citoplazma: 'Citoplazma je obojena plavkasto-sivo i često ispunjena vakuolama.',
 
+        napKviz:['Reaktivni_limfocit','Limfocit','Mijelocit','Blast'],
 
 
         uris: [
@@ -556,6 +574,9 @@ export default {
 
         linkovi: ['Nesegmentirani_granulocit', 'Segmentirani_granulocit', 'Metamijelocit'],
 
+        napKviz:['Segmentirani_granulocit','Metamijelocit','Mijelocit'],
+
+
         uris: [
             require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1231370.jpg'),
             require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1231510.jpg'),
@@ -607,6 +628,10 @@ export default {
         },
         {
         class:'Plazma_stanice',
+
+        napKviz:['Limfocit','Reaktivni_limfocit','Monocit','Blast','Promijelocit','Makrotomocit'],
+
+
         uris: [
             require('../images/Pngovi/Plazma_stanice/BL_1254250.jpg'),
             require('../images/Pngovi/Plazma_stanice/LY_1254269.jpg'),
@@ -629,6 +654,9 @@ export default {
         linkovi: ['Nesegmentirani_granulocit', 'Segmentirani_granulocit', 'Metamijelocit'],
 
 
+        napKviz:['Blast','Mijelocit','Reaktivni_limfocit'],
+
+
         uris: [
             require('../images/Pngovi/Promijelocit/MY_1249637.jpg'),
             require('../images/Pngovi/Promijelocit/PMY_1252320.jpg'),
@@ -649,6 +677,9 @@ export default {
 
 
         linkovi: ['Reaktivni_limfocit', 'Limfocit', 'Monocit'],
+
+        napKviz:['Limfocit','Monocit','Blast','Promijelocit'],
+
 
         uris: [
             require('../images/Pngovi/Reaktivni_limfocit/LY_1103603.jpg'),
@@ -683,6 +714,9 @@ export default {
         citoplazma: 'Ružičasto obojana citoplazma ispunjena je velikim brojem ljubičasto-ružičasto obojenih granula. Granule koje vidimo u stanici predstavljaju sekundarne i tercijarne granule, dok su primarne granule neobojane. U žena je moguće uočiti krajnji segment koji nazivamo Barrovo tjelešce. Barrovo tjelešce predstavlja inaktivni spolni X kromosom.',
 
         linkovi: ['Segmentirani_granulocit', 'Nesegmentirani_granulocit', 'Metamijelocit'],
+
+        napKviz:['Nesegmentirani_granulocit','Metamijelocit','Bazofil','Eozinofil'],
+
 
         uris: [
             require('../images/Pngovi/Segmentirani_granulocit/SNE_1004854.jpg'),
