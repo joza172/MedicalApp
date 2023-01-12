@@ -275,7 +275,7 @@ export default {
         citoplazma:' Ružičasto obojana citoplazma ispunjena je velikim brojem ljubičasto-ružičasto obojenih granula. Granule koje vidimo u stanici predstavljaju sekundarne i tercijarne granule, dok su primarne granule neobojane.U žena je moguće uočiti krajnji segment koji nazivamo Barrovo tjelešce. Barrovo tjelešce predstavlja inaktivni spolni X kromosom.',
         slika1:require('../images/Jpgovi-opis/Segmentirani_granulocit/1.jpg'),
 		    slika2:require('../images/Jpgovi-opis/Segmentirani_granulocit/2.jpg'),
-        linkovi: ['Nesegmentirani_granulocit', 'Segmentirani_granulocit', 'Metamijelocit'],
+        linkovi: [ 'Segmentirani_granulocit', 'Nesegmentirani_granulocit', 'Metamijelocit'],
         naslovna:require('../images/Pngovi/Segmentirani_granulocit/SNE_1237381.jpg'),
         uris:[
           require('../images/Pngovi/Segmentirani_granulocit/SNE_1004854.jpg'),

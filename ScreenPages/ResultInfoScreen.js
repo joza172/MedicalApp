@@ -16,10 +16,12 @@ export default function ResultInfoScreen({ navigation , route }) {
   const [kratice,setKratice] = useState([])
 
   useEffect(() => {
-    if(object.linkovi!=null) {
+
+    
+    if(object !== undefined && object.linkovi !== undefined ) {
     var temp=[]
     
-    for(i = 1; i < object.linkovi.length;i++) {
+    for(var i = 1; i < object.linkovi.length;i++) {
     
       var ind = data.realValues.indexOf(object.linkovi[i])
       
