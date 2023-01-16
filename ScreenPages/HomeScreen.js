@@ -6,9 +6,11 @@ import BigButton from '../components/BigButton';
 import Circle from '../components/Circle';
 import {LinearGradient} from 'expo-linear-gradient'
 import FakeMenuSvg from '../resources/svg-s/FakeMenuSvg';
+import HamburgerMenu from '../components/HamburgerMenu';
 
 const height = Dimensions.get('window').height
 export default function HomeScreen({ navigation }) {
+  const [visible, setVisible] = useState(false);
   const handleClick = value => {
     if(value === 'Galerija'){
       navigation.navigate('Gallery')
@@ -21,11 +23,22 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={styles.mainContainer}>
+  
+      <HamburgerMenu visible={visible} navigation={navigation} page={0} 
+            setVisible={() => {
+                setVisible(false)
+              }} />
+
       <View style={{ flex: 2, backgroundColor: 'white'}} >
           <View style={{ flex: 3}}>
             <Circle size={0.25} style={{right: '75%'}}/>
             <Circle size={0.25} style={{bottom: '50%'}}/>
-            <FakeMenuSvg size={height * 0.055} style={{left: '85%', top: '15%'}}/>
+            <Pressable style={{left: '85%', top: '15%'}} onPress={() => {
+                  setVisible(true)
+                }
+              }>
+              <FakeMenuSvg size={height * 0.055}/>
+            </Pressable>
           </View>
           <View style={{ flex: 1, justifyContent: 'flex-end'}}>  
             <Text style={styles.title}>Dobrodošli</Text>
@@ -89,4 +102,3 @@ const styles = StyleSheet.create({
     height: '95%',
   }
 });
-
