@@ -49,8 +49,6 @@ export default function HomeScreen({ navigation }) {
       <LinearGradient colors={['white', '#EBDDF6' ]} style={styles.background}>
         <View style={{flex: 1, alignItems: 'center', padding: '5%'}} >
             <View style={[styles.searchBar, {alignItems: 'center'}]}>
-                <SearchSvg size={height * 0.025} style={{marginLeft: '3%'}}/>
-                <Text style={[styles.inputText]}></Text>
             </View>
         </View>
         <View style={{flexDirection: 'column',flex: 6}}>

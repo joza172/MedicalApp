@@ -43,7 +43,6 @@ export default function ResultScreen2({ navigation , route }) {
                     <ResultImageButton
                       handleClick={handleClick}
                       index={i}
-                      key={i}
                       correct={route.params.answers[i].correctChoice != route.params.answers[i].myChoice}
                       uris={route.params.answers[i].allUris}
                       height={Dimensions.get('window').height * 0.1}/>

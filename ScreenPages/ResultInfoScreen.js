@@ -3,7 +3,7 @@ import BackButton from '../components/BackButton'
 import { Dimensions, StyleSheet, View, Text, ScrollView } from 'react-native'
 import { useState, useEffect} from 'react'
 import {LinearGradient} from 'expo-linear-gradient'
-import GalleryButton from '../components/GalleryButton';
+import GalleryButton from '../components/GalleryButton'
 import QuestionSvg from '../resources/svg-s/QuestionSvg'
 import ResultButton from '../components/ResultButton'
 import galerija from '../resources/data/galerija'
@@ -101,12 +101,12 @@ export default function ResultInfoScreen({ navigation , route }) {
                 
                 if(i==kratice.length - 1) {
                   return(
-                  <Text style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}> {kratice[i]}. </Text>
+                  <Text key={i} style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}> {kratice[i]}. </Text>
                 )
                 }
                 else {
                 return(
-                  <Text style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}> {kratice[i]}, </Text>
+                  <Text key={i} style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}> {kratice[i]}, </Text>
                 )
                 }
                })}
@@ -115,9 +115,7 @@ export default function ResultInfoScreen({ navigation , route }) {
             </Text>
           </View>
           :
-          <Text style={styles.titleLinks}>
-                    Pusite mi kurac
-          </Text>
+          <View/>
           }
           
             {
@@ -134,9 +132,7 @@ export default function ResultInfoScreen({ navigation , route }) {
                 })}
                 </View>  
                 :
-                  <Text style={styles.titleLinks}>
-                    Pusite mi kurac
-                  </Text>
+                <View/>
             }
       </LinearGradient>
       </ScrollView>

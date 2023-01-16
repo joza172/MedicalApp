@@ -37,12 +37,8 @@ export default function CellScreen({ navigation , route}) {
             </View>
 
             <LinearGradient colors={['white', '#EBDDF6' ]}  style={styles.mainContainer}>
-                <View style={{height: height * 0.15, marginHorizontal: '5%'}}>  
+                <View style={{height: height * 0.08, marginHorizontal: '5%'}}>  
                         <Text style={styles.title}>{route.params.group}</Text>
-                        <View style={[styles.searchBar, {alignItems: 'center'}]}>
-                          <SearchSvg size={height * 0.025} style={{marginLeft: '3%'}}/>
-                          <Text style={[styles.inputText]}></Text>    
-                    </View>
                 </View>
                 {groups.map(function (object, i) {
                     return (

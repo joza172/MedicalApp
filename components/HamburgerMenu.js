@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Dimensions, StyleSheet, Pressable, View, Text } from 'react-native';
+import React, { useState, useCallback} from 'react';
+import { Dimensions, StyleSheet, Pressable, View, Text, Linking } from 'react-native';
 import HomeSvg from '../resources/svg-s/HomeSvg'
 import InfoSvg from '../resources/svg-s/InfoSvg'
 import ContactSvg from '../resources/svg-s/ContactSvg'
@@ -20,6 +20,19 @@ const HamburgerMenu = (props) => {
                 return (<BugSvg color={param == props.page ? '#fff': '#9C53D4'} size={24 * height / 844 } style={styles.svg}/>);
         }
     }
+    const handlePress = useCallback(async () => {
+        const url = "https://docs.google.com/forms/d/e/1FAIpQLScXDEFMFsaJfdcplXKwY2fQ3-R6jDDAwHMpX-5bd1XNqzgJSQ/viewform?usp=sf_link"
+        // Checking if the link is supported for links with custom URL scheme.
+        const supported = await Linking.canOpenURL(url);
+    
+        if (supported) {
+          // Opening the link with some app, if the URL scheme is "http" the web link should be opened
+          // by some browser in the mobile
+          await Linking.openURL(url);
+        } else {
+          Alert.alert(`Unable to open bug report.`);
+        }
+      });
 
     const buttons = ['Home', 'O nama', 'Kontakt', 'Bug report']
     if (props.visible){
@@ -46,7 +59,9 @@ const HamburgerMenu = (props) => {
                             onPress={() => {
                                 if(i == 0){
                                     props.navigation.navigate('Home')
-                                } else {
+                                } else if(i == 3){
+                                    handlePress()
+                                }else {
                                     props.navigation.navigate('InProgress')
                                 }
                             }}
