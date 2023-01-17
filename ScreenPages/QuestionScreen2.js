@@ -42,7 +42,7 @@ export default function QuestionScreen2({ navigation, route }) {
     
 
     if(level==='Pro' && r === 'Stanice_Pelgera') {
-      console.log("Radim")
+      
       while(r === 'Stanice_Pelgera') {
         classIndex = Math.floor(Math.random() * rD.length)
         r = rD[classIndex].class

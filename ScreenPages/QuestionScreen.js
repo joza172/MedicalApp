@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: 'space-around',
     borderRadius: 25,
-    backgroundColor: '#C29DE7',
+    backgroundColor: '#eee2f8',
   },
   image: {
     resizeMode: 'contain',

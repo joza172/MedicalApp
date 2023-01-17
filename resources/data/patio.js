@@ -23,7 +23,6 @@ export default {
     questions:[
         {
         class:'Blast',
-        description:'sven je car',
         uris: [
             require('../images/Pngovi/Blast/BL_1210097.jpg'),
             require('../images/Pngovi/Blast/BL_1210165.jpg'),

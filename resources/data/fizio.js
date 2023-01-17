@@ -2,21 +2,21 @@ export default {
 
 
     realValues : [
-        'Bazofil' , 'Eozinofil' , 'Limfocit' , 'Monocit' ,'Segmentirani_granulocit'  
+        'Bazofil' , 'Eozinofil' , 'Limfocit' , 'Monocit' , 'Nesegmentirani_granulocit' ,'Reaktivni_limfocit' , 'Segmentirani_granulocit'  
     ],
 
 
     options : [ 
-        'Ba' , 'Eo' , 'Ly' , 'Mono' , 'Seg'  
+        'Ba' , 'Eo' , 'Ly' , 'Mono' , 'N.seg', 'R.ly', 'Seg'  
     ],
 
     omjer : [
         
-         0.1, 0.1, 0.25, 0.25 , 0.3
+         0.05, 0.05, 0.2, 0.2 , 0.1 , 0.1, 0.3
     ],
 
     points: {
-         'Ba': 0, 'Eo': 0, 'Ly': 0, 'Mono': 0, 'Seg': 0 
+         'Ba': 0, 'Eo': 0, 'Ly': 0, 'Mono': 0, 'N.seg': 0, 'R.ly': 0, 'Seg': 0 
         }
     ,
 
@@ -92,7 +92,6 @@ export default {
         },
         {
         class:'Limfocit',
-        descritpion:'hej hej hej',
         uris: [
             require('../images/Pngovi/Limfocit/LY_1231195.jpg'),
             require('../images/Pngovi/Limfocit/LY_1231199.jpg'),
@@ -305,6 +304,88 @@ export default {
             require('../images/Pngovi/Monocit/MO_310439.jpg'),
         ]
         },
+
+        {
+            class:'Nesegmentirani_granulocit',
+            uris: [
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1231370.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1231510.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1231533.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1241576.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1241577.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1241672.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1252222.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1252268.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1252356.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1252381.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1252383.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1252415.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1254310.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1254336.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1254390.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1254419.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1254426.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_1254433.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_151553.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_151554.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_151562.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_151596.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_151599.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_151624.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_151649.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_299173.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_299186.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_299191.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_299192.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_299206.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_299219.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_299231.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_299232.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_299233.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_299250.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_299260.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_299268.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_299272.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_299282.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_299943.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_300182.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_302073.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_302082.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_302146.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_302173.jpg'),
+                require('../images/Pngovi/Nesegmentirani_granulocit/BNE_306015.jpg'),
+            ]
+            },
+
+
+            {
+                class:'Reaktivni_limfocit',
+                uris: [
+                    require('../images/Pngovi/Reaktivni_limfocit/LY_1103603.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/LY_1103645.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/LY_1103650.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/LY_1103660.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/LY_1103688.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/RLY_1103588.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/RLY_1103594.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/RLY_1103601.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/RLY_1103614.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/RLY_1103623.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/RLY_1103624.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/RLY_1103640.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/RLY_1103648.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/RLY_1103656.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/RLY_1103665.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/RLY_1103668.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/RLY_1103678.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/RLY_1103680.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/RLY_1103689.jpg'),
+                    require('../images/Pngovi/Reaktivni_limfocit/RLY_1145930.jpg'),
+                ]
+                },
+
+
+
         {
         class:'Segmentirani_granulocit',
         uris: [

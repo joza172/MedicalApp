@@ -92,7 +92,7 @@ export default function ResultInfoScreen({ navigation , route }) {
             </LinearGradient>
           </View>
           {
-            object != null && object.linkovi != null?
+            object != null && object.linkovi != null && kratice.length > 0? 
           <View style={styles.container}>  
             <Text style={styles.title}>Uoči razlike!</Text>
             <Text style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}>
