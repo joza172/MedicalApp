@@ -2,13 +2,16 @@ export default {
 
 
     realValues : [
-        'Promijelocit', 'Blast', 'Metamijelocit',
-    'Mijelocit', 'Nesegmentirani_granulocit', 'Plazma_stanice', 'Reaktivni_limfocit', 'Stanice_Pelgera'
+        'Blast', 'Metamijelocit', 'Mijelocit',
+        'Nesegmentirani_granulocit', 'Plazma_stanice', 'Promijelocit',
+        'Reaktivni_limfocit', 'Stanice_Pelgera'
+
     ],
 
 
     options : [ 
-        'Pr', 'Bl', 'Meta', 'Mi', 'N.seg', 'Ps', 'R.ly', 'Sp'
+
+        'Bl', 'Meta', 'Mi', 'N.seg', 'Ps', 'Pr', 'R.ly', 'Sp'
     ],
 
     omjer : [
@@ -16,7 +19,7 @@ export default {
     ],
 
     points: {
-        'Pr': 0, 'Bl': 0, 'Meta': 0, 'Mi': 0, 'N.seg': 0, 'Ps': 0, 'R.ly': 0, 'Sp': 0
+        'Bl': 0, 'Meta': 0, 'Mi': 0, 'N.seg': 0, 'Ps': 0, 'Pr': 0, 'R.ly': 0, 'Sp': 0
         }
     ,
 

@@ -10,10 +10,10 @@ const width = Dimensions.get('window').width
 export default function CellDescription({ navigation ,route }) {
   const [mainSrc, setMainSrc] = useState(null);
   const [visible, setVisible] = useState(false);
-  const [but, setBut] = useState("Slike");
+  const [but, setBut] = useState("Morfologija");
   const stValues = [
-    { value: 'Morfologija' },
     { value: 'Slike' },
+    { value: 'Morfologija' },
   ];
 
   const handleClickButton = value => {

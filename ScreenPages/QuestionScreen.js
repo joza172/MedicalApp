@@ -106,7 +106,9 @@ export default function QuestionScreen({ navigation, route }) {
       if (options.indexOf(selectedAnswer) == realValues.indexOf(currentClass)) {
         points[selectedAnswer] = points[selectedAnswer] + 1
       }
+      setIndex(index+1)
     }
+    
   }, [selectedAnswer]);
 
   //reset selected value
@@ -117,8 +119,14 @@ export default function QuestionScreen({ navigation, route }) {
   //handle click on option
   const handleClick = value => {
     setSelectedAnswer(value);
-
     if(index == dataForUse.length - 1){
+
+      //add point for last question
+      if (options.indexOf(value) == realValues.indexOf(currentClass)) {
+        points[value] = points[value] + 1
+      }
+      
+
       let results = []
       let sum = 0
       for(let i = 0; i < options.length; i++){
@@ -132,9 +140,7 @@ export default function QuestionScreen({ navigation, route }) {
         results:results,
         realValues: realValues
       })
-    } else {
-      setIndex(index + 1)
-    }
+    } 
   };
 
   const onPress = () => {
