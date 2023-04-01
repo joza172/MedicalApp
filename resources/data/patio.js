@@ -11,7 +11,7 @@ export default {
 
     options : [ 
 
-        'Bl', 'Meta', 'Mi', 'N.seg', 'Ps', 'Pr', 'R.ly', 'Sp'
+        'BLAST', 'META', 'MIJELO', 'N.SEG', 'PLAZMA', 'PROMI', 'R.LIMF', 'PLGR'
     ],
 
     omjer : [
@@ -19,7 +19,7 @@ export default {
     ],
 
     points: {
-        'Bl': 0, 'Meta': 0, 'Mi': 0, 'N.seg': 0, 'Ps': 0, 'Pr': 0, 'R.ly': 0, 'Sp': 0
+        'BLAST': 0, 'META': 0, 'MIJELO': 0, 'N.SEG': 0, 'PLAZMA': 0, 'PROMI': 0, 'R.LIMF': 0, 'PLGR': 0
         }
     ,
 

@@ -13,10 +13,30 @@ const width = Dimensions.get('window').width
 export default function ResultInfoScreen2({ navigation , route }) {
   const answers = route.params.answers
   const index = route.params.index
+  const [kratice,setKratice] = useState([])
   const [object, setObject] = useState(findObject(route.params.answers[index].realClass))
   const onPress = () => {
     navigation.goBack()
   }
+
+  useEffect(() => {
+
+    
+    if(object !== undefined && object.linkovi !== undefined ) {
+    var temp=[]
+    
+    for(var i = 1; i < object.linkovi.length;i++) {
+    
+      //var ind = data.realValues.indexOf(object.linkovi[i])
+      
+      temp.push(object.linkovi[i].replace('_',' '))
+      
+    }
+    setKratice(temp)
+  }
+  }, []);
+
+
 
   const handleClick = value => {
     var index = data.realValues.indexOf(value.class) 
@@ -69,6 +89,32 @@ export default function ResultInfoScreen2({ navigation , route }) {
                     )
                 })}
             </View>
+            {
+              object != null && object.linkovi != null && kratice.length > 0? 
+            <View style={styles.containerText}>  
+              <Text style={styles.title}>Uoči razlike!</Text>
+              <Text style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}>
+                Često dolazi do zamjene {route.params.answers[index].realClass.replace('_',' ')} i
+                {kratice.map(function(object,i) {
+                  
+                  if(i==kratice.length - 1) {
+                    return(
+                    <Text key={i} style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}> {kratice[i]}. </Text>
+                  )
+                  }
+                  else {
+                  return(
+                    <Text key={i} style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}> {kratice[i]}, </Text>
+                  )
+                  }
+                })}
+
+                Kako bi lakše uočio razlike u sitnim detaljima izdvojili smo slike koje preporučamo da pogledaš.
+              </Text>
+            </View>
+            :
+            <View/>
+            }
             
             {
                 object != null && object.linkovi != null?
@@ -124,6 +170,10 @@ const styles = StyleSheet.create({
     flex: 0.5,
     paddingHorizontal: '2%'
   },
+  containerText: {
+    height: 0.2 * height,
+    marginHorizontal: '10%',
+  },
   table: {
     width: width * 368 / 370,
     height: width,
@@ -141,6 +191,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25 / 844 * height,
     fontWeight: 'bold',
+  },
+  subTitle: {
+    color: '#7F40B0',
+    fontSize: 20 / 844 * height,
+    fontWeight: '600'
   },
   svg: {
     position: 'absolute',

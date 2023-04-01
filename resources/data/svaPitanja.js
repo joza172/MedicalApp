@@ -6,8 +6,8 @@ export default {
     ],
 
     options : [ 
-        'Ba', 'Bl', 'Eo', 'Ly', 'Meta', 'Mi', 'Mono',
-         'N.seg', 'Ps', 'Pr',  'R.ly', 'Seg', 'Sp'
+        'BAZO', 'BLAST', 'EOZ', 'LIMF', 'META', 'MIJELO', 'MONO',
+         'N.SEG', 'PLAZMA', 'PROMI',  'R.LIMF', 'SEG', 'PLGR'
     ],
 
     omjer : [
@@ -15,8 +15,8 @@ export default {
     ],
 
     points: {
-        'Ba' : 0, 'Bl' : 0, 'Eo' : 0, 'Ly' : 0, 'Meta' : 0, 'Mi' : 0, 'Mono' : 0,
-         'N.seg' : 0, 'Ps' : 0, 'Pr' : 0,  'R.ly' : 0, 'Seg' : 0, 'Sp' : 0
+        'BAZO' : 0, 'BLAST' : 0, 'EOZ' : 0, 'LIMF' : 0, 'META' : 0, 'MIJELO' : 0, 'MONO' : 0,
+         'N.SEG' : 0, 'PLAZMA' : 0, 'PROMI' : 0,  'R.LIMF' : 0, 'SEG' : 0, 'PLGR' : 0
         }
     ,
 

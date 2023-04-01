@@ -14,6 +14,9 @@ import GalleryScreen from "./ScreenPages/GalleryScreen.js";
 import CellScreen from "./ScreenPages/CellScreen.js";
 import CellDescription from "./ScreenPages/CellDescription.js";
 import InProgressScreen from "./ScreenPages/InProgressScreen.js";
+import TestZoom from "./ScreenPages/TestZoom.js";
+import DiseaseGroupsScreen from "./ScreenPages/DiseaseGroupsScreen.js";
+import BolestiScreen from "./ScreenPages/BolestiScreen.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -91,6 +94,23 @@ export default function App() {
           component={InProgressScreen}
           options={{headerShown: false}}
         />
+        <Stack.Screen
+            name="Zoom"
+            component={TestZoom}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="DiseasesGroups"
+            component={DiseaseGroupsScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Bolesti"
+            component={BolestiScreen}
+            options={{headerShown: false}}
+          />
+  	    
+
       </Stack.Navigator>
     </NavigationContainer>
   );

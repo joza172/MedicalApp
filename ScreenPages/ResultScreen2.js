@@ -16,7 +16,7 @@ export default function ResultScreen2({ navigation , route }) {
   }
 
   const onPress = () => {
-    navigation.navigate('Second')
+    navigation.navigate('Second', {prevScreen : 'Vježbe'})
   }
 
   return (

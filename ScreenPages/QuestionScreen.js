@@ -17,7 +17,7 @@ export default function QuestionScreen({ navigation, route }) {
   var numOfStanice = route.params.num
   var vrsta = route.params.type
 
-  const rD = vrsta === 'Patio' ? patio : vrsta === 'Fizio' ? fizio : svaPitanja
+  const rD = vrsta === 'Patološki' ? patio : vrsta === 'Fiziološki' ? fizio : svaPitanja
 
   const [options, setOptions] = useState([])
   const [realValues, setRealValues] = useState([])
@@ -82,7 +82,7 @@ export default function QuestionScreen({ navigation, route }) {
         omjerNum[index] = trenutniBrojTeStanice - 1
       }
     } 
-
+    console.log(tempQuestionClass)
     setDataForUse(temp)
     setOptions(tempOptions)
     setRealValues(tempRV)

@@ -14,9 +14,12 @@ export default function HomeScreen({ navigation }) {
   const handleClick = value => {
     if(value === 'Galerija'){
       navigation.navigate('Gallery')
-    } else if(value === 'Vježbe'){
-      navigation.navigate('Second')
-    } else {
+    } else if(value === 'Vježbe' || value === 'Razmazi'){
+      navigation.navigate('Second' ,{prevScreen : value})
+    } else if (value == 'Zoom') {
+      navigation.navigate('Zoom')
+    }
+    else {
       navigation.navigate('InProgress')
     }
   };
@@ -58,7 +61,7 @@ export default function HomeScreen({ navigation }) {
           </View>
           <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-around', alignItems: 'center'}}>
             <BigButton value='Galerija' num='2' handleClick={handleClick} style={styles.bigButton} size={0.08}/>
-            <BigButton value='Bolesti' num='3' handleClick={handleClick} style={styles.bigButton} size={0.09}/>
+            <BigButton value='Zoom' num='3' handleClick={handleClick} style={styles.bigButton} size={0.09}/>
           </View>
         </View>
         <View style={{ flex: 1 }} >

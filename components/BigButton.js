@@ -14,7 +14,7 @@ const BigButton = (props) => {
             case '0':
                 return (<PlaySvg color='#FFF' size={height * props.size}/>);
             case '1':
-                return (<MicroscopeSvg size={height * props.size}/>);
+                return (<MicroscopeSvg color = '#FFF' size={height * props.size}/>);
             case '2':
                 return (<GallerySvg size={height * props.size}/>);
             case '3':

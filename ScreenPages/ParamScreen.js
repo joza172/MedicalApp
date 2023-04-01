@@ -19,9 +19,9 @@ export default function ParamScreen({ navigation }) {
   ];
   
   const razValues = [
-    { value: 'Fizio' },
-    { value: 'Patio' },
-    { value: 'Obično' },
+    { value: 'Fiziološki' },
+    { value: 'Patološki' },
+    { value: 'Razno' },
   ];
 
   const handleClickNum = value => {

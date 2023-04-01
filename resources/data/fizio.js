@@ -7,7 +7,7 @@ export default {
 
 
     options : [ 
-        'Ba' , 'Eo' , 'Ly' , 'Mono' , 'N.seg', 'R.ly', 'Seg'  
+        'BAZO' , 'EOZ' , 'LIMF' , 'MONO' , 'N.SEG', 'R.LIMF', 'SEG'  
     ],
 
     omjer : [
@@ -16,7 +16,7 @@ export default {
     ],
 
     points: {
-         'Ba': 0, 'Eo': 0, 'Ly': 0, 'Mono': 0, 'N.seg': 0, 'R.ly': 0, 'Seg': 0 
+         'BAZO': 0, 'EOZ': 0, 'LIMF': 0, 'MONO': 0, 'N.SEG': 0, 'R.LIMF': 0, 'SEG': 0 
         }
     ,
 

@@ -23,9 +23,9 @@ export default function ResultInfoScreen({ navigation , route }) {
     
     for(var i = 1; i < object.linkovi.length;i++) {
     
-      var ind = data.realValues.indexOf(object.linkovi[i])
+      //var ind = data.realValues.indexOf(object.linkovi[i])
       
-      temp.push(data.options[ind])
+      temp.push(object.linkovi[i].replace('_',' '))
       
     }
     setKratice(temp)
@@ -96,7 +96,7 @@ export default function ResultInfoScreen({ navigation , route }) {
           <View style={styles.container}>  
             <Text style={styles.title}>Uoči razlike!</Text>
             <Text style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}>
-              Često dolazi do zamjene {data.options[data.realValues.indexOf(route.params.name)]} i
+              Često dolazi do zamjene {route.params.name.replace('_',' ')} i
                {kratice.map(function(object,i) {
                 
                 if(i==kratice.length - 1) {
@@ -148,6 +148,7 @@ const styles = StyleSheet.create({
     fontSize: 25 / 844 * height,
     fontWeight: '600',
     marginLeft: '10%',
+    marginTop: '5%'
   },
   text: {
     padding: '5%',
