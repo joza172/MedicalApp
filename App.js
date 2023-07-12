@@ -17,6 +17,8 @@ import InProgressScreen from "./ScreenPages/InProgressScreen.js";
 import TestZoom from "./ScreenPages/TestZoom.js";
 import DiseaseGroupsScreen from "./ScreenPages/DiseaseGroupsScreen.js";
 import BolestiScreen from "./ScreenPages/BolestiScreen.js";
+import UputeZaRazmazScreen from "./ScreenPages/UputeZaRazmazScreen.js";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -109,7 +111,12 @@ export default function App() {
             component={BolestiScreen}
             options={{headerShown: false}}
           />
-  	    
+
+            <Stack.Screen
+            name="Upute"
+            component={UputeZaRazmazScreen}
+            options={{headerShown: false}}
+          />
 
       </Stack.Navigator>
     </NavigationContainer>

@@ -18,6 +18,8 @@ const HamburgerMenu = (props) => {
                 return (<ContactSvg color={param == props.page ? '#fff': '#9C53D4'} size={24 * height / 844 } style={styles.svg}/>);
             case 3:
                 return (<BugSvg color={param == props.page ? '#fff': '#9C53D4'} size={24 * height / 844 } style={styles.svg}/>);
+            case 4:
+                return (<BugSvg color={param == props.page ? '#fff': '#9C53D4'} size={24 * height / 844 } style={styles.svg}/>);
         }
     }
     const handlePress = useCallback(async () => {
@@ -34,7 +36,7 @@ const HamburgerMenu = (props) => {
         }
       });
 
-    const buttons = ['Home', 'O nama', 'Kontakt', 'Bug report']
+    const buttons = ['Home', 'O nama', 'Kontakt', 'Bug report' , 'Legalne \n informacije']
     if (props.visible){
         return (
         <View style={styles.container}>
@@ -117,7 +119,9 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 19 / 844 * height,
         fontWeight: '600',
-        color: '#9C53D4'
+        color: '#9C53D4',
+        textAlign: 'center'
+        
     }
 })
 

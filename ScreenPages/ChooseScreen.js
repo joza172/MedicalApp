@@ -23,7 +23,7 @@ export default function ChooseScreen({ navigation,route }) {
     } else if (value === 'Klasicno diferenciranje') {
       navigation.navigate('Param')
     } else {
-      navigation.navigate('InProgress')
+      navigation.navigate('DiseasesGroups')
     }
   }
 

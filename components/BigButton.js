@@ -24,6 +24,8 @@ const BigButton = (props) => {
         }
       }
 
+    let buttonFontSize = props.fontSize * height * 19 / 844 || height * 19 / 844;  
+
     return (
         <Pressable style={[styles.rectanglePressable, style]} 
             onPress={() => {
@@ -32,7 +34,7 @@ const BigButton = (props) => {
             }>
             <View style={styles.picText}>
                 {renderSwitch(props.num)}
-                <Text style={[styles.text]}>{props.value}</Text>
+                <Text style={[styles.text, { fontSize: buttonFontSize }]}>{props.value}</Text>
             </View>
             
         </Pressable>
@@ -59,7 +61,8 @@ const styles = StyleSheet.create({
     text: {
         fontWeight: 'bold',
         color: '#FFFFFF',
-        fontSize: height * 19 / 844
+        //fontSize: height * 19 / 844
+        textAlign:'center'
     }
 })
 

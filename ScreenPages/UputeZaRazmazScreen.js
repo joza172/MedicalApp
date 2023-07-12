@@ -8,16 +8,13 @@ import MicroscopeSvg from '../resources/svg-s/MicroscopeSvg';
 import bolesti from '../resources/data/bolesti';
 
 const height = Dimensions.get('window').height
-export default function BolestiScreen({ navigation , route }) {
+export default function UputeZaRazmazScreen({ navigation , route }) {
   
 
   const naslov = route.params.name
 
-  const groups = bolesti[naslov.replaceAll(' ','_')]
-  
-
-  const handleClick = value => {
-    navigation.navigate('Upute',{name:value})
+  const handleClickStart = value => {
+    navigation.navigate('Zoom' , {name:route.params.name})
   }
 
   const onPress = () => {
@@ -26,7 +23,7 @@ export default function BolestiScreen({ navigation , route }) {
 
   return (
     <View style={styles.container}>
-    <ScrollView>
+
         <View style={{ height: height * 0.32 , backgroundColor:'#FFF'}} >
             <Circle size={0.35} style={{left: '43%', top: '-10%'}}/>
             <BackButton size={height * 0.055} onPress={onPress} style={{left: '3%', top: '10%'}}/>
@@ -37,22 +34,32 @@ export default function BolestiScreen({ navigation , route }) {
             <View style={{height: height * 0.1, marginHorizontal: '5%'}}>  
                     <Text style={styles.title}>{naslov}</Text>
             </View>
-            {groups.map(function (object, i) {
-                return (
-                    <BigButton value={object} key={i} handleClick={handleClick} style={{height: height * 0.1 , marginVertical : '5%'}}/>
-                )
-            })}
+            <View>
+            <Text style={styles.text}>
+            Dobrodošao na izbornik za diferenciranje. U ovoj vježbi imaš priliku iskusiti digitalno diferenciranje razmaza.{'\n\n'}
+
+            Upute:{'\n\n'}
+
+            Zaslon će ti se zaokrenuti i moći ćeš pregledati razmaz i diferenciati 100 stanica*.  
+            *neki razmazi nemaju 100 stanica u slici, vježba će automatski završiti kad izbrojiš sve stanice.{'\n\n'}
+            Pomoću prstiju se krećeš po razmazu i jednostavnim pokretima možeš povećavati ili smanjivati sliku.{'\n\n'}
+            Rezultati će biti prikazani u postotcima.
+            </Text>
+
+            </View>
+
+            <BigButton style={styles.bigButton} value='Pokreni Vjezbu' handleClick={handleClickStart}/>
 
         </LinearGradient>
-    </ScrollView>
-</View>
+    
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   bigButton: {
     marginVertical: height * 0.1,
-    height : height * 0.5
+    height : height * 0.1
   },
   container: {
     flex: 1
@@ -86,11 +93,13 @@ const styles = StyleSheet.create({
     marginHorizontal: '5%',
   },
   text: {
-      fontWeight: '600',
-      color: '#FFFFFF',
-      fontSize: 20 /  844 * height,
-      marginHorizontal: '10%',
-  },
+    textAlign: 'center',
+    color: 'black',
+    fontSize: 15 * 844 / height,
+    fontWeight: '400',
+    lineHeight: 18 * 844 / height,
+    marginBottom: '10%'
+},
   mainContainer: {
     minHeight: height * 0.9,
   },

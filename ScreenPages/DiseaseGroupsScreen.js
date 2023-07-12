@@ -32,21 +32,21 @@ export default function DiseaseGroupsScreen({ navigation,route }) {
           </View>
           <View style={{flex: 10}}>
           <View style={{flexDirection: 'row', flex: 3, justifyContent: 'center', alignItems: 'center'}}>
-            <BigButton value="Mijeloproliferativne neoplazme"  style={{height: '75%', width: '30%'}} handleClick={handleClick} size={0.1}/>
+            <BigButton value="Mijeloproliferativne neoplazme" fontSize={0.6}  style={{height: '100%', width: '30%'}} handleClick={handleClick} size={0.1}/>
           </View>
           <View style={{flexDirection: 'row', flex: 3 , justifyContent: 'space-between', alignItems: 'flex-start'}}>
-            <BigButton value="Akutne leukemije"  style={{height: '75%', width: '30%', left : '10%'}} handleClick={handleClick} size={0.1}/>
-            <BigButton value="Mijelodisplazije"  style={{height: '75%', width: '30%',right:'10%'}} handleClick={handleClick} size={0.1}/>
+            <BigButton value="Akutne leukemije" fontSize={0.6}  style={{height: '100%', width: '30%', left : '10%'}} handleClick={handleClick} size={0.1}/>
+            <BigButton value="Mijelodisplazije" fontSize={0.6}  style={{height: '100%', width: '30%',right:'10%'}} handleClick={handleClick} size={0.1}/>
           </View>
           <View style={{flexDirection: 'row', flex: 3, justifyContent: 'center', alignItems: 'center'}}>
-            <BigButton value="Iznenadi me"  style={{height: '75%', width: '30%'}} handleClick={handleClick} size={0.1}/>
+            <BigButton value="Iznenadi me" fontSize={0.6} style={{height: '100%', width: '30%'}} handleClick={handleClick} size={0.1}/>
           </View>
           <View style={{flexDirection: 'row', flex: 3, justifyContent: 'space-between', alignItems: 'flex-end'}}>
-            <BigButton value="Anemije"  style={{height: '75%', width: '30%', left:'10%'}} handleClick={handleClick} size={0.1}/>
-            <BigButton value="Benigne bolesti leukocita"  style={{height: '75%', width: '30%',right:'10%'}} handleClick={handleClick} size={0.1}/>
+            <BigButton value="Anemije" fontSize={0.6}  style={{height: '100%', width: '30%', left:'10%'}} handleClick={handleClick} size={0.1}/>
+            <BigButton value="Benigne bolesti leukocita" fontSize={0.6} style={{height: '100%', width: '30%',right:'10%'}} handleClick={handleClick} size={0.1}/>
           </View>
           <View style={{flexDirection: 'row', flex: 3, justifyContent: 'center', alignItems: 'center'}}>
-            <BigButton value="Zloćudne bolesti limfocita"  style={{height: '75%', width: '30%'}} handleClick={handleClick} size={0.1}/>
+            <BigButton value="Zloćudne bolesti limfocita" fontSize={0.6} style={{height: '100%', width: '30%'}} handleClick={handleClick} size={0.1}/>
           </View>
           </View>
       </LinearGradient>
