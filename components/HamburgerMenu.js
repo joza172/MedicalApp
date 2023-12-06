@@ -51,7 +51,7 @@ const HamburgerMenu = (props) => {
                     <Text style={styles.title}>
                         NeutroPhil
                     </Text>
-                    <NeutroPhilSvg/>
+                    <NeutroPhilSvg size = {80 * height / 844}/>
                 </View>
                 <View style={styles.menus}>
                     {buttons.map(function (object, i) {

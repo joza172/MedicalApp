@@ -1,11 +1,11 @@
 import * as React from "react"
-import Svg, { Path } from "react-native-svg"
+import Svg, { Path,Circle } from "react-native-svg"
 
 function SvgComponent(props) {
   return (
     <Svg
-      width={71}
-      height={81}
+      width={props.size}
+      height={props.size}
       viewBox="0 0 71 81"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -85,6 +85,17 @@ function SvgComponent(props) {
         d="M18.811 17.293l29.353-2.554.562 6.45-29.354 2.554-.561-6.45z"
         fill="#fff"
       />
+
+      {props.circles && (
+        <>
+      <Circle cx="65" cy="35" r="3" stroke='#C599E6' 
+            strokeWidth="1"     
+            fill='transparent' />
+      <Circle cx="70" cy="15" r="5" fill="transparent"
+              stroke='#C599E6' 
+              strokeWidth="1" />
+      </>
+      )}
     </Svg>
   )
 }

@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
     },
     svg: {
         position: 'absolute',
-        left: '90%',
-        top: '20%'
+        left: '93%',
+        top: '15%'
     }
 })
 

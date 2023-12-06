@@ -16,11 +16,9 @@ export default function HomeScreen({ navigation }) {
       navigation.navigate('Gallery')
     } else if(value === 'Vježbe' || value === 'Razmazi'){
       navigation.navigate('Second' ,{prevScreen : value})
-    } else if (value == 'Zoom') {
-      navigation.navigate('Zoom')
     }
     else {
-      navigation.navigate('InProgress')
+      navigation.navigate("CaseStudy")
     }
   };
 
@@ -56,12 +54,12 @@ export default function HomeScreen({ navigation }) {
         </View>
         <View style={{flexDirection: 'column',flex: 6}}>
           <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-around', alignItems: 'center'}}>
-            <BigButton value='Vježbe' num='0'  handleClick={handleClick} style={styles.bigButton} size={0.08}/>
-            <BigButton value='Razmazi' num='1' handleClick={handleClick} style={styles.bigButton} size={0.08}/>
+            <BigButton value='Vježbe' num='0'   handleClick={handleClick} style={styles.bigButton} size={0.08}/>
+            <BigButton value='Razmazi' num='1'  handleClick={handleClick} style={styles.bigButton} size={0.08}/>
           </View>
           <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-around', alignItems: 'center'}}>
-            <BigButton value='Galerija' num='2' handleClick={handleClick} style={styles.bigButton} size={0.08}/>
-            <BigButton value='Zoom' num='3' handleClick={handleClick} style={styles.bigButton} size={0.09}/>
+            <BigButton value='Galerija' num='2'  handleClick={handleClick} style={styles.bigButton} size={0.08}/>
+            <BigButton value='Case study' num='3'  handleClick={handleClick} style={styles.bigButton} size={0.09}/>
           </View>
         </View>
         <View style={{ flex: 1 }} >
@@ -101,5 +99,6 @@ const styles = StyleSheet.create({
   bigButton: {
     width: '45%',
     height: '95%',
+    borderRadius:52
   }
 });

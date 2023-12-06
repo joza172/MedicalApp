@@ -35,13 +35,13 @@ const BigRadioButton = (props) => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
-        borderRadius: 30,
+        borderRadius: 35,
         flexDirection: 'row',
         shadowColor: '#000000',
         elevation: 30,
     },
     rectanglePressable: {
-        borderRadius: 30,
+        borderRadius: 35,
         justifyContent: 'center',
         alignItems: 'center',
         width: '30%',

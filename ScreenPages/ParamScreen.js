@@ -65,7 +65,7 @@ export default function ParamScreen({ navigation }) {
           <View style={styles.box}/>
           
           <View style={styles.box}>
-            <BigButton value='Pokreni Vjezbu' style={styles.bigButton} handleClick={handleClickStart} size={0.08}></BigButton>
+            <BigButton value='Pokreni vježbu' style={styles.bigButton} handleClick={handleClickStart} size={0.08}></BigButton>
           </View>
         </View>
        

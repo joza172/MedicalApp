@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25 / 844 * height,
     fontWeight: 'bold',
-    marginLeft: '10%',
+    textAlign:'center',
     marginBottom: '3%'
   },
   searchBar: {

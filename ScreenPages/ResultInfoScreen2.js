@@ -75,16 +75,17 @@ export default function ResultInfoScreen2({ navigation , route }) {
               <Text style={styles.title}>{answers[index].realClass.replace('_', ' ')} je na slici broj {answers[index].correctChoice + 1}</Text>
             </View>
 
+
+
             <View style={styles.table}>
               {answers[index].allUris.map(function (object, i) {
                   return (
                       <View key={i} style={styles.imageContainer}>
-                          <Image style={styles.image} source={object} />
-                          <Text style={[styles.smallCircle, 
-                            i == answers[index].correctChoice ? {backgroundColor: '#36D69C'} : 
-                            i == answers[index].myChoice ? {backgroundColor: '#E24646'}: {}]}>
-                            {i + 1}
-                          </Text>
+                          <Image style={[styles.image,
+                            i == answers[index].correctChoice ? {borderColor: '#36D69C',borderWidth:2} : 
+                            i == answers[index].myChoice ? {borderColor: '#E24646',borderWidth:2}: {}]
+                           } 
+                           source={object} />
                       </View>
                     )
                 })}
@@ -92,7 +93,7 @@ export default function ResultInfoScreen2({ navigation , route }) {
             {
               object != null && object.linkovi != null && kratice.length > 0? 
             <View style={styles.containerText}>  
-              <Text style={styles.title}>Uoči razlike!</Text>
+              <Text style={[styles.title,{marginBottom:"5%"}]}>Uoči razlike!</Text>
               <Text style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}>
                 Često dolazi do zamjene {route.params.answers[index].realClass.replace('_',' ')} i
                 {kratice.map(function(object,i) {
@@ -140,7 +141,7 @@ export default function ResultInfoScreen2({ navigation , route }) {
 
 const styles = StyleSheet.create({
   linksContainer: {
-    marginVertical: '5%'
+    marginVertical: '10%'
   },
   titleLinks: {
     fontSize: 25 / 844 * height,
@@ -164,7 +165,8 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     height: '45%',
-    width: '45%'
+    width: '45%',
+    borderRadius:25
   },
   container: {
     flex: 0.5,
@@ -173,6 +175,7 @@ const styles = StyleSheet.create({
   containerText: {
     height: 0.2 * height,
     marginHorizontal: '10%',
+    marginBottom:"5%"
   },
   table: {
     width: width * 368 / 370,
@@ -186,7 +189,8 @@ const styles = StyleSheet.create({
   image: {
       resizeMode: 'contain',
       width: '100%',
-      height: '100%'
+      height: '100%',
+      borderRadius:25 
   },
   title: {
     fontSize: 25 / 844 * height,

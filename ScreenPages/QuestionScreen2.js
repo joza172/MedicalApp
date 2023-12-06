@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, Dimensions, Image} from 'react-native'
+import { StyleSheet, View, Text, Dimensions, Image,Animated, Easing } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import BackButton from '../components/BackButton'
 import ResultSvg from '../resources/svg-s/ResultSvg'
@@ -13,10 +13,13 @@ const height = Dimensions.get('window').height
 export default function QuestionScreen2({ navigation, route }) {
 
   var level = route.params.type
-  const vrsta = level === 'Pro' ? svaPitanja : fizio
+  const vrsta = level === 'Napredno' ? svaPitanja : fizio
 
 
-  
+  const [showUI, setShowUI] = useState(true);
+  const [contentOpacity] = useState(new Animated.Value(1));
+
+
   const [time, setTime] = useState(route.params.num)
   const [timeStr, setTimeStr] = useState('0' + Math.floor(time / 60) + ':' + time % 60)
   const [rotation, setRotation] = useState((-36.6 + 163.2) + 'deg')
@@ -27,12 +30,15 @@ export default function QuestionScreen2({ navigation, route }) {
   const [questionNum, setQuestionNum] = useState(0)
   const [correctAnswer, setCorrectAnswer] = useState(0)
   const [numOfCorrectAnswers,setNumOfCorrectAnswers] = useState(0)
+  const [shouldNavigate, setShouldNavigate] = useState(false);
   
 
   
 
   //get random pictures for quiz
   useEffect(() => {
+
+
     var rD = vrsta.questions
 
     var classIndex = Math.floor(Math.random() * rD.length)
@@ -81,10 +87,42 @@ export default function QuestionScreen2({ navigation, route }) {
     tempUris[3] = tempUris[randomIndex]
     tempUris[randomIndex] = rUri
     setCorrectAnswer(randomIndex)
+  
+    
+    setReal("")
 
-    setReal(r)
-    setUris(tempUris)
+    Animated.timing(contentOpacity, {
+      toValue: 0, // Fade out
+      duration: 500, // Adjust the duration as needed
+      easing: Easing.linear,
+      useNativeDriver: false,
+    }).start(({ finished }) => {
+      if (finished) {
+        setReal(r)
+        setUris(tempUris)
+        // Animation complete, update UI
+        fadeInContent(); // Trigger fade-in animation
+      }
+    });
+    
+
+   
   }, [questionNum])
+
+
+  const fadeInContent = () => {
+    
+    // Start the fade-in animation
+    Animated.timing(contentOpacity, {
+      toValue: 1, // Fade in
+      duration: 500, // Adjust the duration as needed
+      easing: Easing.linear,
+      useNativeDriver: false, // Choose an easing function
+    }).start();
+    
+  };
+
+
 
 
   let interval = null;
@@ -97,7 +135,8 @@ export default function QuestionScreen2({ navigation, route }) {
         setRotation((-36.6 + 163.2 * time/route.params.num) + 'deg')
       }
       if (time === 0) {
-        navigation.navigate("Result2", {result:numOfCorrectAnswers / questionNum * 100, answers:answers})
+        setShouldNavigate(true)
+        //navigation.navigate("Result2", {result:numOfCorrectAnswers / questionNum * 100, answers:answers})
       }
     };
 
@@ -109,6 +148,11 @@ export default function QuestionScreen2({ navigation, route }) {
     };
   }, [time]);
 
+  useEffect(() => {
+    if (shouldNavigate) {
+      navigation.navigate('Result2', { result: numOfCorrectAnswers / questionNum * 100, answers: answers });
+    }
+  }, [shouldNavigate]);
 
   //handle click on option
   const handleClick = value => {
@@ -118,13 +162,13 @@ export default function QuestionScreen2({ navigation, route }) {
   //handle potvrda
   const handleClickGuess = value => {
     
-    if(selected==correctAnswer) {
+    if(value==correctAnswer) {
       setNumOfCorrectAnswers(numOfCorrectAnswers+1)
     } 
 
     var temp = answers
     temp[questionNum] = {
-      myChoice : selected,
+      myChoice : value,
       correctChoice : correctAnswer,
       allUris : uris,
       realClass: real
@@ -132,6 +176,7 @@ export default function QuestionScreen2({ navigation, route }) {
     setQuestionNum(questionNum+1)
     setAnswers(temp)
     setReal('...')
+
     
   };
 
@@ -141,7 +186,7 @@ export default function QuestionScreen2({ navigation, route }) {
 
   
   return (
-    <View style={[styles.container, {flexDirection: 'column'}]}>
+    <View style={[styles.container, { flexDirection: 'column' }]}>
       <View style={{ flex: 7, backgroundColor: 'white'}} >
           <View style={styles.circleOut}/>
           <View style={[styles.circlePer, {transform: [
@@ -157,13 +202,10 @@ export default function QuestionScreen2({ navigation, route }) {
       </View>
 
       <LinearGradient colors={['white', '#EBDDF6' ]} style={[styles.background]}>
-          <View>  
-            <Text style={styles.title}>Odaberi {real.replace('_', ' ')}: {route.params.result}</Text>
-          </View>
-          <ImageRadioButton uris={uris} handleClick={handleClick}/>
-          <View style={styles.box}>
-            <BigButton style={styles.bigButton} value='Potvrdi odabir' handleClick={handleClickGuess}/>
-          </View>
+          <Animated.View style={{opacity:contentOpacity}}>  
+            <Text style={styles.title}>{real.replace('_', ' ')}:</Text>
+            <ImageRadioButton uris={uris} handleClick={handleClickGuess}/>
+          </Animated.View>
       </LinearGradient>
 
     </View>

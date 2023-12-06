@@ -11,15 +11,15 @@ import Circle from '../components/Circle';
 const height = Dimensions.get('window').height
 export default function ParamScreen2({ navigation }) {
   const [num, setNum] = useState('90');
-  const [type,setType] = useState('Pro')
+  const [type,setType] = useState('Napredno')
   const stValues = [
     { value: '10' },
     { value: '90' },
     { value: '120' },
   ];
   const typeValues = [
-    { value: 'Beginner' },
-    { value: 'Pro' },
+    { value: 'Početno' },
+    { value: 'Napredno' },
   ];
 
   const handleClickNum = value => {

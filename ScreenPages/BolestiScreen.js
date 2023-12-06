@@ -6,18 +6,25 @@ import {LinearGradient} from 'expo-linear-gradient'
 import Circle from '../components/Circle';
 import MicroscopeSvg from '../resources/svg-s/MicroscopeSvg';
 import bolesti from '../resources/data/bolesti';
+import velikeSlike from '../resources/data/velikeSlike';
 
 const height = Dimensions.get('window').height
 export default function BolestiScreen({ navigation , route }) {
   
 
   const naslov = route.params.name
-
   const groups = bolesti[naslov.replaceAll(' ','_')]
   
 
   const handleClick = value => {
+    const className = value.replaceAll(' ','_')
+    if (velikeSlike[className] == undefined) {
+      navigation.navigate('InProgress')
+    }
+
+    else {
     navigation.navigate('Upute',{name:value})
+    }
   }
 
   const onPress = () => {

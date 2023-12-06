@@ -63,8 +63,9 @@ export default function ChooseScreen({ navigation,route }) {
 
 const styles = StyleSheet.create({
   bigButton: {
-    width: '95%',
-    height: '95%',
+    width: '80%',
+    height: '90%',
+    borderRadius:61
   },
   container: {
     flex: 1
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 40 / 844 * height,
     fontWeight: 'bold',
-    marginLeft: '10%',
+    textAlign:'center'
   },
   searchBar: {
     backgroundColor: '#EBDDF6',

@@ -18,6 +18,12 @@ import TestZoom from "./ScreenPages/TestZoom.js";
 import DiseaseGroupsScreen from "./ScreenPages/DiseaseGroupsScreen.js";
 import BolestiScreen from "./ScreenPages/BolestiScreen.js";
 import UputeZaRazmazScreen from "./ScreenPages/UputeZaRazmazScreen.js";
+import WelcomeScreen from "./ScreenPages/WelcomeScreen.js";
+import CaseStudyTest from "./ScreenPages/CaseStudyTest.js";
+import CaseStudyScreen from "./ScreenPages/CaseStudyScreen.js";
+import CaseStudyUputeScreen from "./ScreenPages/CaseStudyUputeScreen.js";
+import ProcessingScreen from "./ScreenPages/ProcessingScreen.js";
+import StudyResultScreen from "./ScreenPages/StudyResultScreen.js";
 
 
 const Stack = createNativeStackNavigator();
@@ -26,6 +32,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen 
+          name="Welcome"
+          component={WelcomeScreen}
+          options={{headerShown: false}}
+        />
         <Stack.Screen 
           name="Home"
           component={HomeScreen}
@@ -117,6 +128,35 @@ export default function App() {
             component={UputeZaRazmazScreen}
             options={{headerShown: false}}
           />
+
+          <Stack.Screen 
+          name="CaseStudy"
+          component={CaseStudyTest}
+          options={{headerShown: false}}
+        />
+
+          <Stack.Screen 
+          name="CaseStudyMain"
+          component={CaseStudyScreen}
+          options={{headerShown: false}}
+        />
+
+          <Stack.Screen 
+          name="CaseStudyUpute"
+          component={CaseStudyUputeScreen}
+          options={{headerShown: false}}
+        />
+
+          <Stack.Screen 
+          name="Proces"
+          component={ProcessingScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name="StudyResult"
+          component={StudyResultScreen}
+          options={{headerShown: false}}
+        />
 
       </Stack.Navigator>
     </NavigationContainer>

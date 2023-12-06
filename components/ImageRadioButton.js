@@ -20,11 +20,10 @@ const ImageRadioButton = (props) => {
             {props.uris.map(function (object, i) {
                 return (
                     <Pressable
-                    style={styles.press}
+                    style={({pressed}) => [styles.press,{borderColor: pressed ? 'black' : 'white'}]}
                     key={i}
                     onPress={() => handleClick(i)}>
                         <Image style={styles.image} source={object} />
-                        <View style={userOption == i ? styles.circleSelected : styles.circleUnselected}/>
                     </Pressable>
                   )
               })}
@@ -44,11 +43,14 @@ const styles = StyleSheet.create({
     image: {
         resizeMode: 'contain',
         width: '100%',
-        height: '100%'
+        height: '100%',
+        borderRadius:27
     },
     press: {
         width: '45%',
-        height: '45%'
+        height: '45%',
+        borderWidth:1,
+        borderRadius:27
     },
     circleUnselected: {
         position: 'absolute',

@@ -3,10 +3,11 @@ import { Dimensions, StyleSheet, View, Text, Image, Pressable, TextInput } from 
 
 const Circle = (props) => {
     const {style, ...rest} = props;
+    const bcolor = props.back == null ? '#9C53D4' : props.back;
     const styles = StyleSheet.create({
         circle: {
             position: 'absolute',
-            backgroundColor: '#9C53D4',
+            backgroundColor: bcolor,
             opacity: 0.2,
             borderRadius: Dimensions.get('window').height * props.size / 2,
             width: Dimensions.get('window').height * props.size,

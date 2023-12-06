@@ -12,7 +12,7 @@ const ResultImageButton = (props) => {
             <View style={styles.imageContainer}>
                 {props.uris.map(function (object, i) {
                     return (
-                        <Image style={styles.image} source={object}/>
+                        <Image key = {i} style={styles.image} source={object}/>
                     );
                 })}
             </View>
