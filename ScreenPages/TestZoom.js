@@ -20,6 +20,8 @@ export default function TestZoom({ navigation, route}) {
   
   const className = route.params.name.replaceAll(' ','_');
   
+  const [onlyWatch,setOnlyWatch] = useState(velikeSlike.klase.indexOf(className) == -1 ? true : false)
+  console.log(onlyWatch)
 
   const opt = className == 'Multiplu_mijelom' ? 'options2' : 'options1'
   const rv = className == 'Multiplu_mijelom' ? 'realValues2' : 'realValues1'
@@ -68,31 +70,45 @@ export default function TestZoom({ navigation, route}) {
   
   const handleClickOver = value => {
 
-    let results = []
-      let sum = 0
-      for(let i = 0; i < options.length; i++){
+    if(onlyWatch) {
 
-        let st = options[i]
-        if (answers[st]!=0) {
-          if (points[st] >= answers[st]) {
-            results.push(answers[st] + '/' + answers[st])
-            sum+=answers[st]
-          }else {
-            results.push(points[st] + '/' + answers[st])
-            sum += points[st] 
-          }
-      }
-
-      }
-
-    navigation.navigate('Result', {
-      options:options,
-      result:Math.round(sum),
-      results:results,
-      realValues: realValues
-    })
+      navigation.navigate('Home')
 
     ScreenOrientation.unlockAsync();
+
+    }
+
+    else {
+
+
+
+      let results = []
+        let sum = 0
+        for(let i = 0; i < options.length; i++){
+
+          let st = options[i]
+          if (answers[st]!=0) {
+            if (points[st] >= answers[st]) {
+              results.push(answers[st] + '/' + answers[st])
+              sum+=answers[st]
+            }else {
+              results.push(points[st] + '/' + answers[st])
+              sum += points[st] 
+            }
+        }
+
+        }
+
+      navigation.navigate('Result', {
+        options:options,
+        result:Math.round(sum),
+        results:results,
+        realValues: realValues
+      })
+
+    ScreenOrientation.unlockAsync();
+
+    }
 
   }
 
@@ -172,42 +188,68 @@ export default function TestZoom({ navigation, route}) {
 
 
     <View style={{flex:1}}>
-    <View style={styles.mainContainer}>
-      <ZoomableImage
-        imageWidth={width}
-        imageHeight={width * omjer}
-        source={slika}
-        style={styles.zoomableImage}
-      />
-      <BackButtomZoom size={buttonWidth * 0.055} onPress={onPress} style={styles.backButton} />
-      <BigButton value={`${counter} / 100`} handleClick={emptyHandle} fontSize={0.65} style={{ position: 'absolute', left: "10%",top: "7%",width:buttonWidth*0.13  ,height:buttonHeight*0.1}}> </BigButton>
-      
-      <BigButton value="" handleClick={handleClickShowOptions} style={[styles.optionsButton,{width:buttonWidth*0.09,height:buttonHeight*0.05}]} ></BigButton>
-      <BigButton
-      value="Završi vježbu"
-      handleClick={handleExit} // Promjenit u HandleClickOver
-      style={styles.newButton}
-      fontSize={0.9} 
-    />
 
-      {showOptions === 1 && (
-        <ScrollView style={styles.scrollView}>
-          <View style={styles.table}>
-            {options.map(function (object, i) {
-              return (
-                <BigButton key={i} value={object} handleClick={handleClickCounter}  style={[styles.bigButton,{width: buttonWidth * 0.12,height: 0.13 * buttonHeight,}]} />
-              );
-            })}
-          </View>
-        </ScrollView>
-      )}
-      </View>
-      {showExitConfirmation && (
-        <ExitConfirmation
-          onConfirm={handleClickOver}
-          onCancel={handleCancelExit}
+      {!onlyWatch ? (
+      <View style={styles.mainContainer}>
+        <ZoomableImage
+          imageWidth={width}
+          imageHeight={width * omjer}
+          source={slika}
+          style={styles.zoomableImage}
         />
-      )}
+        <BackButtomZoom size={buttonWidth * 0.055} onPress={onPress} style={styles.backButton} />
+        <BigButton value={`${counter} / 100`} handleClick={emptyHandle} fontSize={0.65} style={{ position: 'absolute', left: "10%",top: "7%",width:buttonWidth*0.13  ,height:buttonHeight*0.1}}> </BigButton>
+        
+        <BigButton value="" handleClick={handleClickShowOptions} style={[styles.optionsButton,{width:buttonWidth*0.09,height:buttonHeight*0.05}]} ></BigButton>
+        <BigButton
+        value="Završi vježbu"
+        handleClick={handleExit} // Promjenit u HandleClickOver
+        style={styles.newButton}
+        fontSize={0.9} 
+      />
+
+        {showOptions === 1 && (
+          <ScrollView style={styles.scrollView}>
+            <View style={styles.table}>
+              {options.map(function (object, i) {
+                return (
+                  <BigButton key={i} value={object} handleClick={handleClickCounter}  style={[styles.bigButton,{width: buttonWidth * 0.12,height: 0.13 * buttonHeight,}]} />
+                );
+              })}
+            </View>
+          </ScrollView>
+        )}
+        </View>
+        ) 
+        : (
+
+        <View style={styles.mainContainer}>
+
+          <ZoomableImage
+            imageWidth={width}
+            imageHeight={width * omjer}
+            source={slika}
+            style={styles.zoomableImage}
+          />
+          <BackButtomZoom size={buttonWidth * 0.055} onPress={onPress} style={styles.backButton} />
+          <BigButton
+          value="Završi vježbu"
+          handleClick={handleExit} 
+          style={styles.newButton}
+          fontSize={0.9} 
+          /> 
+
+        </View>
+          )}
+
+
+
+        {showExitConfirmation && (
+          <ExitConfirmation
+            onConfirm={handleClickOver}
+            onCancel={handleCancelExit}
+          />
+        )}
   
     </View>
 

@@ -149,6 +149,143 @@ export default {
 
     ] ,
 
+    Anizocitoza:[
+        //Anacitoza1
+        {
+            uri:require('../images/VelikeSlike/anizocitoza1.jpg'),
+            answers: {
+                'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 5, 'META' : 0 , 'MIJELO': 0, 'MONO': 23, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+            } 
+        },
+
+        //Anacitoza2
+        {
+            uri:require('../images/VelikeSlike/anizocitoza2.jpg'),
+            answers: {
+                'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 5, 'META' : 0 , 'MIJELO': 0, 'MONO': 23, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+            } 
+        },
+
+        //Anacitoza3
+        {
+            uri:require('../images/VelikeSlike/anizocitoza3.jpg'),
+            answers: {
+                'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 5, 'META' : 0 , 'MIJELO': 0, 'MONO': 23, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+            } 
+        },
+
+        //Anacitoza4
+        {
+            uri:require('../images/VelikeSlike/anizocitoza4.jpg'),
+            answers: {
+                'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 5, 'META' : 0 , 'MIJELO': 0, 'MONO': 23, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+            } 
+        },
+
+    ],
+
+    Beta_talasemija:[
+
+        //Beta_talasemija1
+        {
+            uri:require('../images/VelikeSlike/Beta-talasemija1.jpg'),
+            answers: {
+                'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 5, 'META' : 0 , 'MIJELO': 0, 'MONO': 23, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+            } 
+        },
+
+        //Beta_talasemija2
+        {
+            uri:require('../images/VelikeSlike/Beta-talasemija2.jpg'),
+            answers: {
+                'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 5, 'META' : 0 , 'MIJELO': 0, 'MONO': 23, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+            } 
+        },
+
+        //Beta_talasemija3
+        {
+            uri:require('../images/VelikeSlike/Beta-talasemija3.jpg'),
+            answers: {
+                'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 5, 'META' : 0 , 'MIJELO': 0, 'MONO': 23, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+            } 
+        },
+
+
+    ],
+
+    Shistociti:[
+
+         //Shistociti1
+         {
+            uri:require('../images/VelikeSlike/Shistociti1.jpg'),
+            answers: {
+                'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 5, 'META' : 0 , 'MIJELO': 0, 'MONO': 23, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+            } 
+        },
+
+         //Shistociti2
+         {
+            uri:require('../images/VelikeSlike/Shistociti2.jpg'),
+            answers: {
+                'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 5, 'META' : 0 , 'MIJELO': 0, 'MONO': 23, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+            } 
+        },
+
+         //Shistociti3
+         {
+            uri:require('../images/VelikeSlike/Shistociti3.jpg'),
+            answers: {
+                'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 5, 'META' : 0 , 'MIJELO': 0, 'MONO': 23, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+            } 
+        },
+
+
+    ],
+
+    Fragmentirani_eritrociti :[
+
+         //Fragmentirani1
+         {
+            uri:require('../images/VelikeSlike/fragmentirani1.jpg'),
+            answers: {
+                'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 5, 'META' : 0 , 'MIJELO': 0, 'MONO': 23, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+            } 
+        },
+
+
+    ],
+
+    Sideropenija: [
+
+          //Sideropenija1
+          {
+            uri:require('../images/VelikeSlike/sideropenija1.jpg'),
+            answers: {
+                'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 5, 'META' : 0 , 'MIJELO': 0, 'MONO': 23, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+            } 
+        },
+
+          //Sideropenija2
+          {
+            uri:require('../images/VelikeSlike/sideropenija2.jpg'),
+            answers: {
+                'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 5, 'META' : 0 , 'MIJELO': 0, 'MONO': 23, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+            } 
+        },
+
+          //Sideropenija3
+          {
+            uri:require('../images/VelikeSlike/sideropenija3.jpg'),
+            answers: {
+                'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 5, 'META' : 0 , 'MIJELO': 0, 'MONO': 23, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+            } 
+        },
+
+
+    ],
+
+    
+
 
 
 
