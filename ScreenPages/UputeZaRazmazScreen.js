@@ -8,7 +8,6 @@ import MicroscopeSvg from '../resources/svg-s/MicroscopeSvg';
 import bolesti from '../resources/data/bolesti';
 
 const height = Dimensions.get('window').height
-const textAreaHeight = (height * 12 / 18 ) * 5 / 9
 export default function UputeZaRazmazScreen({ navigation , route }) {
   
   

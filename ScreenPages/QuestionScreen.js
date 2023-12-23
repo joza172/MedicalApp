@@ -5,7 +5,6 @@ import BigButton from '../components/BigButton';
 import { LinearGradient } from 'expo-linear-gradient'
 import BackButton from '../components/BackButton'
 import CloseButton from '../components/CloseButton'
-import { isSearchBarAvailableForCurrentPlatform } from 'react-native-screens';
 import fizio from '../resources/data/fizio';
 import patio from '../resources/data/patio';
 import svaPitanja from '../resources/data/svaPitanja'

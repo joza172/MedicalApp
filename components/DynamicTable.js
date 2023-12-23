@@ -1,8 +1,16 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView,Dimensions } from 'react-native';
+import { View, StyleSheet, ScrollView, Dimensions, Text } from 'react-native';
 import { DataTable } from 'react-native-paper';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
+const cellWidth = width * 0.25; // Adjust cell width as needed
+
+const CustomHeaderCell = ({ children }) => (
+  <View style={[styles.headerCell, { width: cellWidth }]}>
+    <Text style={[styles.headerText, { flexWrap: 'wrap' }]}>{children}</Text>
+  </View>
+);
+
 const DynamicTable = ({ tableHead, tableTitle, tableData }) => {
   return (
     <View style={styles.container}>
@@ -11,18 +19,18 @@ const DynamicTable = ({ tableHead, tableTitle, tableData }) => {
           <DataTable>
             <DataTable.Header>
               {tableHead.map((head, index) => (
-                <DataTable.Title key={index} style={styles.headerCell}>
-                  {head}
-                </DataTable.Title>
+                <CustomHeaderCell key={index}>{head}</CustomHeaderCell>
               ))}
             </DataTable.Header>
 
             {tableTitle.map((title, index) => (
               <DataTable.Row key={index}>
-                <DataTable.Cell style={styles.titleCell}>{title}</DataTable.Cell>
+                <DataTable.Cell style={[styles.titleCell, { width: cellWidth }]}>
+                  <Text style={styles.cellText}>{title}</Text>
+                </DataTable.Cell>
                 {tableData[index].map((data, dataIndex) => (
-                  <DataTable.Cell key={dataIndex} style={styles.dataCell}>
-                    {data}
+                  <DataTable.Cell key={dataIndex} style={[styles.dataCell, { width: cellWidth }]}>
+                    <Text style={styles.cellText}>{data}</Text>
                   </DataTable.Cell>
                 ))}
               </DataTable.Row>
@@ -40,19 +48,30 @@ const styles = StyleSheet.create({
     padding: '2%',
   },
   headerCell: {
-    flex: 1,
     justifyContent: 'center',
-    alignItems: 'center', // Center the content horizontally in the header cell
+    alignItems: 'center',
+    borderBottomWidth: 1, // Optional: Add styling for cell borders
+    borderColor: '#ccc', // Optional: Add cell border color
+  },
+  headerText: {
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   titleCell: {
-    flex: 1,
-    minWidth: width*0.2,
     justifyContent: 'center',
+    alignItems: 'center',
+    borderBottomWidth: 1, // Optional: Add styling for cell borders
+    borderColor: '#ccc', // Optional: Add cell border color
   },
   dataCell: {
-    flex: 1,
-    minWidth: width*0.2,
     justifyContent: 'center',
+    alignItems: 'center',
+    borderBottomWidth: 1, // Optional: Add styling for cell borders
+    borderColor: '#ccc', // Optional: Add cell border color
+  },
+  cellText: {
+    textAlign: 'center',
+    flexWrap: 'wrap', // Allow text to wrap within the cell width
   },
 });
 

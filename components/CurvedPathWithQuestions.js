@@ -136,16 +136,15 @@ const CurvedPathWithQuestions = ({
 >
     <KeyboardAwareScrollView>
 
-   
-
     <View style = {{flex:6,flexDirection:'row',height:height/3}}>
           
           <View style={{flex:2,flexDirection:'column',justifyContent:'flex-end',alignItems:'flex-end'}}>
             <NeutroPhilSvg size={height*0.17} circles={true}/>
           </View>
           <View style={{flex:3,flexDirection:'column',justifyContent:'center',alignItems:'center',height:'60%',marginTop:'5%'}}>
-            <ScrollView style={styles.bubbleContainer}>
-              <RNText style={{textAlign:'center',padding:'1%'}}>
+            <ScrollView style={styles.bubbleContainer}
+                        nestedScrollEnabled>
+              <RNText style={{textAlign:'center',padding:'2%'}}>
                   {cases.uvodni_text}
               </RNText>
             </ScrollView>
@@ -228,7 +227,7 @@ const styles = StyleSheet.create({
     borderWidth:3,
     borderRadius:20,
      width:'90%',
-     borderColor:'rgba(194, 157, 231, 1)',
+     borderColor:'rgba(194, 157, 231, 1)'
      
     
   },

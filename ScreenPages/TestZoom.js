@@ -10,13 +10,13 @@ import ExitConfirmation from '../components/ExitConformations';
 
 
 
-
-const height = Dimensions.get('window').height
-const width = Dimensions.get('window').width
+//const height = Dimensions.get('window').height
+//const width = Dimensions.get('window').width
 
 export default function TestZoom({ navigation, route}) {
 
-  
+  const [height,setHeight] = useState(Dimensions.get('window').height)
+  const [width,setWidth] = useState(Dimensions.get('window').width)
   
   const className = route.params.name.replaceAll(' ','_');
   
@@ -24,10 +24,12 @@ export default function TestZoom({ navigation, route}) {
   const opt = className == 'Multiplu_mijelom' ? 'options2' : 'options1'
   const rv = className == 'Multiplu_mijelom' ? 'realValues2' : 'realValues1'
 
-  const classData = velikeSlike[className][0];
-  
-  
+  //dodat random index slike iz te klase
+  const [randomIndex,setRandomIndex] = useState( Math.floor(Math.random() * velikeSlike[className].length));
+  const classData = velikeSlike[className][randomIndex];
   const slika = classData.uri
+
+
   const [omjer, setOmjer] = useState(0)
   const [points, setPoints] = useState([])
   const[options,setOptions] = useState(velikeSlike[opt])
@@ -53,18 +55,12 @@ export default function TestZoom({ navigation, route}) {
     setShowExitConfirmation(true);
   };
 
-  const handleConfirmExit = () => {
-    
-    setShowExitConfirmation(false);
-  };
-
   const handleCancelExit = () => {
     
     setShowExitConfirmation(false);
   };
 
 
-  
   const handleClickShowOptions = value => {
       setShowOptions(showOptions*-1)
 
@@ -96,15 +92,24 @@ export default function TestZoom({ navigation, route}) {
       realValues: realValues
     })
 
+    ScreenOrientation.unlockAsync();
+
   }
 
   const handleClickCounter = value => {
-
-    setCounter(counter+1)
+    const newCounter = counter + 1;
+    setCounter(newCounter)
     points[value] = points[value] + 1
+    if(newCounter == endSum) {
+      handleClickOver()
+    }
+
+
   }
 
+  const emptyHandle = value => {
 
+  }
 
   const onPress = () => {
     navigation.goBack()
@@ -123,14 +128,15 @@ export default function TestZoom({ navigation, route}) {
       }
       SetEndSum(sum)
       setPoints(createPoints)
+
     const lockOrientation = async () => {
       await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_LEFT);
+      setHeight(Dimensions.get('window').height)
+      setWidth(Dimensions.get('window').width)
     };
 
     lockOrientation();
-    console.log(height)
-    console.log(Dimensions.get('window').height)
-
+    
     return () => {
       ScreenOrientation.unlockAsync();
     };
@@ -163,6 +169,8 @@ export default function TestZoom({ navigation, route}) {
 
 
   return (
+
+
     <View style={{flex:1}}>
     <View style={styles.mainContainer}>
       <ZoomableImage
@@ -172,6 +180,8 @@ export default function TestZoom({ navigation, route}) {
         style={styles.zoomableImage}
       />
       <BackButtomZoom size={buttonWidth * 0.055} onPress={onPress} style={styles.backButton} />
+      <BigButton value={`${counter} / 100`} handleClick={emptyHandle} fontSize={0.65} style={{ position: 'absolute', left: "10%",top: "7%",width:buttonWidth*0.13  ,height:buttonHeight*0.1}}> </BigButton>
+      
       <BigButton value="" handleClick={handleClickShowOptions} style={[styles.optionsButton,{width:buttonWidth*0.09,height:buttonHeight*0.05}]} ></BigButton>
       <BigButton
       value="Završi vježbu"
@@ -194,12 +204,14 @@ export default function TestZoom({ navigation, route}) {
       </View>
       {showExitConfirmation && (
         <ExitConfirmation
-          onConfirm={handleConfirmExit}
+          onConfirm={handleClickOver}
           onCancel={handleCancelExit}
         />
       )}
   
     </View>
+
+
   );
 }
 
@@ -244,14 +256,14 @@ const styles = StyleSheet.create({
   optionsButton:{
     position: 'absolute',
     right: "3%",
-    top: "3%",
+    top: "5%",
   },
-  newButton: {
+  newButton: {  
     position: 'absolute',
     right: '12.5%', // Position it in line with the ScrollView
     top: '85%',   // Position it below the ScrollView with a 10% margin
     width: '25%', // Match the width of the ScrollView
-    height: '12%', // Set the desired height
+    height: '14%', // Set the desired height
     // Add other styles as needed
   },
  

@@ -83,6 +83,8 @@ const GalleryButton = (props) => {
                 return (<PromegaSvg size={height * 0.1} style={styles.svg}/>);
             case 'Megakariocit':
                 return (<MegakariocitSvg size={height * 0.1} style={styles.svg}/>);
+            case 'Eritroblast':
+                return (<MijeloblastSvg size={height * 0.1} style={styles.svg}/>);
       }
 
     };

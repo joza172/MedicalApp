@@ -1,5 +1,9 @@
 export default {
 
+    klase : [
+        'Akutna_mijeloična_leukemija' , 'Kronična_mijeloična_leukemija','Kronična_limfocitna_leukemija','Multiplu_mijelom'
+    ],
+
 
     options1 : [ 
 
@@ -23,13 +27,12 @@ export default {
         'Segmentirani_granulocit'
     ] ,
 
-    //Change to real values and uris
     Akutna_mijeloična_leukemija: [
         {
-        uri:require('../images/VelikeSlike/test2.2-min.jpeg'),
+        uri:require('../images/VelikeSlike/aml1final-edited-min.jpg'),
 
         answers: {
-            'BAZO': 0, 'BLAST' : 96, 'EOZ': 0, 'LIMF': 4, 'META' : 0 , 'MIJELO': 0, 'MONO': 0, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+            'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 5, 'META' : 0 , 'MIJELO': 0, 'MONO': 23, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
         } 
 
 
@@ -39,7 +42,7 @@ export default {
         {
         uri:require('../images/VelikeSlike/aml2final-edited-min.jpg'),
         answers: {
-            'BAZO': 0, 'BLAST' : 87, 'EOZ': 0, 'LIMF': 1, 'META' : 0 , 'MIJELO': 0, 'MONO': 2, 'N.SEG': 1, 'PROMI':0, 'SEG': 0 
+            'BAZO': 0, 'BLAST' : 60, 'EOZ': 0, 'LIMF': 0, 'META' : 0 , 'MIJELO': 0, 'MONO': 17, 'N.SEG': 1, 'PROMI':0, 'SEG': 1 
         }
         } ,
 
@@ -47,14 +50,14 @@ export default {
         {
         uri:require('../images/VelikeSlike/aml3final-edited-min.jpg'),
         answers: {
-            'BAZO': 0, 'BLAST' : 95, 'EOZ': 0, 'LIMF': 0, 'META' : 0 , 'MIJELO': 0, 'MONO': 0, 'N.SEG': 1, 'PROMI':0, 'SEG': 2 
+            'BAZO': 0, 'BLAST' : 79, 'EOZ': 0, 'LIMF': 1, 'META' : 0 , 'MIJELO': 0, 'MONO': 16, 'N.SEG': 1, 'PROMI':0, 'SEG': 2 
         }
         } ,
 
         {
         uri:require('../images/VelikeSlike/aml4final-edited-min.jpg'),
         answers: {
-            'BAZO': 0, 'BLAST' : 91, 'EOZ': 0, 'LIMF': 1, 'META' : 0 , 'MIJELO': 0, 'MONO': 4, 'N.SEG': 1, 'PROMI':0, 'SEG': 2 
+            'BAZO': 0, 'BLAST' : 81, 'EOZ': 0, 'LIMF': 1, 'META' : 0 , 'MIJELO': 0, 'MONO': 29, 'N.SEG': 0, 'PROMI':0, 'SEG': 2 
                 }
         }
 
@@ -78,9 +81,19 @@ export default {
             //KML3
             uri:require('../images/VelikeSlike/kml3final-edited-min.jpg'),
             answers: {
-                'BAZO': 3, 'BLAST' : 4, 'EOZ': 2, 'LIMF': 4, 'META' : 6 , 'MIJELO': 17, 'MONO': 1, 'N.SEG': 2, 'PROMI':3, 'SEG': 58 
+                'BAZO': 3, 'BLAST' : 10, 'EOZ': 2, 'LIMF': 7, 'META' : 0 , 'MIJELO': 14, 'MONO': 0, 'N.SEG': 16, 'PROMI':0, 'SEG': 66 
             }
-            }
+            },
+
+            {   //KML4
+                uri:require('../images/VelikeSlike/kmlfinal4-edited-min.jpg'),
+        
+                answers: {
+                    'BAZO': 4, 'BLAST' : 0, 'EOZ': 2, 'LIMF': 1, 'META' : 15 , 'MIJELO': 25, 'MONO': 0, 'N.SEG': 17, 'PROMI':2, 'SEG': 39 
+                } 
+        
+        
+                },
 
         
 
@@ -94,7 +107,7 @@ export default {
             uri:require('../images/VelikeSlike/kllfinal1-edited-min.jpg'),
     
             answers: {
-                'BAZO': 0, 'BLAST' : 0, 'EOZ': 0, 'LIMF': 93, 'META' : 0 , 'MIJELO': 0, 'MONO': 1, 'N.SEG': 0, 'PROMI':0, 'SEG': 1 
+                'BAZO': 0, 'BLAST' : 0, 'EOZ': 0, 'LIMF': 93, 'META' : 0 , 'MIJELO': 0, 'MONO': 1, 'N.SEG': 1, 'PROMI':0, 'SEG': 4 
                     } 
     
     
@@ -105,7 +118,7 @@ export default {
             //KLL2
             uri:require('../images/VelikeSlike/kllfinal2-edited-min.jpg'),
             answers: {
-                'BAZO': 0, 'BLAST' : 0, 'EOZ': 0, 'LIMF': 82, 'META' : 0 , 'MIJELO': 0, 'MONO': 0, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+                'BAZO': 0, 'BLAST' : 0, 'EOZ': 0, 'LIMF': 98, 'META' : 0 , 'MIJELO': 0, 'MONO': 1, 'N.SEG': 0, 'PROMI':0, 'SEG': 1 
                     }
             } ,
 
@@ -113,7 +126,7 @@ export default {
             //KLL3    
             uri:require('../images/VelikeSlike/kllfinal3-edited-min.jpg'),
             answers: {
-                'BAZO': 0, 'BLAST' : 0, 'EOZ': 0, 'LIMF': 97, 'META' : 0 , 'MIJELO': 0, 'MONO': 3, 'N.SEG': 0, 'PROMI':0, 'SEG': 0 
+                'BAZO': 0, 'BLAST' : 0, 'EOZ': 0, 'LIMF': 96, 'META' : 0 , 'MIJELO': 0, 'MONO': 2, 'N.SEG': 0, 'PROMI':0, 'SEG': 3
                     }
             } ,
 
@@ -126,7 +139,7 @@ export default {
         uri:require('../images/VelikeSlike/mm1final-min.jpg'),
 
         answers: {
-            'BAZO':0 , 'EOZ':1 ,'LIMF': 7, 'META':0 , 'MIJELO':0 , 'MONO':5 , 'N.SEG':0 , 'PLAZMA':7 , 'PROMI':0 , 'SEG':13 
+            'BAZO':0 , 'EOZ':1 ,'LIMF': 12, 'META':0 , 'MIJELO':0 , 'MONO':4 , 'N.SEG':0 , 'PLAZMA':4 , 'PROMI':0 , 'SEG':13 
                 } 
 
 

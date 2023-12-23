@@ -42,7 +42,7 @@ const CurvedPathWithCircles = ({ width, height, startXPortion, startYPortion, pa
           stroke='rgba(127, 64, 176, 0.8)' // Set the outline color to dark purple
           strokeWidth="5"     // Adjust the outline width as desired
           fill='#EEE3F7' 
-          onPress={() => onPress(i + 1)}
+          onPress={() => onPress(i > 4 ? i : i + 1)}
        />
        
     );

@@ -7,6 +7,8 @@ import Circle from '../components/Circle';
 import {LinearGradient} from 'expo-linear-gradient'
 import FakeMenuSvg from '../resources/svg-s/FakeMenuSvg';
 import HamburgerMenu from '../components/HamburgerMenu';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 
 const height = Dimensions.get('window').height
 export default function HomeScreen({ navigation }) {
@@ -14,8 +16,10 @@ export default function HomeScreen({ navigation }) {
   const handleClick = value => {
     if(value === 'Galerija'){
       navigation.navigate('Gallery')
-    } else if(value === 'Vježbe' || value === 'Razmazi'){
+    } else if(value === 'Vježbe'){
       navigation.navigate('Second' ,{prevScreen : value})
+    } else if (value=='Razmazi') {
+      navigation.navigate('DiseasesGroups')
     }
     else {
       navigation.navigate("CaseStudy")
@@ -74,7 +78,8 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor:'white'
   },
   background: {
     flex: 4

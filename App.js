@@ -25,7 +25,6 @@ import CaseStudyUputeScreen from "./ScreenPages/CaseStudyUputeScreen.js";
 import ProcessingScreen from "./ScreenPages/ProcessingScreen.js";
 import StudyResultScreen from "./ScreenPages/StudyResultScreen.js";
 
-
 const Stack = createNativeStackNavigator();
 
 export default function App() {

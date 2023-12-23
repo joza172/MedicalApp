@@ -26,7 +26,7 @@ export default function GalleryScreen({ navigation }) {
           <GallerySvg size={height * 115 / 844} color= '#9C53D4' style={styles.svg}/>
       </View>
 
-      <LinearGradient colors={['white', '#EBDDF6' ]} style={{flex:13}}>
+      <LinearGradient colors={['white', '#EBDDF6' ]} style={{flex:14}}>
           <View style={{ flex: 2}}>  
             <Text style={styles.title}>Galerija stanica</Text>
             <View style={[styles.searchBar, {alignItems: 'center'}]}>

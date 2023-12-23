@@ -14,7 +14,9 @@ const { width, height } = Dimensions.get('window');
 
 export default function StudyResultScreen({ navigation,route }) {
 
-    const rez = route.params.result * 100;
+    const tempRez = Math.round(route.params.result * 100);
+    const rez = tempRez > 0 ? tempRez : 0
+
     const onPress = () => {
         navigation.goBack()
       }

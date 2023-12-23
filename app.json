@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "MedicalApp",
+    "name": "NeutroPhil",
     "slug": "MedicalApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/appIcon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -22,13 +22,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/appIcon.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.jkrznar.MedicalApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d4267279-baa5-47a3-a9f0-73f3b2a0f8c8"
+      }
     }
   }
 }

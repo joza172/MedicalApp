@@ -14,7 +14,7 @@ export default function CaseStudyUputeScreen({ navigation , route }) {
   
 
   const handleClickStart = value => {
-    navigation.navigate('CaseStudyMain')
+    navigation.navigate('CaseStudyMain',{index: route.params.index})
   }
 
   const onPress = () => {
@@ -22,13 +22,16 @@ export default function CaseStudyUputeScreen({ navigation , route }) {
   }
 
   return (
-    <View style={styles.container}>
+    <>
+    <SafeAreaView style={{flex:0,backgroundColor: 'white' }} edges={['top']}/>
 
-        <SafeAreaView style={{ flex:5 , backgroundColor:'#FFF'}} >
-            <Circle size={0.35} style={{left: '43%', top: '-10%'}}/>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
+
+        <View style={{ flex:5 , backgroundColor:'#FFF'}} >
+            <Circle size={0.35} style={{left: '45%', top: '-15%'}}/>
             <BackButton size={height * 0.055} onPress={onPress} style={{left: '3%'  }}/>
             <DiseaseSvg color= '#9C53D4' size={height * 0.15} style={styles.svg}/> 
-        </SafeAreaView>
+        </View>
 
         <LinearGradient colors={['white', '#EBDDF6' ]}  style={styles.mainContainer}>
             <View style={{flex:1}}>  
@@ -56,7 +59,8 @@ export default function CaseStudyUputeScreen({ navigation , route }) {
             </View>
         </LinearGradient>
     
-    </View>
+    </SafeAreaView>
+    </>
   );
 }
 
@@ -96,9 +100,8 @@ const styles = StyleSheet.create({
     marginVertical: '2%',
     marginHorizontal: '5%',
   },
-
   mainContainer: {
-    flex:13,
+    flex:10,
   },
   circle: {
     position: 'absolute',

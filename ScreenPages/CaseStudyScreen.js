@@ -8,11 +8,11 @@ import Popup from '../components/Popup';
 import caseStudy from '../resources/data/caseStudy';
 
 const { width, height } = Dimensions.get('window');
-export default function CaseStudyScreen({ navigation }) {
+export default function CaseStudyScreen({ navigation,route }) {
 
   const [showPopup, setShowPopup] = useState(false);
   const [popupType,setPopupType] = useState("Nalaz")
-  const cases = caseStudy.cases[0];
+  const cases = caseStudy.cases[route.params.index];
   const [result,setResult] = useState(0)
   const brojPitanja = cases.prviSetPitanja.length+cases.drugiSetPitanja.length+cases.treciSetPitanja.length;
   const pathCount = brojPitanja  + 5;
@@ -41,7 +41,7 @@ export default function CaseStudyScreen({ navigation }) {
 
     const konacniRezultat = (result + tekstOdg*brojPitanja) / (brojPitanja*2);
 
-    
+    console.log(konacniRezultat)
     navigation.navigate('Proces',{result:konacniRezultat})
   };
 
@@ -114,6 +114,7 @@ export default function CaseStudyScreen({ navigation }) {
           tableData={cases.nalaz.tableData}
           tableTitle={cases.nalaz.tableTitle}
           uris={cases.uris}
+          potvrdne = {cases.potvrdne_pretrage}
         />
       )}
     </View>

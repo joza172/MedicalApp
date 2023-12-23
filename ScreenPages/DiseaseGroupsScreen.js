@@ -3,9 +3,10 @@ import BigButton from '../components/BigButton'
 import BackButton from '../components/BackButton'
 import { Dimensions, StyleSheet, View, Text } from 'react-native'
 import {LinearGradient} from 'expo-linear-gradient'
-import PlaySvg from '../resources/svg-s/PlaySvg'
 import Circle from '../components/Circle';
 import MicroscopeSvg from '../resources/svg-s/MicroscopeSvg';
+import velikeSlike from '../resources/data/velikeSlike';
+
 
 const height = Dimensions.get('window').height
 export default function DiseaseGroupsScreen({ navigation,route }) {
@@ -14,7 +15,13 @@ export default function DiseaseGroupsScreen({ navigation,route }) {
   }
 
   const handleClick = value => {
+    if (value == "Iznenadi me") {
+      const randomClass = Math.floor(Math.random() * velikeSlike['klase'].length)
+      navigation.navigate("Upute",{name:velikeSlike['klase'][randomClass].replaceAll('_',' ')})
+    } else {
+
     navigation.navigate('Bolesti' , {name:value})
+    }
   }
 
 

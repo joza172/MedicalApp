@@ -6,18 +6,72 @@ import DynamicTable from './DynamicTable';
 
 const height = Dimensions.get('window').height
 const width = Dimensions.get('window').width
-const Popup = ({ onCancel,type,tableHead,tableData,tableTitle,uris }) => {
+const Popup = ({ onCancel,type,tableHead,tableData,tableTitle,uris,potvrdne }) => {
 
     const renderPretrage = () => {
-        return (
-            <SafeAreaView style={styles.container}>
-              <View style={styles.textContainer}>
-                <Text style={styles.textStylex}>TODO</Text>
-              </View>
-              <View style={styles.buttonContainer}>
-              <BigButton value="Zatvori" handleClick={onCancel} style={styles.BigButtonStyle} ></BigButton>
-              </View>
-            </SafeAreaView>
+      return (
+                
+        <View style={styles.container}>
+
+              <SafeAreaView style={{flex:9, justifyContent:'center', flexDirection:'column', width:'90%', margin:'5%'}}>
+                <ScrollView style={{flex:1}} horizontal={false}>
+                  {potvrdne.Citoloski_nalaz && (
+                    <View style={{marginVertical:'10%'}}>
+                      <Text style={{textAlign:'center',fontWeight:'bold'}}>
+                        {potvrdne.Citoloski_nalaz}
+                      </Text>
+                    </View>
+                  )}
+
+                  {potvrdne.Citogenetika && (
+                    <DynamicTable
+                      tableHead={potvrdne.Citogenetika.tableHead}
+                      tableTitle={potvrdne.Citogenetika.tableTitle}
+                      tableData={potvrdne.Citogenetika.tableData}
+                    />
+                  )}
+
+                  {potvrdne.Mišljenje && (
+                    <View style={{marginVertical:'10%'}}>
+                      <Text style={{textAlign:'center',fontWeight:'bold'}}>
+                        {potvrdne.Mišljenje}
+                      </Text>
+                    </View>
+                  )}
+
+                  {potvrdne.Fish && (
+                    <DynamicTable
+                      tableHead={potvrdne.Fish.tableHead}
+                      tableTitle={potvrdne.Fish.tableTitle}
+                      tableData={potvrdne.Fish.tableData}
+                    />
+                  )}
+
+                  {potvrdne.Komentar && (
+                    <View style={{marginVertical:'10%'}}>
+                      <Text style={{textAlign:'center',fontWeight:'bold'}}>
+                        {potvrdne.Komentar}
+                      </Text>
+                    </View>
+                  )}
+
+                  {potvrdne.Nalaz_sekvenciranje && (
+                    <DynamicTable
+                      tableHead={potvrdne.Nalaz_sekvenciranje.tableHead}
+                      tableTitle={potvrdne.Nalaz_sekvenciranje.tableTitle}
+                      tableData={potvrdne.Nalaz_sekvenciranje.tableData}
+                    />
+                  )}
+                </ScrollView>
+              </SafeAreaView>
+
+
+
+
+            <View style={styles.buttonContainer}>
+            <BigButton value="Zatvori" handleClick={onCancel} style={styles.BigButtonStyle} ></BigButton>
+            </View>
+        </View>
           );
       };
 

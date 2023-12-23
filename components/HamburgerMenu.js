@@ -36,7 +36,7 @@ const HamburgerMenu = (props) => {
         }
       });
 
-    const buttons = ['Home', 'O nama', 'Kontakt', 'Bug report' , 'Legalne \n informacije']
+    const buttons = ['Home', 'O nama', 'Kontakt', 'Bug report']
     if (props.visible){
         return (
         <View style={styles.container}>

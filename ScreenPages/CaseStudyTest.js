@@ -4,23 +4,25 @@ import CurvedPathWithCircles from '../components/CurvedPathWithCircles' // Impor
 import BackButton from '../components/BackButton'
 import Epruvete from '../components/Epruvete'
 import { SafeAreaView } from 'react-native-safe-area-context';
+import caseStudy from '../resources/data/caseStudy';
+
 
 const { width, height } = Dimensions.get('window');
 export default function CaseStudyTest({ navigation }) {
-  const circleCount = 5; // You can adjust this to change the number of circles
+  const circleCount = caseStudy.cases.length;
 
   const onPress = () => {
     navigation.goBack()
   }
 
   const handleCirclePress = (circleNumber) => {
-    navigation.navigate("CaseStudyUpute")
+    navigation.navigate("CaseStudyUpute",{index:circleNumber-1})
   };
 
 
   return (
     
-      <SafeAreaView style={{ flex: 1,flexDirection: 'column'}}>
+      <SafeAreaView style={{ flex: 1,flexDirection: 'column'}} >
         <View style={{flex:1}}>
             <View style={styles.table}>
                 <BackButton size={height * 0.05} onPress={onPress}/>
@@ -31,9 +33,10 @@ export default function CaseStudyTest({ navigation }) {
         </View>
 
         <View style={{flex:8,justifyContent:'center',alignItems:'center',marginTop:'5%'}}>
-            <CurvedPathWithCircles width={width*0.9} height={height} startXPortion={0.5} startYPortion={0.1} pathCount = {10} onPress={handleCirclePress} />
+            <CurvedPathWithCircles width={width*0.9} height={height} startXPortion={0.5} startYPortion={0.1} pathCount = {circleCount+1} onPress={handleCirclePress} />
         </View>
       </SafeAreaView>
+      
     
   );
 };

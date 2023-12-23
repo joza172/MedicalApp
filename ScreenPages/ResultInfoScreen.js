@@ -170,10 +170,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     height: '90%',
     marginHorizontal: '10%',
-    elevation: 5,              // Android
-    shadowColor: '#030002',    // Android, iOS & Web
-    shadowOpacity: 0.25,       // iOS & Web
-    shadowRadius: 5
+    elevation: 5,              // Android   // Android, iOS & Web
   },
   title: {
     fontSize: 25 / 844 * height,

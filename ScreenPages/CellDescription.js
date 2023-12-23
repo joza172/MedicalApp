@@ -11,6 +11,8 @@ export default function CellDescription({ navigation ,route }) {
   const [mainSrc, setMainSrc] = useState(null);
   const [visible, setVisible] = useState(false);
   const [but, setBut] = useState("Morfologija");
+  const [hasUris,setHasUris] = useState(route.params.data.uris.length > 0 ? true : false )
+
   const stValues = [
     { value: 'Slike' },
     { value: 'Morfologija' },
@@ -54,7 +56,9 @@ export default function CellDescription({ navigation ,route }) {
               <Text style={styles.title}>{route.params.data.class.replace('_',' ')}</Text>
             </View>
             
+            {hasUris ? (
             <BigRadioButton style={styles.radioButton} data={stValues} handleClick={handleClickButton}/>
+          ) : null}
 
             {but=='Morfologija' ?
             <View style={styles.container}>  
@@ -62,28 +66,6 @@ export default function CellDescription({ navigation ,route }) {
               <Text style={[styles.text, {color: 'black'}]}>
                 {route.params.data.opcenito}
               </Text>
-
-              <Text style={styles.subTitle}>Jezgra</Text>
-              <Text style={[styles.text, {color: 'black'}]}>
-                {route.params.data.jezgra}
-              </Text>
-
-              {
-                route.params.data.slika1 != null ? 
-                  <Image style={styles.imageBig} source={route.params.data.slika1} /> :
-                  <View/>
-              }
-
-              <Text style={styles.subTitle}>Citoplazma</Text>
-              <Text style={[styles.text, {color: 'black'}]}>
-                {route.params.data.citoplazma}
-              </Text>
-              {
-                route.params.data.slika2 != null ? 
-                  <Image style={styles.imageBig} source={route.params.data.slika2} /> :
-                  <View/>
-              }
-
             </View> :
               <View style={styles.table}>
                 {route.params.data.uris.map(function (object, i) {
@@ -187,7 +169,7 @@ const styles = StyleSheet.create({
       marginBottom: '10%'
   },
   text: {
-      textAlign: 'justify',
+      textAlign: 'left',
       color: '#7F40B0',
       fontSize: 15 * 844 / height,
       fontWeight: '400',

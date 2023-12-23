@@ -1,10 +1,14 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet,Dimensions, RootTagContext } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text , StyleSheet,Dimensions } from 'react-native';
 import BigButton from './BigButton';
 
-const height = Dimensions.get('window').height
-const width = Dimensions.get('window').width
+const hh = Dimensions.get('window').height
+const ww = Dimensions.get('window').width
+const height = hh > ww ? ww : hh
+const width = hh > ww ? hh : ww
+
 const ExitConfirmation = ({ onConfirm, onCancel }) => {
+
 
   return (
     <View style={styles.container}>
@@ -30,8 +34,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textContainer: {
-    flex:5,
-    justifyContent:'center'
+    height: height / 2,
+    justifyContent:'center',
   },
   textStyle:{
     fontSize:height*0.1,
@@ -39,12 +43,14 @@ const styles = StyleSheet.create({
     textAlign:'center'
   },
   buttonContainer:{
-    flex:3,
-    flexDirection:'row'
+    height:height/2,
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center',
   },
   BigButtonStyle:{
     width:width*0.13,
-    height:height*0.13,
+    height:height*0.12,
     borderRadius: 25,
     marginVertical: '2%',
     marginHorizontal:'2%'
