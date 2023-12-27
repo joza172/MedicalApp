@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width * 105/390,
     height: Dimensions.get('window').width * 105/390,
     borderWidth: 8,
-    borderColor: '#7F40B0',
+    borderColor: '#36D69C',
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -37,7 +37,7 @@ export default function CaseStudyScreen({ navigation,route }) {
 
   const onEnd = () => {
     
-    const tekstOdg = inputText == cases.dijagnoza ? 1 : 0;
+    const tekstOdg = inputText == cases.dijagnoza || inputText == cases.dijagnozaKrace ? 1 : 0;
 
     const konacniRezultat = (result + tekstOdg*brojPitanja) / (brojPitanja*2);
 

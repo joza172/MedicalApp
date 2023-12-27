@@ -1,7 +1,7 @@
 export default {
 
     klase : [
-        'Akutna_mijeloična_leukemija' , 'Kronična_mijeloična_leukemija','Kronična_limfocitna_leukemija','Multiplu_mijelom'
+        'Akutna_mijeloična_leukemija' , 'Kronična_mijeloična_leukemija','Kronična_limfocitna_leukemija','Multiplu_mijelom', 'Infektivna_mononukleoza'
     ],
 
 
@@ -23,9 +23,23 @@ export default {
 
     realValues2 : [
 
-        'Bazofil' ,   'Eozinofil' , 'Limfocit' , 'Metamijelocit', 'Mijelocit',  'Monocit' , 'Nesegmentirani_granulocit' , 'Plazma_stanice', 'Promijelocit',
+        'Bazofil' , 'Eozinofil' , 'Limfocit' , 'Metamijelocit', 'Mijelocit',  'Monocit' , 'Nesegmentirani_granulocit' , 'Plazma_stanice', 'Promijelocit',
         'Segmentirani_granulocit'
     ] ,
+
+    options3 : [ 
+
+        'BAZO' , 'BLAST','EOZ','LIMF',  'MONO', 'R.LIMF', 'SEG' 
+    ],
+
+    realValues3 : [
+
+        'Bazofil' , 'Blast',  'Eozinofil' ,'Limfocit' ,  'Monocit' , 'Reaktivni_limfocit', 
+        'Segmentirani_granulocit'
+    ] ,
+
+
+
 
     Akutna_mijeloična_leukemija: [
         {
@@ -283,6 +297,18 @@ export default {
 
 
     ],
+
+    Infektivna_mononukleoza: [
+
+        {
+            uri:require('../images/VelikeSlike/mono-dodano-editano.jpg'),
+
+            answers: {
+                'BAZO' : 1 , 'BLAST' : 1 ,'EOZ' : 2, 'LIMF' : 15,  'MONO' : 0, 'R.LIMF' : 17, 'SEG' : 19
+            } 
+        },
+
+    ]
 
     
 

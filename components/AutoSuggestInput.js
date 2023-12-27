@@ -7,7 +7,7 @@ const AutoSuggestInput = ({onPress}) => {
   const [text, setText] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
-  const wordList = ['Akutna leukemija', 'Anemije', 'Mijelodisplazije', 'Mijeloproliferativne neoplazme','Mononukleoza','Lipemija','MDS','Hladni algutinini','EDTA pseudotrombocitopenija','KML'];
+  const wordList = ['Akutna mijeloična leukemija', 'Anemije', 'Mijelodisplazije', 'Mijeloproliferativne neoplazme','Mononukleoza','Lipemija','MDS','Hladni aglutinini','EDTA-pseudotrombocitopenija','KML', 'AML','Kronična mijeloična lekuemija','Mijelodisplastični sindrom'];
 
   const updateSuggestions = (input) => {
     const filteredSuggestions = wordList.filter((word) =>

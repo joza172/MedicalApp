@@ -69,7 +69,8 @@ export default {
 
         potvrdne_pretrage:{},
           
-        dijagnoza:'Mononukleoza'
+        dijagnoza:'Mononukleoza',
+        dijagnozaKrace:'Mononukleoza'
              
     },
 
@@ -319,6 +320,7 @@ export default {
           
       }, 
       dijagnoza: 'Akutna mijeloična leukemija', 
+      dijagnozaKrace:'AML'
     },
 
 
@@ -508,10 +510,8 @@ export default {
 
 
         ], 
-
-        dijagnoza: 'KML',
-
-
+        dijagnoza:'Kronična mijeloična lekuemija',
+        dijagnozaKrace: 'KML',
 
         potvrdne_pretrage: {
 
@@ -619,9 +619,85 @@ export default {
         ]
         
       },
-      prviSetPitanja:[],
-      drugiSetPitanja:[],
-      treciSetPitanja:[],
+      prviSetPitanja: [
+        {
+          question: 'Kakvu kompletnu krvnu sliku očekujete?',
+          answers: [
+            'anemiju i granulocitopeniju s izrazitim skretanjem ulijevo',
+            'anemiju, trombocitopeniju i granulocitopeniju',
+            'anemiju i granulocitozu s više od 20% blasta',
+            'anemiju i granulocitopeniju s više od 50% blasta'
+          ],
+          correctAnswer: 'anemiju, trombocitopeniju i granulocitopeniju'
+        },
+        {
+          question: 'Koliki ukupni broj blasta očekujete u pacijenta s MDS?',
+          answers: [
+            'Najmanje 5 blasta u razmazu periferne krvi',
+            'Najviše 10 blasta u perifernoj krvi',
+            'Manje od 20 blasta u košranoj srži',
+            'Broj blasta ovisi o zahvaćenosti pojedine loze i može varirati od pacijenta do pacijenta'
+          ],
+          correctAnswer: 'Broj blasta ovisi o zahvaćenosti pojedine loze i može varirati od pacijenta do pacijenta'
+        },
+        {
+          question: 'Odaberite najtočniju tvrdnju:',
+          answers: [
+            '90% slučajeva MDS otkriva se slučajno tijekom asimptomatske faze',
+            'Prisutna je ekspanzija granulocitne loze s znakovima skretanja u lijevo',
+            'Moguće je uočiti abnormalnosti megakariocitne loze',
+            'u početnoj fazi javlja uočavamo više od 40 blasta u perifernoj krvi'
+          ],
+          correctAnswer: 'Moguće je uočiti abnormalnosti megakariocitne loze'
+        }
+      ],
+      
+      drugiSetPitanja: [
+        {
+          question: 'Koja od navedenih bolesti pripada skupini diferencijalno dijagnostički sličnih MDS-u?',
+          answers: [
+            'Infektivna mononukleoza',
+            'Policitemija vera',
+            'Akutna limfoblastična leukemija',
+            'Akutna mijeloična leukemija'
+          ],
+          correctAnswer: 'Akutna mijeloična leukemija'
+        },
+        {
+          question: 'Povećana razina LDH najvjerojatnije je posljedica:',
+          answers: [
+            'Smanjene proliferacije stanica',
+            'Oštećenja jetre',
+            'Oštećenja bubrega',
+            'Povećane proliferacije stanica'
+          ],
+          correctAnswer: 'Povećane proliferacije stanica'
+        }
+      ],
+      
+      treciSetPitanja: [
+        {
+          question: 'Mutacije u TET2, ASXL1, DNMT3A pomažu u razlikovanju:',
+          answers: [
+            'MDS i KML',
+            'MDS i AML',
+            'MDS i ALL',
+            'MDS i KLL'
+          ],
+          correctAnswer: 'MDS i AML'
+        },
+        {
+          question: 'Displazija može zahvatiti:',
+          answers: [
+            'Sve loze',
+            'Samo granulopoezu',
+            'Samo megakariocitnu',
+            'Samo eritrocitopoezu'
+          ],
+          correctAnswer: 'Sve loze'
+        }
+      ],
+      
       uris:[
             require('../images/Pngovi/Blast/BL_150067.jpg'),
             require('../images/Pngovi/Nesegmentirani_granulocit/BNE_151553.jpg'),
@@ -634,7 +710,8 @@ export default {
             require('../images/Pngovi/Promijelocit/PMY_150129.jpg'),
       ],
       
-      dijagnoza:'MDS',
+      dijagnoza:'Mijelodisplastični sindrom',
+      dijagnozaKrace: 'MDS',
 
       potvrdne_pretrage: {
 
@@ -789,7 +866,8 @@ export default {
     },
       
       
-      dijagnoza:'Lipemija'
+      dijagnoza:'Lipemija',
+      dijagnozaKrace:'Lipemija'
 
 
     },
@@ -887,6 +965,7 @@ export default {
       ],
       
       dijagnoza:'Hladni aglutinini',
+      dijagnozaKrace:'Hladni aglutinini',
 
 
       potvrdne_pretrage:
@@ -1039,7 +1118,8 @@ export default {
       {
         Citoloski_nalaz:'Zatražen je uzorak u epruveti s Na-citratom kao antikoagulansom. Nakon ponovljene analize na tom uzorku broj trombocita je unutar referentnog intervala/ još uvijek ispod donje granice referentnog intervala. U razmazu periferne krvi više nisu vidljive/ još uvijek su vidljive nakupine trombocita. ',
     },
-      dijagnoza:'EDTA-pseudotrombocitopenija'
+      dijagnoza:'EDTA-pseudotrombocitopenija',
+      dijagnozaKrace:'EDTA pseudotrombocitopenija'
 
     },
 

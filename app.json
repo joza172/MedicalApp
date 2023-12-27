@@ -4,7 +4,7 @@
     "slug": "MedicalApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/appIcon.png",
+    "icon": "./assets/ikonaZaApp.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -22,7 +22,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/appIcon.png",
+        "foregroundImage": "./assets/ikonaZaApp.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.jkrznar.MedicalApp"
