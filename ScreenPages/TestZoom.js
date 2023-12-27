@@ -86,10 +86,20 @@ export default function TestZoom({ navigation, route}) {
 
       let results = []
         let sum = 0
+        let tempOptions = []
+        let tempRealValues = []
+        
+       
         for(let i = 0; i < options.length; i++){
 
           let st = options[i]
+
           if (answers[st]!=0) {
+
+            tempOptions.push(st)
+            const indexOption = options.indexOf(st)
+            tempRealValues.push(realValues[indexOption])
+
             if (points[st] >= answers[st]) {
               results.push(answers[st] + '/' + answers[st])
               sum+=answers[st]
@@ -97,15 +107,15 @@ export default function TestZoom({ navigation, route}) {
               results.push(points[st] + '/' + answers[st])
               sum += points[st] 
             }
-        }
+          } 
 
         }
-
-      navigation.navigate('Result', {
-        options:options,
+      
+        navigation.navigate('Result', {
+        options:tempOptions,
         result:Math.round(sum),
         results:results,
-        realValues: realValues
+        realValues: tempRealValues
       })
 
     ScreenOrientation.unlockAsync();

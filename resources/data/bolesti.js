@@ -1,7 +1,7 @@
 export default {
 
     Mijeloproliferativne_neoplazme: 
-        ['Kronicna mijeloična leukemija'],
+        ['Kronična mijeloična leukemija'],
 
     Akutne_leukemije: 
         ['Akutna mijeloična leukemija'],
