@@ -41,7 +41,7 @@ export default function UputeZaRazmazScreen({ navigation , route }) {
                 Dobrodošao na izbornik za diferenciranje.{'\n'} U ovoj vježbi imaš priliku iskusiti digitalno diferenciranje razmaza.{'\n\n'}
               </Text>
               <Text style={styles.purpleText}>
-              Uputstva{'\n'}
+              Upute{'\n'}
               </Text>
               <Text style={styles.text}>
               Zaslon će ti se zaokrenuti i moći ćeš pregledati razmaz i diferenciati 100 stanica*.{'\n'}

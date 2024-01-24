@@ -1,7 +1,7 @@
 export default {
 
     realValues : [
-    'Bazofil', 'Blast', 'Eozinofil', 'Limfocit', 'Metamijelocit', 'Mijelocit', 'Monocit',
+    'Bazofil', 'Blast', 'Eozinofil', 'Limfocit', 'Metamijelocit','Mijeloblast', 'Mijelocit', 'Monocit',
      'Nesegmentirani_granulocit', 'Plazma_stanice', 'Promijelocit', 'Reaktivni_limfocit', 'Segmentirani_granulocit', 'Stanice_Pelgera','Eritroblast','Retikulocit','Eritrocit',
      'Atipični_limfocit' , 'Vlasasti_limfociti','Megakarioblast','Megakariocit','Promegakariocit','Promonocit'
     ],
@@ -69,7 +69,9 @@ export default {
         opcenito:
         'Eritrociti su stanice promjera 7 do 8 µm bez jezgre. Citoplazma je obojena ružičasto sa karakterističnim bljedilom u sredini koje zauzima oko jedne trećine stanice. Apsolutni broj eritrocita u krvi zdravih odraslih osoba iznosi 3,86-5,08x1012/L za žene i 4,34-5,72x1012/L za muškarce. Manjak eritrocita u perifernoj krvi nazivamo anemija. Do anemije može doći zbog poremećenog stvaranja, ubrzanog propadanja i povećanog gubitka eritrocita. Povećan apsolutni broj eritrocita u perifernoj krvi može biti posljedica dehidracije ili bolesti policitemija vera.',
         naslovna:null,
-        uris:[]   
+        uris:[],
+        // samo zbog Stanice_Pelgara jer ih nema u galeriji pa da pokupi linkove od negdje
+        linkovi:['Segmentirani_granulocit']   
       
       }
                     ],
@@ -81,6 +83,7 @@ export default {
         slika1 : require('../images/Jpgovi-opis/Blast/1.jpg'),
         slika2: require('../images/Jpgovi-opis/Blast/2.jpg'),
         naslovna:require('../images/Pngovi/Blast/BL_1210165.jpg'),
+        linkovi: ['Mijeloblast','Promijelocit','Reaktivni_limfocit'],
         uris:[
         require('../images/Pngovi/Blast/BL_1210097.jpg'),
         require('../images/Pngovi/Blast/BL_1210165.jpg'),
@@ -139,6 +142,7 @@ export default {
         slika1:require('../images/Jpgovi-opis/Promijelocit/1.jpg'),
 		    slika2:require('../images/Jpgovi-opis/Promijelocit/2.jpg'),
         naslovna:require('../images/Pngovi/Promijelocit/MY_1249637.jpg'),
+        linkovi: ['Mijeloblast','Mijelocit'],
         uris:[
           require('../images/Pngovi/Promijelocit/MY_1249637.jpg'),
           require('../images/Pngovi/Promijelocit/PMY_1252320.jpg'),
@@ -214,6 +218,7 @@ export default {
         slika1:require('../images/Jpgovi-opis/Metamijelocit/1.jpg'),
         slika2:require('../images/Jpgovi-opis/Metamijelocit/2.jpg'),
         naslovna:require('../images/Pngovi/Metamijelocit/MMY_1252347.jpg'),
+        linkovi: ['Mijelocit','Nesegmentirani_granulocit'],
         uris:[
           require('../images/Pngovi/Metamijelocit/MMY_1216714.jpg'),
           require('../images/Pngovi/Metamijelocit/MMY_1221224.jpg'),
@@ -366,7 +371,7 @@ export default {
       opcenito:'Bazofilni granulociti su stanice promjera 10 do 14 µm. Jezgra se sastoji uglavnom od 2 segmenta povezana tankim nitima. Kromatin je grubo grudast. Citoplazma je ljubičasto-ružičasta. U citoplazmi se nalaze rijetke primarne granule i brojne tamnoljubičste sekundarne granule nejednake veličine i oblika koje često prekrivaju jezgru. U sekundarnim granulama nalaze se histamin, heparin, proteolitički enzimi, leukotrieni i citokini. Relativni broj bazofilnih granulocita u zdravih osoba iznosi 0-1%, a apsolutni broj 0,0-0,06 x109/L. Povećan broj bazofilnih granulocita, odnosno bazofilija je vrlo rijetka. Može se javiti kod neposredne hipersenzitivne reakcije, endokrinopatiije, kronične mijeloične leukemije i akutne',
       slika1:require('../images/Jpgovi-opis/Bazofil/1.jpg'),
       slika2:require('../images/Jpgovi-opis/Bazofil/2.jpg'),
-      linkovi:['Bazofil'],
+      linkovi:['Bazofil','Segmentirani_granulocit'],
       naslovna:require('../images/Pngovi/Bazofil/BA_299918.jpg'),
       uris:[
         require('../images/Pngovi/Bazofil/BA_1005528.jpg'),
@@ -596,6 +601,7 @@ export default {
       slika1:require('../images/Jpgovi-opis/Plazma_stanice/1.jpg'),
       slika2:require('../images/Jpgovi-opis/Plazma_stanice/2.jpg'),
       naslovna:require('../images/Pngovi/Plazma_stanice/PC_1254217.jpg'),
+      linkovi: ['Reaktivni_limfocit', 'Limfocit'],
       uris:[
         require('../images/Pngovi/Plazma_stanice/BL_1254250.jpg'),
         require('../images/Pngovi/Plazma_stanice/LY_1254269.jpg'),

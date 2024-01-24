@@ -25,8 +25,8 @@ export default function TestZoom({ navigation, route}) {
 
 
 
-  const opt = className == 'Multiplu_mijelom' ? 'options2' : className == 'Infektivna_mononukleoza' ? 'options3' : 'options1'
-  const rv = className == 'Multiplu_mijelom' ? 'realValues2' : className == 'Infektivna_mononukleoza' ? 'realValues3' : 'realValues1'
+  const opt = className == 'Multipli_mijelom' ? 'options2' : className == 'Infektivna_mononukleoza' ? 'options3' : 'options1'
+  const rv = className == 'Multipli_mijelom' ? 'realValues2' : className == 'Infektivna_mononukleoza' ? 'realValues3' : 'realValues1'
 
   //dodat random index slike iz te klase
   const [randomIndex,setRandomIndex] = useState( Math.floor(Math.random() * velikeSlike[className].length));

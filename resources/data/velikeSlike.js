@@ -1,7 +1,7 @@
 export default {
 
     klase : [
-        'Akutna_mijeloična_leukemija' , 'Kronična_mijeloična_leukemija','Kronična_limfocitna_leukemija','Multiplu_mijelom', 'Infektivna_mononukleoza'
+        'Akutna_mijeloična_leukemija' , 'Kronična_mijeloična_leukemija','Kronična_limfocitna_leukemija','Multipli_mijelom', 'Infektivna_mononukleoza'
     ],
 
 
@@ -147,7 +147,7 @@ export default {
 
     ] ,
 
-    Multiplu_mijelom: [
+    Multipli_mijelom: [
         {
         //MM1    
         uri:require('../images/VelikeSlike/mm1final-min.jpg'),

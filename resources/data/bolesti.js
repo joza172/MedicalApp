@@ -16,7 +16,7 @@ export default {
         ['Infektivna mononukleoza', 'Pelgar-Huet anomalija', 'Toksične granule', 'Dohleova tjelešca','May-Hegglinova anomalija'],
     
     Zloćudne_bolesti_limfocita:
-        ['Kronična limfocitna leukemija', 'Leukemija vlastitih stanica', 'Multiplu mijelom'],
+        ['Kronična limfocitna leukemija', 'Leukemija vlastitih stanica', 'Multipli mijelom'],
     
     
     

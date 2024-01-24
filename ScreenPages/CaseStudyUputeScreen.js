@@ -40,7 +40,7 @@ export default function CaseStudyUputeScreen({ navigation , route }) {
 
             <View style={{flex:5,marginHorizontal:'2%',justifyContent:'center'}}>
               <Text style={styles.purpleText}>
-              Uputstva{'\n'}
+              Upute{'\n'}
               </Text>
               <Text style={styles.text}>
                 Mr. Neutrophil će ti prezentirati anamnezu pacijenta.{'\n'}

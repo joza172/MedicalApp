@@ -39,11 +39,10 @@ export default function ResultInfoScreen2({ navigation , route }) {
 
 
   const handleClick = value => {
-    var index = data.realValues.indexOf(value.class) 
+    var index = galerija.realValues.indexOf(value.class) 
     if(index != -1){
       navigation.navigate('Description',{
         data:value,
-        uris:data.questions[index].uris
       })
     } else {
       navigation.navigate('InProgress')
@@ -51,6 +50,14 @@ export default function ResultInfoScreen2({ navigation , route }) {
   }
 
   function findObject(name){
+
+    if (name == "Blast") {
+      name = "Mijeloblast"
+    }
+    if (name == "Stanice_Pelgera" ) {
+      name = 'Eritrocit'
+    }
+
     var rotimPeder
     Object.keys(galerija).forEach(function(key) {
       for(var i = 0; i < galerija[key].length; i++){
@@ -91,25 +98,9 @@ export default function ResultInfoScreen2({ navigation , route }) {
                 })}
             </View>
             {
-              object != null && object.linkovi != null && kratice.length > 0? 
+              object != null && object.linkovi != null? 
             <View style={styles.containerText}>  
-              <Text style={[styles.title,{marginBottom:"5%"}]}>Uoči razlike!</Text>
               <Text style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}>
-                Često dolazi do zamjene {route.params.answers[index].realClass.replace('_',' ')} i
-                {kratice.map(function(object,i) {
-                  
-                  if(i==kratice.length - 1) {
-                    return(
-                    <Text key={i} style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}> {kratice[i]}. </Text>
-                  )
-                  }
-                  else {
-                  return(
-                    <Text key={i} style={[styles.subTitle, {color: 'black', fontWeight: '400'}]}> {kratice[i]}, </Text>
-                  )
-                  }
-                })}
-
                 Kako bi lakše uočio razlike u sitnim detaljima izdvojili smo slike koje preporučamo da pogledaš.
               </Text>
             </View>
