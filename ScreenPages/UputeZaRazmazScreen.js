@@ -50,7 +50,7 @@ export default function UputeZaRazmazScreen({ navigation , route }) {
                 *neki razmazi nemaju 100 stanica u slici, vježba će automatski završiti kad izbrojiš sve stanice.{'\n'}
               </Text>
               <Text style={styles.text}>
-                Pomoću prstiju se krećeš po razmazu i jednostavnim pokretima možeš povećavati ili smanjivati sliku.{'\n\n'}
+                Pomoću prstiju krećeš se po razmazu i jednostavnim pokretima možeš povećavati ili smanjivati sliku.{'\n\n'}
                 Rezultati će biti prikazani u postotcima.
               </Text>
 

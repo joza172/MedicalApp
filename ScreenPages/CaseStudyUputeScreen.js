@@ -44,13 +44,13 @@ export default function CaseStudyUputeScreen({ navigation , route }) {
               </Text>
               <Text style={styles.text}>
                 Mr. Neutrophil će ti prezentirati anamnezu pacijenta.{'\n'}
-                Dobit ćeš uvid s kojim simptomima je došao u{'\n'}
-                bolnicu, zatim ćeš dobit uvid u laboratorijske nalaze{'\n'}
-                te ćeš imati priliku pregledati razmaz. Nakon{'\n'}
+                Dobit ćeš uvid s kojim je simptomima došao u{'\n'}
+                bolnicu, zatim uvid u laboratorijske nalaze{'\n'}
+                te ćeš imati priliku pregledati razmaz periferne krvi. Nakon{'\n'}
                 pregleda razmaza Mr. Neutrophil će ti prikazati{'\n'}
-                rezultate molekularno dijagnosičkog laboratorija,{'\n'}
+                rezultate specijalističke laboratorijske obrade,{'\n'}
                 ukoliko oni budu dostupni.{'\n\n'}
-                Cilj vježbe je pretpostaviti najvjerovatniju dijagnozu te nju upisati u završni izbornik.
+                Cilj vježbe je pretpostaviti najvjerojatniju dijagnozu te nju upisati u završni izbornik.
               </Text>
 
             </View>

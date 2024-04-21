@@ -3,6 +3,7 @@ export default {
     tableHead:["Pretraga","Rezultat","Jedinica","Referentni interval"],
 
     cases : [
+    //Mono
     {
         uvodni_text:"Dječak, 15 god, doveden je u pedijatrijsku ambulantu zbog simptoma koji traju otprilike tjedan dana. Roditelji navode da je dječak počeo osjećati umor, malaksalost te je razvio visoku temperaturu koja nije reagirala na uobičajene antipiretike. Također, žalio se na bolove u grlu i poteškoće pri gutanju. Roditelji su primijetili blago povećane limfne čvorove na vratu."
         ,nalaz:{
@@ -18,41 +19,86 @@ export default {
             ]
             
         }
-        ,prviSetPitanja : [
-            {
-              question: 'Što od navedenog nije klinički parametar za dijagnostiku infektivne mononukleoze?',
-              answers: ['tonzilofaringitis', 'limfadenopatija', 'glavobolja', 'vručica'],
-              correctAnswer: 'glavobolja'
-            },
-            {
-              question: 'Koji biokemijski te koji hematološki parametri služe za dijagnostiku infektivne mononukleoze?',
-              answers: ['Jetreni parametri i reaktivni limfociti', 'Amilaza i reaktivni limfociti', 'Jetreni parametri i Gumprechtove sjene', 'LDH i vlasaste stanice'],
-              correctAnswer: 'Jetreni parametri i reaktivni limfociti'
-            },
-            {
-              question: 'Kakve karakteristične stanice očekujete u razmazu periferne krvi?',
-              answers: ['Gumprechtove sjene', 'Vlasaste stanice', 'Nesegmentirane granulocite', 'Reaktivne limfocite'],
-              correctAnswer: 'Reaktivne limfocite'
-            }
-          ],
-        drugiSetPitanja : [
-            {
-              question: 'Koje su morfološke karakteristike reaktivnih limfocita?',
-              answers: [
-                'oskudna citoplazma i pravilno okrugla jezgra',
-                'obilna citoplazma s bazofilnim rubom i pravilno okrugla jezgra',
-                'obilna citoplazma s bazofilnim rubom i jezgra nepravilnog oblika',
-                'oskudna citoplazma i jezgra nepravilnog oblika'
-              ],
-              correctAnswer: 'obilna citoplazma s bazofilnim rubom i jezgra nepravilnog oblika'
-            },
-            {
-              question: 'Koja skupina testova nije još napravljena, a važna je u dijagnostici infektivne mononukleoze?',
-              answers: ['PCR', 'Serološki testovi', 'Citokemijski testovi', 'Histološki testovi'],
-              correctAnswer: 'Serološki testovi'
-            },
-          ],
-        treciSetPitanja:[],
+        , prviSetPitanja: [
+          {
+            question: 'Što od navedenog nije klinički parametar za dijagnostiku infektivne mononukleoze?  ',
+            answers: [
+              'tonzilofaringitis',
+              'limfadenopatija',
+              'glavobolja',
+              'vručica'
+            ],
+            correctAnswer: 'glavobolja'
+          },
+          {
+            question: 'Kakve karakteristične stanice očekujete u razmazu periferne krvi?',
+            answers: [
+              'Gumprechtove sjene',
+              'Vlasaste stanice',
+              'Nesegmentirane granulocite',
+              'Reaktivne limfocite'
+            ],
+            correctAnswer: 'Reaktivne limfocite'
+          }
+        ],
+        
+        drugiSetPitanja: [
+          {
+            question: 'Kakve stanice uočavate u razmazu periferne krvi?',
+            answers: [
+              'Monocite',
+              'Blaste',
+              'Reaktivne limfocite',
+              'Plazma stanice'
+            ],
+            correctAnswer: 'Reaktivne limfocite',
+          },
+          {
+            question: 'Koje su morfološke karakteristike prikazanih stanica?',
+            answers: [
+              'oskudna citoplazma i pravilno okrugla jezgra',
+              'obilna citoplazma s bazofilnim rubom i pravilno okrugla jezgra',
+              'obilna citoplazma s bazofilnim rubom i jezgra nepravilnog oblika',
+              'oskudna citoplazma i jezgra nepravilnog oblika'
+            ],
+            correctAnswer: 'obilna citoplazma s bazofilnim rubom i jezgra nepravilnog oblika',
+          },
+          {
+            question: 'Koje nespecifične biokemijske parametre očekujete da će biti povišeni kod ovog pacijenta.',
+            answers: [
+              'Prokalcitonin',
+              'Jetreni parametri (AST,ALT i LDH)',
+              'Amilaza i lipaza',
+              'Troponin T'
+            ],
+            correctAnswer: 'Jetreni parametri (AST,ALT i LDH)',
+          },
+          {
+            question: 'Na što upućuju dobiveni nalazi?',
+            answers: [
+              'Bakterijemiju',
+              'Oštećenje jetre i upalni proces u tijelu',
+              'Oštećenje bubrega praćeno odlaganjem imunokompleksa',
+              'Infiltrate u plućima'
+            ],
+            correctAnswer: 'Oštećenje jetre i upalni proces u tijelu',
+          },
+          {
+            question: 'Na temelju dobivenih nalaza koju bi vrstu testa proveli za potvrdu dijagnoze?',
+            answers: [
+              'PCR',
+              'Serološki testovi',
+              'Citokemijski testovi',
+              '	Histološki testovi'
+            ],
+            correctAnswer: 'Serološki testovi',
+          },
+  
+  
+        ],
+        
+        treciSetPitanja: [
+        ],
 
         uris:[
             require('../images/Pngovi/Reaktivni_limfocit/RLY_1103640.jpg'),
@@ -74,7 +120,7 @@ export default {
              
     },
 
-
+    //AML
     {
       uvodni_text: "M, 44 god. primljen u HS zbog sumnje na akutnu leukozu. Unazad nekoliko dana žali se na umor, malaksalost, bolove u mišićima te zaduhu prilikom jačih fizičkih aktivnosti. Subfebrilan, negira noćno znojenje. Apetit je dobar, tjelesna težina stabilna, mokrenje i stolica uredni. Ne pije niti puši. Bez organomegalije.",
       nalaz: {
@@ -151,46 +197,41 @@ export default {
           question: 'Simptomi poput umora, malaksalosti i zaduha vjerojatno su posljedica:',
           answers: ['pojačane hematopoeze', 'smanjene hematopoeze', 'neutropenije', 'trombofilije'],
           correctAnswer: 'smanjene hematopoeze'
-        },
-        {
-          question: 'Simptomi generaliziranih ili lokaliziranih infekcija uz vrućicu te klinički znakovi krvarenja vodeći su početni simptomi:',
-          answers: ['megaloblastične anemije', 'neutrofilije', 'akutne leukemije', 'gnojne angine'],
-          correctAnswer: 'akutne leukemije'
-        },
-        {
-          question: 'Kakve stanice očekujete u razmazu periferne krvi?',
-          answers: ['Pokoji blast', 'Većinom blaste', 'Većinom plazma stanice', 'više od 40% nesegmentiranih neutrofila'],
-          correctAnswer: 'Većinom blaste'
-        },
-        {
-          question: 'Kakvu kompletnu krvnu sliku očekujete?',
-          answers: ['urednu krvnu sliku', 'uredna crvena i bijela loza uz trombocitozu', 'anemiju, trombocitopeniju i leukocitozu', 'eozinofiliju'],
-          correctAnswer: 'anemiju, trombocitopeniju i leukocitozu'
-        },
+        }
       ],
       drugiSetPitanja: [
         {
-          question: 'Koji je temeljni kriterij po kojem leukemiju svrstavamo u akutnu?',
+          question: 'Koje stanice uočavate tijekom pregleda razmaza periferne krvi?',
           answers: [
-            'Prisustvo nezrelih stanica u perifernoj krvi',
-            'Visok broj plazma stanica u koštanoj srži',
-            'nalaz više od 10% blasta u koštanoj srži ili perifernoj krvi',
-            'pozitivan nalaz citokemijskog bojanja nespecifičnom esterazom'
+            'Većinom blaste',
+            'Većinom reaktivne limfocite',
+            'Većinom neutrofilne granulocite',
+            'Većinom plazma stanice'
           ],
-          correctAnswer: 'nalaz više od 10% blasta u koštanoj srži ili perifernoj krvi'
+          correctAnswer: 'Većinom blaste'
         },
         {
-          question: 'Kakva je karakteristična laboratorijska slika pacijenta u slučaju sumnje na akutnu leukemiju?',
+          question: 'Blasti su:',
           answers: [
-            'normocitna i normokromna anemija, trombocitopenija te prisutnost više od 20% blasta',
-            'normocitna i normokromna anemija, trombocitoza te prisutnost više od 20% blasta',
-            'mikrocitna i hipokromna anemija, trombocitoza te prisutnost više od 20% blasta',
-            'makrocitna i hipokromna anemija, trombocitopenija te prisutnost blasta do 20%'
+            'Reaktivni oblici stanica',
+            'Zreli oblici stanica',
+            'Nezreli oblici stanica',
+            'Prisutni u krvi zdravih osoba'
           ],
-          correctAnswer: 'normocitna i normokromna anemija, trombocitopenija te prisutnost više od 20% blasta'
+          correctAnswer: 'Nezreli oblici stanica'
         },
         {
-          question: 'Koja je metabolička komplikacija česta kod akutnih leukemija?',
+          question: 'Temeljem pregleda nalaza što uočavate?',
+          answers: [
+            'normocitnu i normokromnu anemiju, leukocitozu, prisutnost mlađih oblika stanica u DKS',
+            'normocitnu i normokromnu anemiju, leukopeniju te norlaman DKS',
+            'mikrocitnu i hipokromnu anemiju, normalan broj leukocita uz normalan DKS',
+            'makrocitnu i hipokromnu anemiju, leukocitozu uz prisutnost mlađih oblika stanica'
+          ],
+          correctAnswer: 'normocitnu i normokromnu anemiju, leukocitozu, prisutnost mlađih oblika stanica u DKS'
+        },
+        {
+          question: 'Koja je metaboličku komplikaciju uočavate u nalazima',
           answers: [
             'hiperbilirubinemija',
             'alkaloza',
@@ -199,26 +240,16 @@ export default {
           ],
           correctAnswer: 'hiperurikemija'
         },
-        {
-          question: 'Vjerojatan uzrok krvarenja je:',
-          answers: [
-            'trombocitoza',
-            'manjak faktora VIII',
-            'manjak faktora IX',
-            'trombocitopenija'
-          ],
-          correctAnswer: 'trombocitopenija'
-        },
       ],
       
       treciSetPitanja: [
         {
-          question: 'Pregled koštane srži kojim se opisuje zastupljenost pojedinih hematopoetskih stanica u koštanoj srži naziva se:',
+          question: 'Pregled koštane srži kojim se opisuje zastupljenost pojedinih hematopoetskih stanica u koštanoj srži naziva se: (i obrnuto)',
           answers: ['leukogram', 'limfogram', 'monogram', 'mijelogram'],
           correctAnswer: 'mijelogram'
         },
         {
-          question: 'Što je leukogram?',
+          question: 'Što je leukogram? (i obrnuto)',
           answers: [
             'pregled koštane srži koji opisuje zastupljenost i omjer pojedinih bijelih krvnih stanica',
             'pregled koštane srži koji opisuje zastupljenost i omjer hematopoetskih stanica',
@@ -226,36 +257,6 @@ export default {
             'pregled koštane srži kojim se utvrđuje prisutnost leukemijskog klona'
           ],
           correctAnswer: 'pregled koštane srži koji opisuje zastupljenost i omjer bijelih krvnih stanica'
-        },
-        {
-          question: 'Kod citokemijskog bojanja za AML karakteristično su pozitivni:',
-          answers: [
-            'Specifična esteraza i mijeloperoksidaza',
-            'Sudan crno i alkalna fosfataza',
-            'Mijeloperoksidaza i Sudan crno',
-            'Specifilna esteraza i alkalna fosfataza'
-          ],
-          correctAnswer: 'Mijeloperoksidaza i Sudan crno'
-        },
-        {
-          question: 'Za razlikovanje AML i ALL koriste se:',
-          answers: [
-            'Specifična esteraza',
-            'PAS',
-            'Mijeloperoksidaza',
-            'Nespecifična esteraza uz NaF'
-          ],
-          correctAnswer: 'PAS'
-        },
-        {
-          question: 'Kojoj kategoriji rizika pripada pacijent u ovom slučaju?',
-          answers: [
-            'Povoljnoj',
-            'Intermedijarnoj',
-            'Nepovoljnoj',
-            'Nijednoj od navedenih'
-          ],
-          correctAnswer: 'Nepovoljnoj'
         },
       ],
       
@@ -323,7 +324,7 @@ export default {
       dijagnozaKrace:'AML'
     },
 
-
+    //KML
     {
       
         uvodni_text: "M, 52 god. primljen u HS zbog sumnje na KML. Unazad nekoliko tjedana osjeća umor, smanjenu sposobnost izdržljivosti i blagi osjećaj pritiska u lijevom gornjem dijelu trbuha. Negira noćno znojenje, ali spominje povremene glavobolje. Tjelesna težina smanjena za 3 kg u posljednja dva mjeseca. Ne konzumira alkohol i ne puši. Na pregledu povećana slezena. Laboratorijski nalazi pokazuju povišene vrijednosti bijelih krvnih stanica. Ne zna za obiteljsku anamnezu hematoloških bolesti.",
@@ -373,51 +374,21 @@ export default {
       
         prviSetPitanja: [
           {
-            question: 'Kakvu kompletnu krvnu sliku očekujete?',
+            question: 'Kakav nalaz kompletne krvne slike uočavate?',
             answers: [
-              'anemiju i granulocitopeniju s izrazitim skretanjem ulijevo',
-              'anemiju i granulocitozu s izrazitim skretanjem ulijevo',
-              'anemiju i granulocitozu s više od 20% blasta',
-              'anemiju i granulocitopeniju s više od 20% blasta'
+              'anemiju i leukopeniju s izrazitim skretanjem ulijevo',
+              'anemiju i leukocitozu s izrazitim skretanjem ulijevo',
+              'anemiju i leukopeniju s više od 20% blasta',
+              'anemiju i leukocitozu s više od 20% blasta'
             ],
-            correctAnswer: 'anemiju i granulocitozu s izrazitim skretanjem ulijevo'
+            correctAnswer: 'anemiju i leukocitozu s izrazitim skretanjem ulijevo'
           },
-          {
-            question: 'Koliki ukupni broj leukocita očekujete?',
-            answers: [
-              'manje od 3,4 x10^9 /L',
-              '3,4 - 9,7 x10^9 /L',
-              'do 50 x10^9 /L',
-              '50-200 x10^9 /L'
-            ],
-            correctAnswer: '50-200 x10^9 /L'
-          },
-          {
-            question: 'Odaberite netočnu tvrdnju:',
-            answers: [
-              '15-20% slučajeva KML otkriva se slučajno tijekom asimptomatske faze',
-              'splenomegalija prisutna je u 90% slučajeva',
-              'broj trombocita povećan je u otprilike 80% pacijenata',
-              'u početnoj fazi javlja se bljedilo zbog anemije'
-            ],
-            correctAnswer: 'broj trombocita povećan je u otprilike 80% pacijenata'
-          },
-          {
-            question: 'Odaberite točan redoslijed laboratorija kod postavljanja dijagnoze KML:',
-            answers: [
-              'hematološki, citološki, citogenetski, molekularni',
-              'hematološki, molekularni, citološki, citogenetski',
-              'hematološki, citogenetski, citološki, molekularni',
-              'citološki, citogenetski, hematološki, molekularni'
-            ],
-            correctAnswer: 'hematološki, citološki, citogenetski, molekularni'
-          }
         ],
         drugiSetPitanja: [
           {
-            question: 'Koji vitamin B skupine je karakteristično povećan u KML-u?',
+            question: 'Koji vitamin B skupine očekujete da će biti povećan kod ovog pacijenta?',
             answers: [
-              'B9',
+              'B5',
               'B12',
               'B6',
               'B2'
@@ -425,7 +396,7 @@ export default {
             correctAnswer: 'B12'
           },
           {
-            question: 'Koji su biokemijske vrijednosti često povećane u KML-u?',
+            question: 'Koje značajne promjene u biokemijskim vrijednostima uočavate? ',
             answers: [
               'LDH i mokraćna kiselina',
               'kreatinin i AST',
@@ -435,29 +406,19 @@ export default {
             correctAnswer: 'LDH i mokraćna kiselina'
           },
           {
-            question: 'Koja od navedenih bolesti ne pripada skupini diferencijalno dijagnostički sličnih KML-u?',
+            question: 'Kakve stanice uočavate u razmazu periferne krvi?',
             answers: [
-              'Esencijalna tombocitemija',
-              'Policitemija vera',
-              'Primarna mijelofibroza',
-              'Akutna mijeloična leukemija'
+              'Nalaz ukazuje na prisutnost mlađih oblika stanica do stadija blasta',
+              'Nalaz ukazuje na prisutnost mlađih oblika stanica, ali ne do stadija blasta',
+              'Nalaz ukazuje na prisutnost isključivo zrelih oblika',
+              'Nalaz ukazuje na prisutnost većinom reaktivnih limfocita i monocita'
             ],
-            correctAnswer: 'Akutna mijeloična leukemija'
-          },
-          {
-            question: 'Što od navedenog nije vjerojatan nalaz u krvnoj slici osobe sa sumnjom na KML?',
-            answers: [
-              'većinom nezreli neutrofili',
-              'broj blasta ne prelazi 20%',
-              'smanjen apsolutni broj eozinofila i bazofila',
-              'anemija'
-            ],
-            correctAnswer: 'smanjen apsolutni broj eozinofila i bazofila'
+            correctAnswer: 'Nalaz ukazuje na prisutnost mlađih oblika stanica, ali ne do stadija blasta'
           }
         ],
         treciSetPitanja: [
           {
-            question: 'Kakav je nalaz koštane srži u kroničnoj fazi KML?',
+            question: 'Kakav nalaz koštane srži  očekujete?',
             answers: [
               'hipocelularna',
               'granulocitno- eritroidni odnos iznosi 10-50:1',
@@ -467,7 +428,7 @@ export default {
             correctAnswer: 'granulocitno- eritroidni odnos iznosi 10-50:1'
           },
           {
-            question: 'Koju od navedenih metoda ne biste koristili za dokaz Philadelphia kromosom?',
+            question: 'Dobili ste uputnicu za dokaz Philadelphia kromosoma, koju metodu ne biste izabrali?',
             answers: [
               'Sekvenciranje po Sangeru',
               'G-pruganjem',
@@ -475,26 +436,6 @@ export default {
               'RT-PCR'
             ],
             correctAnswer: 'Sekvenciranje po Sangeru'
-          },
-          {
-            question: 'Odaberite točno poredane faze KML-a:',
-            answers: [
-              'asimptomatska, akcelerirana, blastična te kronična faza',
-              'akcelerirana, blastična, kronična te asimptomatska faza',
-              'kronična, akcelerirana, blastična te asimptomatska faza',
-              'asimptomatska, kronična, akcelerirana te blastična faza'
-            ],
-            correctAnswer: 'asimptomatska, kronična, akcelerirana te blastična faza'
-          },
-          {
-            question: 'Koja od navedenih stanica nije zahvaćena klonalnim poremećajem u KML-u?',
-            answers: [
-              'neutrofil',
-              'megakariocit',
-              'T-limfocit',
-              'eritroblast'
-            ],
-            correctAnswer: 'T-limfocit'
           }
         ],
         uris: [
@@ -569,7 +510,7 @@ export default {
        }, 
     },
 
-
+    //MDS
     {
 
       uvodni_text:'M. 67 god. je primljen u hematološku službu zbog sumnje na akutnu leukemiju. Tijekom posljednjih nekoliko dana, pacijent je izvijestio o simptomima umora, malaksalosti, bolova u mišićima i poteškoćama s disanjem tijekom intenzivnijih fizičkih aktivnosti. Povremeno je subfebrilan, ali negira noćno znojenje. Apetit mu je nepromijenjen, tjelesna težina stabilna, a funkcija mokraćnog sustava i probavnog trakta je uredna. Pacijent izričito ističe da ne konzumira alkohol niti duhanske proizvode. Klinički pregled nije otkrio uvećane limfne čvorove niti hepatosplenomegaliju.',
@@ -621,48 +562,38 @@ export default {
       },
       prviSetPitanja: [
         {
-          question: 'Kakvu kompletnu krvnu sliku očekujete?',
+          question: 'Koje od navedenog stanja u hematologiji je hitno?',
           answers: [
-            'anemiju i granulocitopeniju s izrazitim skretanjem ulijevo',
-            'anemiju, trombocitopeniju i granulocitopeniju',
+            'Infektivna mononukleoza',
+            'Kronična mijeloična leukemija',
+            'Akutna promijelocitna leukemija',
+            'Mijelodisplatični sindrom'
+          ],
+          correctAnswer: 'Akutna promijelocitna leukemija'
+        },
+        {
+          question: 'Kakvu kompletnu krvnu sliku uočavate?',
+          answers: [
+            'anemiju i granulocitopeniju s skretanjem ulijevo do stadija blasta',
+            'leukocitozu s skretanjem ulijevo do stadija blasta',
             'anemiju i granulocitozu s više od 20% blasta',
             'anemiju i granulocitopeniju s više od 50% blasta'
           ],
-          correctAnswer: 'anemiju, trombocitopeniju i granulocitopeniju'
+          correctAnswer: 'anemiju i granulocitopeniju s skretanjem ulijevo do stadija blasta'
         },
         {
-          question: 'Koliki ukupni broj blasta očekujete u pacijenta s MDS?',
+          question: 'Koje stanice uočavate u pregledu razamaz periferne krvi?',
           answers: [
-            'Najmanje 5 blasta u razmazu periferne krvi',
-            'Najviše 10 blasta u perifernoj krvi',
-            'Manje od 20 blasta u košranoj srži',
-            'Broj blasta ovisi o zahvaćenosti pojedine loze i može varirati od pacijenta do pacijenta'
+            'Reaktivne limfocite i većinom zrele oblike stanica',
+            'Nezrele oblike granulocita do stadija blasta te pokoji monocit',
+            'Monocite i većinom zrele oblike granulocitne loze',
+            'Većinom monocite i reaktivne limfocite'
           ],
-          correctAnswer: 'Broj blasta ovisi o zahvaćenosti pojedine loze i može varirati od pacijenta do pacijenta'
-        },
-        {
-          question: 'Odaberite najtočniju tvrdnju:',
-          answers: [
-            '90% slučajeva MDS otkriva se slučajno tijekom asimptomatske faze',
-            'Prisutna je ekspanzija granulocitne loze s znakovima skretanja u lijevo',
-            'Moguće je uočiti abnormalnosti megakariocitne loze',
-            'u početnoj fazi javlja uočavamo više od 40 blasta u perifernoj krvi'
-          ],
-          correctAnswer: 'Moguće je uočiti abnormalnosti megakariocitne loze'
+          correctAnswer: 'Nezrele oblike granulocita do stadija blasta te pokoji monocit'
         }
       ],
       
       drugiSetPitanja: [
-        {
-          question: 'Koja od navedenih bolesti pripada skupini diferencijalno dijagnostički sličnih MDS-u?',
-          answers: [
-            'Infektivna mononukleoza',
-            'Policitemija vera',
-            'Akutna limfoblastična leukemija',
-            'Akutna mijeloična leukemija'
-          ],
-          correctAnswer: 'Akutna mijeloična leukemija'
-        },
         {
           question: 'Povećana razina LDH najvjerojatnije je posljedica:',
           answers: [
@@ -671,18 +602,21 @@ export default {
             'Oštećenja bubrega',
             'Povećane proliferacije stanica'
           ],
-          correctAnswer: 'Povećane proliferacije stanica'
-        }
+          correctAnswer: 'Povećane proliferacije stanica',
+        },
+       
+
+
       ],
       
       treciSetPitanja: [
         {
           question: 'Mutacije u TET2, ASXL1, DNMT3A pomažu u razlikovanju:',
           answers: [
-            'MDS i KML',
+            'PML i AML',
             'MDS i AML',
-            'MDS i ALL',
-            'MDS i KLL'
+            'AML i ALL',
+            'Policitemije vere i KML'
           ],
           correctAnswer: 'MDS i AML'
         },
@@ -770,6 +704,7 @@ export default {
 
     },
 
+    //Lipemija
     {
       uvodni_text:'M, 48 god. učinjena krvna slika u sklopu sistematskog pregleda. Na hematološkom analizatoru dobivene su sljedeće vrijednosti.',
       nalaz:{
@@ -806,9 +741,9 @@ export default {
             question: 'Na što moramo posumnjati u slučaju ovakvog nalaza?',
             answers: [
               'hladne aglutinine i lipemiju',
-              'hladne aglutinine i bolest eritrocita',
-              'bolest eritrocita i hemolizu',
-              'hemolizu i lipemiju'
+              'ugrušak i hemoliza',
+              'nedovoljno miješanje uzorka i lipemija',
+              'pseudotrombocitopenija i hladni aglutinini'
             ],
             correctAnswer: 'hladne aglutinine i lipemiju'
           },
@@ -816,17 +751,17 @@ export default {
 
         drugiSetPitanja : [
           {
-            question: 'Koja je interferencija potvrđena vrijednošću triglicerida?',
+            question: 'Kako biste potvrdili navedenu interferenciju?',
             answers: [
-              'hemoliza',
-              'lipemija',
-              'ikterija',
-              'hladni aglutinini'
+              'Mjerenjem slobonog hemoglobina',
+              'Mjerenjem koncentracije triglicerida',
+              'Mjerenjem koncentracije bilirubina',
+              'Određivanjem slobonih lakih lanaca imunoglobulina '
             ],
-            correctAnswer: 'lipemija'
+            correctAnswer: 'Mjerenjem koncentracije triglicerida'
           },
           {
-            question: 'S čime interferiraju trigliceridi?',
+            question: 'S čime interferiraju interferirajuće tvari prisutne u ovom uzorku?',
             answers: [
               'interferiraju s rasapom svjetla i apsorpcijom svjetlosti kod određivanja hemoglobina',
               'interferiraju s impendancijskim određivanjem veličine eritrocita',
@@ -872,6 +807,7 @@ export default {
 
     },
 
+    //Hladni aglutinini
     {
       uvodni_text:'Ž, 37 god. učinjena krvna slika u sklopu sistematskog pregleda. Na hematološkom analizatoru dobivene su sljedeće vrijednosti.',
       nalaz:{
@@ -908,17 +844,17 @@ export default {
           question: 'Na što moramo posumnjati u slučaju ovakvog nalaza?',
           answers: [
             'hladne aglutinine i lipemiju',
-            'hladne aglutinine i bolest eritrocita',
-            'bolest eritrocita i hemolizu',
-            'hemolizu i lipemiju'
+            'ugrušak i hemoliza',
+            'nedovoljno miješanje uzorka i lipemija',
+            'pseudotrombocitopenija i hladni aglutinini'
           ],
           correctAnswer: 'hladne aglutinine i lipemiju'
         },
         {
-          question: 'Kako biste provjerili radi li se o hladnim aglutininima?',
+          question: 'Kako biste potvrdili o kojoj se interferenciji radi?',
           answers: [
-            'centrifugiranjem',
-            'provjerom vrijednosti ukupnih proteina',
+            'određivanjem koncentracije slobodnog hemoglobina',
+            'provjerom vrijednosti bilirubina',
             'zagrijavanjem uzorka 1 sat na 37°C te ponavljanjem analize',
             'ponavljanjem analize nakon što je uzorak bio 1 sat na sobnoj temperaturi'
           ],
@@ -929,7 +865,7 @@ export default {
       
        drugiSetPitanja : [
         {
-          question: 'S čime interferiraju hladni aglutinini?',
+          question: 'S čime interferiraju navedeni interferent?',
           answers: [
             'interferiraju s rasapom svjetla i apsorpcijom svjetlosti kod određivanja hemoglobina',
             'interferiraju s impendancijskim određivanjem broja i veličine eritrocita',
@@ -939,7 +875,7 @@ export default {
           correctAnswer: 'interferiraju s impendancijskim određivanjem broja i veličine eritrocita'
         },
         {
-          question: 'Što od navedenog nije važna predanalitička radnja kada se radi o analizi hladnih aglutinina?',
+          question: 'Što od navedenog nije važna predanalitička radnja kada se radi o analizi navedenog interferenta?',
           answers: [
             'neodgodiva dostava uzorka u laboratorij',
             'dostava uzorka na toplome',
@@ -997,7 +933,7 @@ export default {
 
     },
 
-
+    //EDTA pseudotrombocitopenija
     {
       uvodni_text:'Ž, 55 god. učinjena krvna slika u sklopu sistematskog pregleda. NIje hematološki bolesnik niti pije lijekove. Na hematološkom analizatoru dobivene su sljedeće vrijednosti.',
       nalaz:{
@@ -1122,7 +1058,6 @@ export default {
       dijagnozaKrace:'EDTA pseudotrombocitopenija'
 
     },
-
 
     ]
 

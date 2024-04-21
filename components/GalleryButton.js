@@ -95,7 +95,7 @@ const GalleryButton = (props) => {
                 }
             }>
             {renderSwitch(props.value.class)}
-            <Text style={[styles.text]}>{props.value.class.replace('_', ' ')}</Text>
+            <Text style={[styles.text]}>{props.value.class_name.replace(/_/g, ' ')}</Text>
             
         </Pressable>
     );
@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
         marginVertical: height * 0.01,
     },
     text: {
+        textAlign:'center',
         fontWeight: '600',
         marginHorizontal: height * 0.1,
         color: '#9c53d4',

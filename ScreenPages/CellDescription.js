@@ -53,7 +53,7 @@ export default function CellDescription({ navigation ,route }) {
           minHeight: 0.65 * height
         }}>
             <View style={{height: 0.05 * height}}>
-              <Text style={styles.title}>{route.params.data.class.replace('_',' ')}</Text>
+              <Text style={styles.title}>{route.params.data.class_name.replace(/_/g, ' ')}</Text>
             </View>
             
             {hasUris ? (
@@ -139,8 +139,8 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign:'center',
-    fontSize: 25 / 844 * height,
-    fontWeight: '600',
+    fontSize: 21 / 844 * height,
+    fontWeight: '700',
     color: '#7F40B0',
   },
   circle: {

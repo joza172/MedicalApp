@@ -9,7 +9,8 @@ export default {
 
     'Eritrocitopoeza' : [
         {class: 'Eritroblast',
-         opcenito : "Proeritroblasti su stanice promjera 12 do 20 µm. Jezgra je okrugla te sadrži 1 do 2 nukleola. Kromatin je fino raspršen. Citoplazma je tamnoplave boje te se u njoj može uočiti Golgijev aparat. Proeritroblasti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih odraslih osoba. Eritroblasti se mogu pojaviti kod osoba oboljelih od talasemija, megaloblstične anemije, imunosne hemolitičke anemije, hemolitičke bolesti novorođenčeta i mikroangiopatske hemolitičke anemije.\n\nBazofilni eritroblasti su stanice promjera 10 do 15 µm. Jezgra je okrugla te sadrži do 1 nukleol. Kromatin je nježno kondenziran. Citoplazma je tamnoplave boje zbog prisutstva velike količine RNA. Bazofilni eritroblasti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih odraslih osoba. Eritroblasti se mogu pojaviti kod osoba oboljelih od talasemija, megaloblastične anemije, imunosne hemolitičke anemije, hemolitičke bolesti novorođenčeta i mikroangiopatske hemolitičke anemije.\n\nPolikromatofilni eritroblasti su stanice promjera 10 do 12 µm. Jezgra je pravilno okrugla te ne sadrži nukleole. Kromatin je izrazito kondenziran. Citoplazma je sivkasto plava zbog sinteze sve većih količina hemoglobina. Polikromatofilni eritroblasti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih odraslih osoba. Eritroblasti mogu se pojaviti kod osoba oboljelih od talasemija, megaloblstične anemije, imunosne hemolitičke anemije, hemolitičke bolesti novorođenčeta i mikroangiopatske hemolitičke anemije.\n\nAcidofilni eritroblasti su stanice promjera 8 do 10 µm. Jezgra je pravilno okrugla, a kromatin je u potpunosti kondenziran. Citoplazma je obojana ružičasto zbog prisutnosti hemoglobina. Acidofilni eritroblasti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih odraslih osoba. Eritroblasti mogu se pojaviti kod osoba oboljelih od talasemija, megaloblstične anemije, imunosne hemolitičke anemije, hemolitičke bolesti novorođenčeta i mikroangiopatske hemolitičke anemije.",
+        class_name:'Eritroblast',
+         opcenito : "Proeritroblasti su stanice promjera 12 do 20 µm. Jezgra je okrugla te sadrži 1 do 2 nukleola. Kromatin je fino raspršen. Citoplazma je tamnoplave boje te se u njoj može uočiti Golgijev aparat. Proeritroblasti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih odraslih osoba. Eritroblasti se mogu pojaviti kod osoba oboljelih od talasemija, megaloblastične anemije, imunosne hemolitičke anemije, hemolitičke bolesti novorođenčeta i mikroangiopatske hemolitičke anemije.\n\nBazofilni eritroblasti su stanice promjera 10 do 15 µm. Jezgra je okrugla te sadrži do 1 nukleol. Kromatin je nježno kondenziran. Citoplazma je tamnoplave boje zbog prisustva velike količine RNA. Bazofilni eritroblasti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih odraslih osoba. Eritroblasti se mogu pojaviti kod osoba oboljelih od talasemija, megaloblastične anemije, imunosne hemolitičke anemije, hemolitičke bolesti novorođenčeta i mikroangiopatske hemolitičke anemije.\n\nPolikromatofilni eritroblasti su stanice promjera 10 do 12 µm. Jezgra je pravilno okrugla te ne sadrži nukleole. Kromatin je izrazito kondenziran. Citoplazma je sivkasto plava zbog sinteze sve većih količina hemoglobina. Polikromatofilni eritroblasti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih odraslih osoba. Eritroblasti se mogu pojaviti kod osoba oboljelih od talasemija, megaloblstične anemije, imunosne hemolitičke anemije, hemolitičke bolesti novorođenčeta i mikroangiopatske hemolitičke anemije.\n\nAcidofilni eritroblasti su stanice promjera 8 do 10 µm. Jezgra je pravilno okrugla, a kromatin je u potpunosti kondenziran. Citoplazma je obojena ružičasto zbog prisutnosti hemoglobina. Acidofilni eritroblasti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih odraslih osoba. Eritroblasti se mogu pojaviti kod osoba oboljelih od talasemija, megaloblastične anemije, imunosne hemolitičke anemije, hemolitičke bolesti novorođenčeta i mikroangiopatske hemolitičke anemije.",
 
           uris: [
             require('../images/Pngovi/Eritroblasti/ERB_1242272.jpg'),
@@ -58,6 +59,7 @@ export default {
       },
 
         {class:'Retikulocit',
+        class_name:'Retikulocit',
         opcenito:
         'Retikulociti su stanice promjera 8 do 8,5 µm. Ne sadrže jezgru. Citoplazma retikulocita plavkastije je boje od citoplazme zrelih eritrocita. U perifernoj krvi odraslih osoba normalno se nalazi 22-97x109/L retikulocita. Povećan broj retikulocita čest je u anemiji dok smanjen broj može biti posljedica smanjene funkcije koštane srži, ciroze jetre ili smanjenog unosa željeza te vitamina B12 i B9.',
         naslovna:null,
@@ -66,8 +68,9 @@ export default {
       },
 
         {class:'Eritrocit',
+        class_name:'Eritrocit',
         opcenito:
-        'Eritrociti su stanice promjera 7 do 8 µm bez jezgre. Citoplazma je obojena ružičasto sa karakterističnim bljedilom u sredini koje zauzima oko jedne trećine stanice. Apsolutni broj eritrocita u krvi zdravih odraslih osoba iznosi 3,86-5,08x1012/L za žene i 4,34-5,72x1012/L za muškarce. Manjak eritrocita u perifernoj krvi nazivamo anemija. Do anemije može doći zbog poremećenog stvaranja, ubrzanog propadanja i povećanog gubitka eritrocita. Povećan apsolutni broj eritrocita u perifernoj krvi može biti posljedica dehidracije ili bolesti policitemija vera.',
+        'Eritrociti su stanice promjera 7 do 8 µm bez jezgre. Citoplazma je obojena ružičasto sa karakterističnim bljedilom u sredini koje zauzima oko jedne trećine stanice.Broj eritrocita u krvi zdravih odraslih osoba iznosi 3,86-5,08x1012/L za žene i 4,34-5,72x1012/L za muškarce. Manjak eritrocita u perifernoj krvi nazivamo anemija. Do anemije može doći zbog poremećenog stvaranja, ubrzanog propadanja i povećanog gubitka eritrocita. Povećan broj eritrocita u perifernoj krvi može biti posljedica dehidracije ili bolesti policitemije vere.',
         naslovna:null,
         uris:[],
         // samo zbog Stanice_Pelgara jer ih nema u galeriji pa da pokupi linkove od negdje
@@ -78,6 +81,7 @@ export default {
 
     'Granulocitopoeza' : [
         {class:'Mijeloblast',
+        class_name:'Mijeloblast',
         opcenito:'Mijeloblasti su stanice promjera 15 do 20 µm. Jezgra im je okrugla te sadrži 2 do 5 nukleola. Kromatin je fino raspršen. Citoplazma je zagasito modre boje te može, ali i ne mora, sadržavati granule. U slučaju leukemije, u citoplazmi mogu biti prisutni bazofilni Auerovi štapići. Riječ je o linearnim strukturama sastavljenima od spojenih primarnih granula.Mijeloblasti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih osoba. Mijeloblasti se pojavljuju u perifernoj krvi u bolestima poput akutne mijeloične leukemije, mijelodisplastičnog sindroma te kronične mijeloične leukemije.'
         ,
         slika1 : require('../images/Jpgovi-opis/Blast/1.jpg'),
@@ -138,7 +142,8 @@ export default {
         ]},
 
         {class:'Promijelocit',
-        opcenito:'Promijelociti su stanice promjera 14 do 24 µm. Jezgra je okrugla te sadrži jedan do tri nukleola. Kromatin je fino raspršen, no nešto grublji nego u mijeloblastu. Citoplazma je modra te sadrži preko 20 primarnih granula koje su ljubičaste ili tamnocrvene boje. Specifični biljeg primarnih azurofilnih granula je enzim mijeloperoksidaza.Promijelociti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih osoba. Promijelociti se pojavljuju u perifernoj krvi u slučaju jake upale, kroniče mijeloične leukemije i akutne promijelocitne leukemije.',
+        class_name:'Promijelocit',
+        opcenito:'Promijelociti su stanice promjera 14 do 24 µm. Jezgra je okrugla te sadrži jedan do tri nukleola. Kromatin je fino raspršen, no nešto grublji nego u mijeloblastu. Citoplazma je modra te sadrži preko 20 primarnih granula koje su ljubičaste ili tamnocrvene boje. Specifični biljeg primarnih azurofilnih granula je enzim mijeloperoksidaza.Promijelociti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih osoba. Promijelociti se pojavljuju u perifernoj krvi u slučaju jake upale, kronične mijeloične leukemije i akutne promijelocitne leukemije.',
         slika1:require('../images/Jpgovi-opis/Promijelocit/1.jpg'),
 		    slika2:require('../images/Jpgovi-opis/Promijelocit/2.jpg'),
         naslovna:require('../images/Pngovi/Promijelocit/MY_1249637.jpg'),
@@ -154,7 +159,8 @@ export default {
       },
 
         {class:'Mijelocit',
-        opcenito:'Mijelociti su stanice promjera 12 do 18 µm. Jezgra je okruglog-ovalnog oblika te je ekscentrično smještena. Nukleoli obično nisu vidljivi, a kromatin je kondenziraniji i grublji nego u promijelocita. Citoplazma je plavkasto- ružičasta. Sadrži malo primarnih granula te sekundarne granule čiji se broj povećava kako stanica sazrijeva. Specifični biljeg sekundarnih specifičnih granula je laktoferin. U ovom razvojnom stadiju moguće je razlikovati eozinofilni, bazofilni te neutrofilni mijelociti. Mijelociti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih osoba. Mijelociti se pojavljuju u perifernoj krvi u slučaju bakterijske infekcije, snažne upalne reakcije praćene pomakom u lijevo te kronične mijeloične leukemije.',
+        class_name:'Mijelocit',
+        opcenito:'Mijelociti su stanice promjera 12 do 18 µm. Jezgra je okruglo-ovalnog oblika te je ekscentrično smještena. Nukleoli obično nisu vidljivi, a kromatin je kondenziraniji i grublji nego u promijelocita. Citoplazma je plavkasto- ružičasta. Sadrži malo primarnih granula te sekundarne granule čiji se broj povećava kako stanica sazrijeva. Specifični biljeg sekundarnih specifičnih granula je laktoferin. U ovom razvojnom stadiju moguće je razlikovati eozinofilni, bazofilni te neutrofilni mijelociti. Mijelociti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih osoba. Mijelociti se pojavljuju u perifernoj krvi u slučaju bakterijske infekcije, snažne upalne reakcije praćene pomakom u lijevo te kronične mijeloične leukemije.',
         slika1:require('../images/Jpgovi-opis/Mijelocit/1.jpg'),
         slika2:require('../images/Jpgovi-opis/Mijelocit/2.jpg'),
         naslovna:require('../images/Pngovi/Mijelocit/MY_1252406.jpg'),
@@ -214,7 +220,8 @@ export default {
       },
 
         {class:'Metamijelocit',
-        opcenito:'Metamijelociti su stanice promjera 10 do 15 µm. Jezgra je ekscentrično položena te bubrežastog oblika s uleknućem u sredini. Nukleoli nisu vidljivi. Kromatin je srednje kondenziran. Citoplazma je blijedoružičaste boje te sadrži brojne sekundarne specifične granule te ponešto primarnih granula. Specifični biljeg primarnih azurofilnih granula je enzim mijeloperoksidaza, a sekundarnih specifičnih granula laktoferin. Metamijelociti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih osoba. Metamijelociti se pojavljuju u perifernoj krvi u slučaju bakterijske infekcije, snažne upalne reakcije praćene pomakom u lijevo te kronične mijeloične leukemije.',
+        class_name:'Metamijelocit',
+        opcenito:'Metamijelociti su stanice promjera 10 do 15 µm. Jezgra je ekscentrično položena te bubrežastog oblika s uleknućem u sredini. Nukleoli nisu vidljivi. Kromatin je srednje kondenziran. Citoplazma je blijedoružičaste boje, sadrži brojne sekundarne specifične granule te ponešto primarnih granula. Specifični biljeg primarnih azurofilnih granula je enzim mijeloperoksidaza, a sekundarnih specifičnih granula laktoferin. Metamijelociti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih osoba. Metamijelociti se pojavljuju u perifernoj krvi u slučaju bakterijske infekcije, snažne upalne reakcije praćene pomakom u lijevo te kronične mijeloične leukemije.',
         slika1:require('../images/Jpgovi-opis/Metamijelocit/1.jpg'),
         slika2:require('../images/Jpgovi-opis/Metamijelocit/2.jpg'),
         naslovna:require('../images/Pngovi/Metamijelocit/MMY_1252347.jpg'),
@@ -251,6 +258,7 @@ export default {
       },
 
         {class:'Nesegmentirani_granulocit',
+        class_name:'Nesegmentirani_neutrofilni_granulociti',
         opcenito:'Nesegmentirani neutrofilni granulociti su stanice promjera 10 do 15 µm. Jezgra nesegmentiranih neutrofilnih granulocita nema potpunu segmentaciju te ima izgled poput potkove, a najuži dio jezgre je širi od trećine najšireg dijela. Kromatin je grubo grudast. Citoplazma je blijedoružičaste boje te sadrži primarne azurofilne granule, sekundarne specifične granule i tercijarne želatinozne granule. Granule sadrže različite antimikrobne tvari, kisele hidrolaze, receptore oksidaza i prijenosnike signala. Specifični biljeg primarnih azurofilnih granula je enzim mijeloperoksidaza, sekundarnih specifičnih granula laktoferin, a tercijarnih želatinoznih granula želatinaza. Relativni broj nesegmentiranih neutrofilnih granulocita u zdravih osoba iznosi 0-2%, a apsolutni 0,0-0,19x109/L. Povećan broj nesegmentiranih neutrofilnih granulocita javlja se u upalnim stanjima i postoperativno, u leukemijama i drugim malignim procesima, leukemoidnim reakcijama i leukoeritroblastičnim reakcijama.',
         slika1:require('../images/Jpgovi-opis/Nesegmentirani_granulocit/1.jpg'),
 		    slika2:require('../images/Jpgovi-opis/Nesegmentirani_granulocit/2.jpg'),
@@ -307,7 +315,8 @@ export default {
 		},
 
         {class:'Segmentirani_granulocit',
-        opcenito:'Segmentirani neutrofilni granulociti su stanice promjera 10 do 15 µm. Jezgra sadrži 2 do 5 segmenata povezanih tankim nitima. Kromatin je grubo grudast. Citoplazma je blijedoružičaste boje te sadrži primarne azurofilne granule, sekundarne specifične granule i tercijarne želatinozne granule. Granule sadrže različite antimikrobne tvari, kisele hidrolaze, receptore oksidaza i prijenosnike signala. Specifični biljeg primarnih azurofilnih granula je enzim mijeloperoksidaza, sekundarnih specifičnih granula laktoferin, a tercijarnih želatinoznih granula želatinaza.Relativni broj segmentiranih neutrofilnih granulocita u zdravih osoba iznosi 44-72%, a apsolutni 2,06-6,49x109/L. Povećan broj segmentiranih neutrofilnih granulocita, odnosno neutrofilija, može biti posljedica malignog procesa ili odgovor organizma na neke fiziološke i patološke stimulanse (najčešće bakterijske infekcije). Snižen broj segmentiranih neutrofilnih granulocita, odnosno neutropenija, posljedica je smanjenog stvaranja u koštanoj srži, povećanog gubitka segmentiranih neutrofilnih granulocita, pseudoneutropenije ili lažne neutropenije.',
+        class_name:'Segmentirani neutrofilni granulociti',
+        opcenito:'Segmentirani neutrofilni granulociti su stanice promjera 10 do 15 µm. Jezgra sadrži 2 do 5 segmenata povezanih tankim nitima. Kromatin je grubo grudast. Citoplazma je blijedoružičaste boje te sadrži primarne azurofilne granule, sekundarne specifične granule i tercijarne želatinozne granule. Granule sadrže različite antimikrobne tvari, kisele hidrolaze, receptore oksidaza i prijenosnike signala. Specifični biljeg primarnih azurofilnih granula je enzim mijeloperoksidaza, sekundarnih specifičnih granula laktoferin, a tercijarnih želatinoznih granula želatinaza.Relativni broj segmentiranih neutrofilnih granulocita u zdravih osoba iznosi 44-72%, a apsolutni 2,06-6,49x109/L. Povećan broj segmentiranih neutrofilnih granulocita, odnosno neutrofilija, može biti posljedica malignog procesa ili odgovor organizma na neke fiziološke i patološke stimulanse (najčešće bakterijske infekcije). Snižen broj segmentiranih neutrofilnih granulocita, odnosno neutropenija, posljedica je smanjenog stvaranja u koštanoj srži, povećanog gubitka segmentiranih neutrofilnih granulocita i lažne neutropenije.',
         slika1:require('../images/Jpgovi-opis/Segmentirani_granulocit/1.jpg'),
 		    slika2:require('../images/Jpgovi-opis/Segmentirani_granulocit/2.jpg'),
         linkovi: [ 'Segmentirani_granulocit', 'Nesegmentirani_granulocit', 'Metamijelocit'],
@@ -368,6 +377,7 @@ export default {
     },
 
       {class:'Bazofil',
+      class_name:'Bazofilni granulociti',
       opcenito:'Bazofilni granulociti su stanice promjera 10 do 14 µm. Jezgra se sastoji uglavnom od 2 segmenta povezana tankim nitima. Kromatin je grubo grudast. Citoplazma je ljubičasto-ružičasta. U citoplazmi se nalaze rijetke primarne granule i brojne tamnoljubičste sekundarne granule nejednake veličine i oblika koje često prekrivaju jezgru. U sekundarnim granulama nalaze se histamin, heparin, proteolitički enzimi, leukotrieni i citokini. Relativni broj bazofilnih granulocita u zdravih osoba iznosi 0-1%, a apsolutni broj 0,0-0,06 x109/L. Povećan broj bazofilnih granulocita, odnosno bazofilija je vrlo rijetka. Može se javiti kod neposredne hipersenzitivne reakcije, endokrinopatiije, kronične mijeloične leukemije i akutne',
       slika1:require('../images/Jpgovi-opis/Bazofil/1.jpg'),
       slika2:require('../images/Jpgovi-opis/Bazofil/2.jpg'),
@@ -399,7 +409,8 @@ export default {
       ]},
 
       {class:'Eozinofil',
-      opcenito:'Eozinofilni granulociti su stanice promjera 12 do 17 µm. Jezgra se sastoji od 2 do 3 segmenta povezanih tankim nitima. Kromatin je grubo grudast. Citoplazma je ružičaste boje. U citoplazmi se nalaze karakteristične crveno-narančaste sekundarne granule sa citotoksičnim kationskim proteinima i primarne granule ispunjene Charcot-Leydenovim kristalima. Relativni broj eozinofilnih granulocita u zdravih osoba iznosi 0-7%, a apsolutni broj 0,0-0,43x 109/L. Povećan broj eozinofilnih granulocita, odnosno eozinofilija, javlja se kao reakcija na tkivne parazite, alergijske reakcije, bolesti dišnog sustava i bolesti gastrointestinalnog sustava. Također, povećan broj eozinofilnih granulocita može biti posljedica klonalne limfoidne ili mijeloidne neoplazije ili hipereozinofilnog sindroma. Smanjen broj eozinofilnih granulocita, odnosno eozinopenija, teško se detektira i nema klinički značaj.',
+      class_name:'Eozinofilni granulociti',
+      opcenito:'Eozinofilni granulociti su stanice promjera 12 do 17 µm. Jezgra se sastoji od 2 do 3 segmenta povezanih tankim nitima. Kromatin je grubo grudast. Citoplazma je ružičaste boje. U citoplazmi se nalaze karakteristične crveno-narančaste sekundarne granule sa citotoksičnim kationskim proteinima i primarne granule ispunjene Charcot-Leydenovim kristalima. Relativni broj eozinofilnih granulocita u zdravih osoba iznosi 0-7%, a apsolutni broj 0,0-0,43x 109/L. Povećan broj eozinofilnih granulocita, odnosno eozinofilija, javlja se kao reakcija na tkivne parazite, alergijske reakcije, bolesti dišnoga i gastrointestinalnog sustava. Također, povećan broj eozinofilnih granulocita može biti posljedica klonalne limfoidne ili mijeloidne neoplazije te hipereozinofilnog sindroma. Smanjen broj eozinofilnih granulocita, odnosno eozinopenija, teško se detektira i nema klinički značaj.',
       slika1:require('../images/Jpgovi-opis/Eozinofil/1.jpg'),
       slika2:require('../images/Jpgovi-opis/Eozinofil/2.jpg'),
       linkovi: ['Eozinofil','Segmentirani_granulocit'],
@@ -448,6 +459,7 @@ export default {
 
       'Limfocitopoeza' : [
       {class:'Limfoblast',
+      class_name:'Limfoblast',
       opcenito:'Limfoblasti su stanice promjera 10 do 20 µm. Jezgra je okrugla, a u jezgri se nalazi barem jedan nukleol. Kromatin je fino raspršen. Citoplazma limfoblasta je oskudna i ne sadrži granule. Limfoblasti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih osoba. Limfoblasti se u perifernoj krvi pojavljuju u slučaju akutne limfoblastične leukemije.',
       slika1:require('../images/Jpgovi-opis/Limfoblast/1.jpg'),
       slika2:require('../images/Jpgovi-opis/Limfoblast/BL_1210165.jpg'),
@@ -507,7 +519,8 @@ export default {
     },
 
       {class:'Limfocit',
-      opcenito:'Limfociti su stanice promjera 8 do 10 µm, iako se rijeđe mogu uočiti i veliki granulirani limfociti veličine do 18 µm. Jezgra limfocita je okrugla, s kondenziranim do vrlo kondenziranim kromatinom. U jezgri se nalaze nukleoli koji su ponekad vidljivi pod svjetlosnim mikroskopom. Citoplazma je modro plave boje. Često je oskudna, no ponekad može biti prisutan i veći volumen uz granule (veliki granulirani limfociti). Relativni broj limfocita u zdravih osoba iznosi 20-46%, a apsolutni broj iznosi 1,19-3,35x109/L. Povećan broj limfocita, odnosno limfocitoza, može biti posljedica malignog procesa. Također može biti riječ o reakciji organizma na virusne i kronične infekcije, neke akutne bakterijske infekcije (Bordetella pertussis), preosjetljivosti ili autoimunoj bolesti. Smanjen broj limfocita, odnosno limfocitopenija, najčešće je posljedica bakterijskih (Mycobacterium tuberculosis) i virusnih (HIV) infekcija, sustavnih bolesti, djelovanja nekih lijekova (citostatici) i imunodeficijencija.',
+      class_name:'Limfocit',
+      opcenito:'Limfociti su stanice promjera 8 do 10 µm, iako se rijeđe mogu uočiti i veliki granulirani limfociti veličine do 18 µm. Jezgra limfocita je okrugla, s kondenziranim do vrlo kondenziranim kromatinom. U jezgri se nalaze nukleoli koji su ponekad vidljivi pod svjetlosnim mikroskopom. Citoplazma je modro plave boje. Često je oskudna, no ponekad može biti prisutan i veći volumen uz granule (veliki granulirani limfociti). Relativni broj limfocita u zdravih osoba iznosi 20-46%, a apsolutni broj iznosi 1,19-3,35x109/L. Povećan broj limfocita, odnosno limfocitoza, može biti posljedica malignog procesa. Također može biti riječ o reakciji organizma na virusne i kronične infekcije, neke akutne bakterijske infekcije (Bordetella pertussis), preosjetljivosti ili autoimunim bolestima. Smanjen broj limfocita, odnosno limfocitopenija, najčešće je posljedica bakterijskih (Mycobacterium tuberculosis) i virusnih (HIV) infekcija, sustavnih bolesti, djelovanja nekih lijekova (citostatici) i imunodeficijencija.',
       slika1:require('../images/Jpgovi-opis/Limfocit/1.jpg'),
       slika2:require('../images/Jpgovi-opis/Limfocit/2.jpg'),
       linkovi: ['Limfocit', 'Reaktivni_limfocit', 'Monocit'],
@@ -567,7 +580,8 @@ export default {
     },
       
       {class:'Reaktivni_limfocit',
-      opcenito:'Reaktivni limfociti su stanice promjera 10 do 30 µm. Jezgra je nepravilnog oblika te povremeno sadrži nukleole. Kromatin je blago kondenziran do fino raspršen u usporedbi s normalnim limfocitom. Citoplazma je blijedoplave boje. Često je prisutna radijalna bazofilija. Mogu biti prizutne azurofilne granule te vakuole. Reaktivni limfociti ne nalaze se u perifernoj krvi zdravih osoba. Često se pojavljuju u virusnim infekcijama (Epstein-Barr virus, citomegalovirus) te kod transplantacije solidnih organa i hematopoetskih matičnih stanica.',
+      class_name:'Reaktivni_limfocit',
+      opcenito:'Reaktivni limfociti su stanice promjera 10 do 30 µm. Jezgra je nepravilnog oblika te može sadržavati nukleole. Kromatin je blago kondenziran do fino raspršen u usporedbi s normalnim limfocitom. Citoplazma je blijedoplave boje. Često je prisutna radijalna bazofilija. Mogu biti prizutne azurofilne granule te vakuole. Reaktivni limfociti ne nalaze se u perifernoj krvi zdravih osoba. Često se pojavljuju u virusnim infekcijama (Epstein-Barr virus, citomegalovirus) te kod transplantacije solidnih organa i hematopoetskih matičnih stanica.',
       slika1:require('../images/Jpgovi-opis/Reaktivni_limfocit/1.jpg'),
       slika2:require('../images/Jpgovi-opis/Reaktivni_limfocit/2.jpg'),
       linkovi: ['Reaktivni_limfocit', 'Limfocit', 'Monocit'],
@@ -597,6 +611,7 @@ export default {
       },
 
       {class:'Plazma_stanice',
+      class_name:'Plazma_stanica',
       opcenito:'Plazma stanice su stanice promjera 8 do 20 µm. Jezgra je okrugla i ekscentrično smještena. Nukleoli nisu prisutni, a kromatin je grubo grudast. Citoplazma plazma stanice je obilna i tamnoplavo-ljubičasto obojena. U pravilu je vidljiv perinuklearni halo. Citoplazma ne sadrži granule ili vakuole. Plazma stanice pojavljuju se u perifernoj krvi u bolestima poput plazmocitoma, multiplog mijeloma, bolesti teških lanaca, monoklonalne gamapatije neutvrđenog značaja i Waldenströnove makroglobulinemije.',
       slika1:require('../images/Jpgovi-opis/Plazma_stanice/1.jpg'),
       slika2:require('../images/Jpgovi-opis/Plazma_stanice/2.jpg'),
@@ -614,12 +629,14 @@ export default {
     },
 
       {class:'Atipični_limfocit',
+      class_name:'Atipični_limfocit',
       opcenito:'Pojam atipičnih limfocita koristi se kako bi se opisale zapažene promjene na limfocitima. Te promjene često su tumorske i monoklonske etiologije. Atipični limfociti jednog pacijenta često su slične morfologije. Svojom morfologijom mogu nalikovati reaktivnim limfocitima zbog čega ih je teško razlikovati.',
       naslovna:null,
       uris:[]  
     },
 
       {class:'Vlasasti_limfociti',
+      class_name:'Vlasasti_limfociti',
       opcenito:'Vlasasti limfociti su stanice promjera 8 do 10 µm. Jezgra je ovalnog oblika uz moguća blaga uleknuća. Kromatin je difuzno raspršen. Citoplazma je karakterističnog oblika zbog izbočina nalik dlakama. Obojena je sivo-plavo. Vlasasti limfociti nalaze se u perifernoj krvi osoba koje boluju od leukemije vlasastih stanica.',
       slika1:require('../images/Jpgovi-opis/Vlasasti_limfociti/1.jpg'),
       slika2:require('../images/Jpgovi-opis/Vlasasti_limfociti/2.jpg'),
@@ -680,8 +697,10 @@ export default {
                       ], 
 
       'Monocitopoeza' : [
+
       {class:'Monoblast',
-      opcenito:'Monoblasti su stanice promjera 12 do 18 µm. Jezgra je uglavnom ovalna, ali može biti nepravilnog oblika. U jezgri se mogu, ali i ne moraju nalaziti 1 do 2 nukleola. Kromatin je fino raspršen. Citoplazma je sivkasto plave boje. Mijeloblasti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih osoba. Mijeloblasti se pojavljuju u perifernoj krvi u slučaju akutne monoblastične i monocitne leukemije, akutne mijelomonocitne leukemije te kronične mijelomonocitne leukemije.',
+      class_name:'Monoblast',
+      opcenito:'Monoblasti su stanice promjera 12 do 18 µm. Jezgra je uglavnom ovalna, ali može biti nepravilnog oblika. U jezgri se mogu, ali i ne moraju nalaziti 1 do 2 nukleola. Kromatin je fino raspršen. Citoplazma je sivkasto plave boje. Monoblasti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih osoba. Monoblasti se pojavljuju u perifernoj krvi u slučaju akutne monoblastične i monocitne leukemije, akutne te kronične mijelomonocitne leukemije.',
       slika1:require('../images/Jpgovi-opis/Blast/1.jpg'),
       slika2:require('../images/Jpgovi-opis/Blast/2.jpg'),
       naslovna:require('../images/Pngovi/Blast/BL_1210165.jpg'),
@@ -740,13 +759,14 @@ export default {
       },
 
       {class:'Promonocit',
+      class_name:'Promonocit',
       opcenito:'Promonociti su stanice promjera 12 do 20 µm. Jezgra je nepravilnog oblika, ponekad s naborima “poput mozga”. U jezgri se mogu pojaviti nukleoli. Kromatin je u obliku fine mreže. Citoplazma je sivkasto plave boje. U citoplazmi se mogu nalaziti fine tamnocrvene granule. Promonociti su nezrele stanice i ne nalaze se u perifernoj krvi zdravih osoba. Promonociti se pojavljuju u perifernoj krvi u slučaju akutne monoblastične i monocitne leukemije, akutne mijelomonocitne leukemije te kronične mijelomonocitne leukemije.'
       ,naslovna:null,
       uris:[]},
       
-      
       {class:'Monocit',
-      opcenito:'Monociti su stanice promjera 12 do 20 µm. Jezgra monocita javlja se u različitim oblicima (bubrežasta, potkovasta) sa čestim naborima “poput mozga”. Kromatin je umjereno zgusnut te nalikuje čipki. Citoplazma je plavkasto-sive boje, a može sadržavati brojne vakuole. Citoplazma također može imati i izdanke, tzv. pseudopodije. U citoplazmi se, uz vakuole, mogu nalaziti sitne primarne i sekundarne granule. Primarne granule su peroksidaza pozitivne, a sekundarne peroksidaza negativne. Relativni broj monocita u zdravih osoba iznosi 2-12%, a apsolutni 0,12-0,84x109/L. Povećan broj monocita, odnosno monocitoza, posljedica je malignih procesa, reakcija organizma na infekcije, bolesti kolagena te kod imunoloških poremećaja. Smanjen broj monocita, odnosno monocitopenija teško se detektira, a uglavnom je posljedica aplastične anemije',
+      class_name:'Monocit',
+      opcenito:'Monociti su stanice promjera 12 do 20 µm. Jezgra monocita javlja se u različitim oblicima (bubrežasta, potkovasta) sa čestim naborima. Kromatin je umjereno zgusnut te nalikuje čipki. Citoplazma je plavkasto-sive boje, a može sadržavati brojne vakuole. Citoplazma također može imati i izdanke, tzv. pseudopodije. U citoplazmi se, uz vakuole, mogu nalaziti sitne primarne i sekundarne granule. Primarne granule su peroksidaza pozitivne, a sekundarne peroksidaza negativne. Relativni broj monocita u zdravih osoba iznosi 2-12%, a apsolutni 0,12-0,84x109/L. Povećan broj monocita, odnosno monocitoza, posljedica je malignih procesa, reakcija organizma na infekcije, bolesti kolagena te kod imunoloških poremećaja. Smanjen broj monocita, odnosno monocitopenija teško se detektira i najčešće je posljedica mijelodisplastičnog sindroma',
       slika1:require('../images/Jpgovi-opis/Monocit/1.jpg'),
       slika2:require('../images/Jpgovi-opis/Monocit/2.jpg'),
       linkovi: ['Monocit', 'Limfocit', 'Reaktivni_limfocit', 'Mijelocit', 'Metamijelocit'],
@@ -807,20 +827,23 @@ export default {
                       ], 
 
       'Megakariocitopoeza' : [
+
       {class:'Megakarioblast',
+      class_name:'Megakarioblast',
       opcenito:'Stanica s izrazito velikom poliploidnom jezgrom i citoplazmom s brojnim produžecima (kao da pupa) izrazito modre citoplazme.',
       naslovna:null,
       uris:[]
     },
       
       {class:'Megakariocit',
+      class_name:'Megakariocit',
       opcenito:'Velika stanica s multilobuliranom jezgrom, citoplazma ružičaste boje s velikim brojem trombocita unutar citoplazme koji se na rubovima mogu odjeljivati od megakariocita.',
       naslovna:null,
       uris:[]  
     },
 
-
       {class:'Promegakariocit',
+      class_name:'Promegakariocit',
       opcenito:'Veći od svog prethodnika s velikom režnjatom jezgrom i izrazito modre citoplazme.',
       naslovna:null,
       uris:[]  
