@@ -21,25 +21,16 @@ export default {
         }
         , prviSetPitanja: [
           {
-            question: 'Što od navedenog nije klinički parametar za dijagnostiku infektivne mononukleoze?  ',
+            question: 'Koji simptom nije specifičan samo za jednu bolest, već se često javlja kod raznih virusnih infekcija koje uključuju respiratorne simptome i umor?',
             answers: [
-              'tonzilofaringitis',
-              'limfadenopatija',
-              'glavobolja',
-              'vručica'
+              'Bol u trbuhu',
+              'Svrbež',
+              'Otečeni limfni čvorovi',
+              'Žutica'
             ],
-            correctAnswer: 'glavobolja'
+            correctAnswer: 'Otečeni limfni čvorovi'
           },
-          {
-            question: 'Kakve karakteristične stanice očekujete u razmazu periferne krvi?',
-            answers: [
-              'Gumprechtove sjene',
-              'Vlasaste stanice',
-              'Nesegmentirane granulocite',
-              'Reaktivne limfocite'
-            ],
-            correctAnswer: 'Reaktivne limfocite'
-          }
+        
         ],
         
         drugiSetPitanja: [
@@ -115,8 +106,8 @@ export default {
 
         potvrdne_pretrage:{},
           
-        dijagnoza:'Mononukleoza',
-        dijagnozaKrace:'Mononukleoza'
+        dijagnoza:'Infektivna mononukleoza',
+        dijagnozaKrace:'Infektivna mononukleoza'
              
     },
 
@@ -140,18 +131,7 @@ export default {
             "Mijelociti",
             "Promijelociti",
             "Blasti",
-            "Glukoza",
-            "Bilirubin- ukupni",
-            "Urea",
-            "Kreatinin",
-            "Alkalna fosfataza",
-            "Aspartat-aminotransferaza",
-            "Alanin-aminotransferaza",
-            "Gama-glutamil-transferaza",
-            "Laktat-dehidrogenaza",
-            "C reaktivni protein",
-            "Kalij",
-            "Natrij"
+            "Urati"
           ],
           tableData: [
             [ "3,32", "x1012 /L", "4,34-5,72"],
@@ -169,25 +149,7 @@ export default {
             [ "1", "%", ""],
             [ "2", "%", ""],
             [ "61", "%", ""],
-            [ "0,31", "x10^9 /L", "0,00-0,43"],
-            [ "0,76", "x10^9 /L", "2,06-6,49"],
-            [ "5,15", "x10^9 /L", "1,19-3,35"],
-            [ "1,46", "x10^9 /L", "0,12-0,84"],
-            [ "0,52", "x10^9 /L", ""],
-            [ "0,26", "x10^9 /L", ""],
-            [ "16,20", "x10^9 /L", ""],
-            [ "5,2", "mmol/L", "4,4-6,4"],
-            [ "4", "µmol/L", "3-20"],
-            [ "3,8", "mmol/L", "2,8-8,3"],
-            [ "101", "µmol/L", "79-125"],
-            [ "115", "U/L", "60-142"],
-            [ "33", "U/L", "11-38"],
-            [ "14", "U/L", "12-48"],
-            [ "23", "U/L", "11-55"],
-            [ "573", "U/L", "<241"],
-            [ "55,4", "mg/L", "<5"],
-            [ "4,1", "mmol/L", "3,9-5,1"],
-            [ "142", "mmol/L", "137-146"]
+            ["789","μmol /L","182-403 "]
           ]
         
         
@@ -236,9 +198,9 @@ export default {
             'hiperbilirubinemija',
             'alkaloza',
             'ketoza',
-            'hiperurikemija'
+            'hiperuricemija'
           ],
-          correctAnswer: 'hiperurikemija'
+          correctAnswer: 'hiperuricemija'
         },
       ],
       
@@ -330,45 +292,12 @@ export default {
         uvodni_text: "M, 52 god. primljen u HS zbog sumnje na KML. Unazad nekoliko tjedana osjeća umor, smanjenu sposobnost izdržljivosti i blagi osjećaj pritiska u lijevom gornjem dijelu trbuha. Negira noćno znojenje, ali spominje povremene glavobolje. Tjelesna težina smanjena za 3 kg u posljednja dva mjeseca. Ne konzumira alkohol i ne puši. Na pregledu povećana slezena. Laboratorijski nalazi pokazuju povišene vrijednosti bijelih krvnih stanica. Ne zna za obiteljsku anamnezu hematoloških bolesti.",
         nalaz: {
           tableTitle: [
-            "Eritrociti", "Hemoglobin", "Hematokrit", "MCV", "MCH", "MCHC", "RDW",
-            "Leukociti", "Eozinofilni granulociti", "Segmentirani granulociti", "Limfociti", "Monociti", "Mijelociti", "Promijelociti", "Blasti",
-            "Glukoza", "Bilirubin- ukupni", "Urea", "Kreatinin", "Alkalna fosfataza", "Aspartat-aminotransferaza", "Alanin-aminotransferaza", "Gama-glutamil-transferaza", "Laktat-dehidrogenaza", "C reaktivni protein", "Kalij", "Natrij"
+              "LDH", "Urati"
           ],
           tableData: [
-            ["4,2", "x1012 /L", "4,34-5,72"],
-            ["120", "g/L", "138-175"],
-            ["0,360", "L/L", "0,415-0,530"],
-            ["86", "fL", "83,0-97,2"],
-            ["28", "pg", "27,4-33,9"],
-            ["325", "g/L", "320-345"],
-            ["15,5", "%", "9,0-15,0"],
-            ["150", "x109 /L", "3,4-9,7"],
-            ["4,0", "%", "0-7"],
-            ["55,0", "%", "44-72"],
-            ["15,0", "%", "20-46"],
-            ["5,0", "%", "2-12"],
-            ["10,0", "%"],
-            ["5,0", "%"],
-            ["5,0", "%"],
-            ["5,0", "x109 /L", "0,00-0,43"],
-            ["80,0", "x109 /L", "2,06-6,49"],
-            ["20,0", "x109 /L", "1,19-3,35"],
-            ["8,0", "x109 /L", "0,12-0,84"],
-            ["25,0", "x109 /L"],
-            ["10,0", "x109 /L"],
-            ["2,0", "x109 /L"],
-            ["5,5", "mmol/L", "4,4-6,4"],
-            ["15", "µmol/L", "3-20"],
-            ["6,5", "mmol/L", "2,8-8,3"],
-            ["90", "µmol/L", "79-125"],
-            ["91", "U/L", "60-142"],
-            ["40", "U/L", "11-38"],
-            ["45", "U/L", "12-48"],
-            ["49", "U/L", "11-55"],
-            ["501", "U/L", "<241"],
-            ["14,0", "mg/L", "<5"],
-            ["4,5", "mmol/L", "3,9-5,1"],
-            ["140", "mmol/L", "137-146"]
+           
+            ["787", "mmol/L", "<241"],
+            ["666", "μmol/L", "182-403 "]
           ]
         },
       
@@ -706,7 +635,7 @@ export default {
 
     //Lipemija
     {
-      uvodni_text:'M, 48 god. učinjena krvna slika u sklopu sistematskog pregleda. Na hematološkom analizatoru dobivene su sljedeće vrijednosti.',
+      uvodni_text:'M, 48 god. učinjena krvna slika u sklopu sistematskog pregleda. Na hematološkom analizatoru dobivene su sljedeće vrijednosti: MHCH: 542g/L.',
       nalaz:{
          tableTitle : [
           "Eritrociti", "Hemoglobin", "Hematokrit", "MCV", "MCH", "MCHC",
@@ -728,7 +657,7 @@ export default {
       
         prviSetPitanja : [
           {
-            question: 'Kako matematički izražavamo MCHC?',
+            question: 'Kako se matematički izračunava MCHC?',
             answers: [
               'hematokrit/hemoglobin',
               'MCH/hematokrit',
@@ -738,14 +667,14 @@ export default {
             correctAnswer: 'hemoglobin/hematokrit'
           },
           {
-            question: 'Na što moramo posumnjati u slučaju ovakvog nalaza?',
+            question: 'Na što je potrebno posumnjati u slučaju ovakvog nalaza?',
             answers: [
-              'hladne aglutinine i lipemiju',
-              'ugrušak i hemoliza',
-              'nedovoljno miješanje uzorka i lipemija',
-              'pseudotrombocitopenija i hladni aglutinini'
+              'Prisutnost hladnih aglutinina i lipemiju',
+              'ugrušak i hemolizu',
+              'nedovoljno miješanje uzorka i lipemiju',
+              'pseudotrombocitopeniju i prisutnost hladnih aglutinina'
             ],
-            correctAnswer: 'hladne aglutinine i lipemiju'
+            correctAnswer: 'Prisutnost hladnih aglutinina i lipemiju'
           },
         ],
 
@@ -753,12 +682,12 @@ export default {
           {
             question: 'Kako biste potvrdili navedenu interferenciju?',
             answers: [
-              'Mjerenjem slobonog hemoglobina',
+              'Mjerenjem slobodnog hemoglobina',
               'Mjerenjem koncentracije triglicerida',
               'Mjerenjem koncentracije bilirubina',
-              'Određivanjem slobonih lakih lanaca imunoglobulina '
+              'Određivanjem slobodnih lakih lanaca imunoglobulin'
             ],
-            correctAnswer: 'Mjerenjem koncentracije triglicerida'
+            correctAnswer: 'Mjerenjem koncentracije triglicerida',
           },
           {
             question: 'S čime interferiraju interferirajuće tvari prisutne u ovom uzorku?',
@@ -809,7 +738,7 @@ export default {
 
     //Hladni aglutinini
     {
-      uvodni_text:'Ž, 37 god. učinjena krvna slika u sklopu sistematskog pregleda. Na hematološkom analizatoru dobivene su sljedeće vrijednosti.',
+      uvodni_text:'Ž, 37 god. učinjena krvna slika u sklopu sistematskog pregleda. Na hematološkom analizatoru dobivene su sljedeće vrijednosti: MCHC:473g/L .',
       nalaz:{
          tableTitle : [
           "Eritrociti", "Hemoglobin", "Hematokrit", "MCV", "MCH", "MCHC",
@@ -831,7 +760,7 @@ export default {
       
        prviSetPitanja : [
         {
-          question: 'Kako matematički izražavamo MCHC?',
+          question: 'Kako se matematički izračunava MCHC?',
           answers: [
             'hematokrit/hemoglobin',
             'MCH/hematokrit',
@@ -841,19 +770,19 @@ export default {
           correctAnswer: 'hemoglobin/hematokrit'
         },
         {
-          question: 'Na što moramo posumnjati u slučaju ovakvog nalaza?',
+          question: 'Na što je potrebno posumnjati u slučaju ovakvog nalaza?',
           answers: [
-            'hladne aglutinine i lipemiju',
-            'ugrušak i hemoliza',
-            'nedovoljno miješanje uzorka i lipemija',
-            'pseudotrombocitopenija i hladni aglutinini'
+            'Prisutnost hladnih aglutinina i lipemiju',
+            'ugrušak i hemolizu',
+            'nedovoljno miješanje uzorka i lipemiju',
+            'pseudotrombocitopeniju i prisutnost hladnih aglutinina'
           ],
-          correctAnswer: 'hladne aglutinine i lipemiju'
+          correctAnswer: 'Prisutnost hladnih aglutinina i lipemiju'
         },
         {
           question: 'Kako biste potvrdili o kojoj se interferenciji radi?',
           answers: [
-            'određivanjem koncentracije slobodnog hemoglobina',
+            'Određivanjem koncentracije slobodnog hemoglobina',
             'provjerom vrijednosti bilirubina',
             'zagrijavanjem uzorka 1 sat na 37°C te ponavljanjem analize',
             'ponavljanjem analize nakon što je uzorak bio 1 sat na sobnoj temperaturi'
@@ -865,17 +794,17 @@ export default {
       
        drugiSetPitanja : [
         {
-          question: 'S čime interferiraju navedeni interferent?',
+          question: 'Na koji način navedena predanalitička interferencija utječe na parametre kompletne krvne slike?',
           answers: [
-            'interferiraju s rasapom svjetla i apsorpcijom svjetlosti kod određivanja hemoglobina',
-            'interferiraju s impendancijskim određivanjem broja i veličine eritrocita',
+            'interferira s rasapom svjetla i apsorpcijom svjetlosti kod određivanja hemoglobina',
+            'interferira s impendancijskim određivanjem broja i veličine eritrocita',
             'interferira s impendancijskim određivanjem broja i veličine leukocita',
             'interferira s impendancijskim određivanjem broja i veličine trombocita'
           ],
-          correctAnswer: 'interferiraju s impendancijskim određivanjem broja i veličine eritrocita'
+          correctAnswer: 'interferira s impendancijskim određivanjem broja i veličine eritrocita'
         },
         {
-          question: 'Što od navedenog nije važna predanalitička radnja kada se radi o analizi navedenog interferenta?',
+          question: 'Što od navedenog nije važna predanalitička radnja kada se radi o analizi utjecaja navedenog interferenta?',
           answers: [
             'neodgodiva dostava uzorka u laboratorij',
             'dostava uzorka na toplome',
@@ -968,9 +897,9 @@ export default {
           correctAnswer: 'dostavljanje uzorka na sobnoj temperaturi'
         },
         {
-          question: 'Osim provjere prisutnosti ugruška, što još moramo obavezno učiniti kod sumnje na lažno snižen broj trombocita?',
+          question: 'Osim provjere prisutnosti ugruška, što je još potrebno učiniti kod sumnje na lažno snižen broj trombocita?',
           answers: [
-            'zagrijavati uzorak 1 sat te ponoviti analizu',
+            'zagrijavati uzorak 1 sat na 37°C te ponoviti analizu',
             'centrifugirati uzorak na 2000g i odvojiti plazmu',
             'pregledom razmaza periferne krvi provjeriti postoje li nakupine ili satelitizam trombocita',
             'provjeriti rezultate s koagulacijskog analizatora'
@@ -982,7 +911,7 @@ export default {
 
        drugiSetPitanja : [
         {
-          question: 'Na razmazu periferne krvi vidljive su:',
+          question: 'U razmazu periferne krvi uočavaju se:',
           answers: [
             'nakupine trombocita',
             'satelitske nakupine trombocita',
@@ -996,8 +925,8 @@ export default {
           answers: [
             'uzorkovanje krvi u epruvetu s drugim antikoagulansom (Na-citratom)',
             'uzorkovanje krvi u epruvetu s aktivatorima zgrušavanja (crveni čep)',
-            'izdavanje nalaza prve analize  bez komentara',
-            'izdavanje nalaza prve analize uz komentar (nakupina trombocita)'
+            'izdavanje nalaza prve analize bez komentara',
+            'izdavanje nalaza druge analize bez komentara'
           ],
           correctAnswer: 'uzorkovanje krvi u epruvetu s drugim antikoagulansom (Na-citratom)'
         },
@@ -1008,7 +937,7 @@ export default {
         {
           question: 'Broj trombocita u epruveti s Na-citratom treba pomnožiti s 1,1 zbog:',
           answers: [
-            'interfernecije Na-citrata s impendacijskim brojanjem trombocita',
+            'interferencije Na-citrata s impendacijskim brojanjem trombocita',
             'interferencije Na-citrata s optičkim brojanjem trombocita',
             'pucanja trombocita zbog prisustva Na-citrata',
             'efekta razrjeđenja tekućim antikoagulansom'
@@ -1025,19 +954,10 @@ export default {
           ],
           correctAnswer: 'nalaz se ne izdaje uz komentar'
         },
-        {
-          question: 'Ukoliko su nakupine trombocita prisutne i u epruveti s Na-citratom te je broj trombocita unutar referentnog intervala:',
-          answers: [
-            'nalaz se izdaje bez komentara',
-            'nalaz se izdaje kao najmanji brojiv broj trombocita',
-            'izdaje se nalaz uzorka s EDTA',
-            'nalaz se ne izdaje uz komentar'
-          ],
-          correctAnswer: 'nalaz se izdaje kao najmanji brojiv broj trombocita'
-        }
+       
         
        
-      
+    
       ],
 
 
